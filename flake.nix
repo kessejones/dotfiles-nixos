@@ -20,15 +20,15 @@
         modules = [
           ./system/nixos.nix
 
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   home-manager.users."kesse" = import ./home-manager/nixos.nix;
-          #   # home-manager.users."kesse" = {
-          #   #   imports = [import ./home-manager/nixos.nix];
-          #   # };
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."kesse" = import ./home-manager/nixos.nix;
+            # home-manager.users."kesse" = {
+            #   imports = [import ./home-manager/nixos.nix];
+            # };
+          }
         ];
 
         system = "x86_64-linux";

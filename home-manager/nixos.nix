@@ -58,17 +58,15 @@ in {
   programs.go.enable = true;
 
   home.packages = with pkgs; [
-    # btop
-    # fish
-    # tmux
-    # neovim
-    # fzf
-    # tree-sitter
-    # exa
-    # ripgrep
-    # gum
-    # git
-    # gcc
+    btop
+    tmux
+    fzf
+    tree-sitter
+    exa
+    ripgrep
+    gum
+    git
+    gcc
 
     alacritty
   ];
