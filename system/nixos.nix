@@ -43,24 +43,55 @@
     };
   };
 
-  services.xserver.enable = true;
-  services.xserver.libinput.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.windowManager.awesome.enable = true;
-  services.xserver.displayManager.defaultSession = "AwesomeXsession";
-  services.xserver.displayManager.session = [
-    {
-      manage = "desktop";
-      name = "AwesomeXsession";
-      start = "$HOME/.Xsession";
-    }
-  ];
+  services = {
+    xserver = {
+      enable = true;
+      layout = "br";
 
-  services.openssh.enable = true;
+      libinput.enable = true;
+
+      videoDriver = ["mesa"];
+
+      windowManager = {
+        awesome = {
+          enable = true;
+        };
+      };
+
+      displayManager = {
+        # lightdm.enable = true;
+        gdm.enable = true;
+        defaultSession = "AwesomeXsession";
+        session = [
+          {
+            manage = "desktop";
+            name = "AwesomeXsession";
+            start = "$HOME/.Xsession";
+          }
+        ];
+      };
+    };
+
+    picom.enable = true;
+
+    openssh.enable = true;
+  };
 
   system.stateVersion = "22.11"; # Did you read the comment?
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   programs.nm-applet.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+    curl
+  ];
 }
