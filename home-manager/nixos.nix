@@ -5,6 +5,15 @@
   ...
 }: let
   username = "kesse";
+
+  kvimSource = builtins.fetchGit {
+    url = "https://github.com/kessejones/kvim.git";
+    ref = "refs/heads/main";
+  };
+
+  dotfiles = builtins.fetchGit {
+    url = "https://github.com/kessejones/dotfiles.git";
+  };
 in {
   home = {
     inherit username;
@@ -67,8 +76,62 @@ in {
     ripgrep
     gum
     git
+    gh
+
     gcc
+    gnumake
+
+    nodejs
+
+    alejandra
 
     alacritty
+    rofi
+
+    gnome.nautilus
   ];
+
+  xdg.enable = true;
+  xdg.configFile.nvim.recursive = true;
+  xdg.configFile.nvim.source = kvimSource;
+
+  xdg.configFile.awesome.recursive = true;
+  xdg.configFile.awesome.source = "${dotfiles}/.config/awesome";
+
+  xdg.configFile.fish.recursive = true;
+  xdg.configFile.fish.source = "${dotfiles}/.config/fish";
+
+  xdg.configFile."gtk-2.0".recursive = true;
+  xdg.configFile."gtk-2.0".source = "${dotfiles}/.config/gtk-2.0";
+
+  xdg.configFile."gtk-3.0".recursive = true;
+  xdg.configFile."gtk-3.0".source = "${dotfiles}/.config/gtk-3.0";
+
+  xdg.configFile.btop.recursive = true;
+  xdg.configFile.btop.source = "${dotfiles}/.config/btop";
+
+  xdg.configFile.gh.recursive = true;
+  xdg.configFile.gh.source = "${dotfiles}/.config/gh";
+
+  xdg.configFile.rofi.recursive = true;
+  xdg.configFile.rofi.source = "${dotfiles}/.config/rofi";
+
+  xdg.configFile.mpv.recursive = true;
+  xdg.configFile.mpv.source = "${dotfiles}/.config/mpv";
+
+  xdg.dataFile.fonts.recursive = true;
+  xdg.dataFile.fonts.source = "${dotfiles}/.fonts";
+
+  xdg.configFile.alacritty.recursive = true;
+  xdg.configFile.alacritty.source = "${dotfiles}/.config/alacritty";
+
+  home.file.".gitconfig".source = "${dotfiles}/.gitconfig";
+
+  home.file.".icons".recursive = true;
+  home.file.".icons".source = "${dotfiles}/.icons";
+
+  home.file.".themes".recursive = true;
+  home.file.".themes".source = "${dotfiles}/.themes";
+
+  gtk.enable = true;
 }

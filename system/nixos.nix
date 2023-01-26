@@ -35,7 +35,7 @@
 
   users = {
     users.kesse = {
-      extraGroups = ["audio" "docker" "wheel"];
+      extraGroups = ["audio" "docker" "wheel" "networkmanager"];
 
       home = "/home/kesse";
       isNormalUser = true;
@@ -50,8 +50,6 @@
 
       libinput.enable = true;
 
-      videoDriver = ["mesa"];
-
       windowManager = {
         awesome = {
           enable = true;
@@ -59,16 +57,15 @@
       };
 
       displayManager = {
-        # lightdm.enable = true;
-        gdm.enable = true;
-        defaultSession = "AwesomeXsession";
-        session = [
-          {
-            manage = "desktop";
-            name = "AwesomeXsession";
-            start = "$HOME/.Xsession";
-          }
-        ];
+        lightdm.enable = true;
+        # defaultSession = "AwesomeXsession";
+        # session = [
+        #   {
+        #     manage = "desktop";
+        #     name = "AwesomeXsession";
+        #     start = "$HOME/.Xsession";
+        #   }
+        # ];
       };
     };
 
@@ -93,5 +90,6 @@
     wget
     git
     curl
+    upower
   ];
 }
