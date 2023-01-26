@@ -8,7 +8,6 @@
 
   kvimSource = builtins.fetchGit {
     url = "https://github.com/kessejones/kvim.git";
-    ref = "refs/heads/main";
   };
 
   dotfiles = builtins.fetchGit {
@@ -66,6 +65,8 @@ in {
 
   programs.go.enable = true;
 
+  programs.nix-index.enable = true;
+
   home.packages = with pkgs; [
     neovim
     btop
@@ -78,6 +79,11 @@ in {
     git
     gh
 
+    unzip
+    php
+    php.packages.composer
+
+    cargo
     gcc
     gnumake
 

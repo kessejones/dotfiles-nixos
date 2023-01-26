@@ -5,8 +5,19 @@
 }: {
   imports = [./hardware.nix];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      enable = true;
+      version = 2;
+      devices = ["nodev"];
+      useOSProber = true;
+      efiSupport = true;
+    };
+  };
 
   fonts = {
     fontconfig = {
