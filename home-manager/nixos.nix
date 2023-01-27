@@ -63,7 +63,6 @@ in {
   programs.go.enable = true;
 
   programs.nix-index.enable = true;
-  programs.nix-index.enableFishIntegration = true;
 
   home.packages = with pkgs; [
     neovim
@@ -78,21 +77,20 @@ in {
     gh
 
     unzip
-
     php
     php.packages.composer
-    alejandra
-    lua
 
+    cargo
     gcc
     gnumake
-    cargo
 
     nodejs
 
-    alacritty
+    alejandra
 
+    alacritty
     rofi
+
     gnome.nautilus
   ];
 
@@ -111,9 +109,9 @@ in {
 
   xdg.configFile."gtk-3.0".recursive = true;
   xdg.configFile."gtk-3.0".source = "${dotfiles}/.config/gtk-3.0";
-  #
-  # xdg.configFile.btop.recursive = true;
-  # xdg.configFile.btop.source = "${dotfiles}/.config/btop";
+
+  xdg.configFile.btop.recursive = true;
+  xdg.configFile.btop.source = "${dotfiles}/.config/btop";
 
   xdg.configFile.gh.recursive = true;
   xdg.configFile.gh.source = "${dotfiles}/.config/gh";
@@ -138,5 +136,5 @@ in {
   home.file.".themes".recursive = true;
   home.file.".themes".source = "${dotfiles}/.themes";
 
-  # gtk.enable = true;
+  gtk.enable = true;
 }
