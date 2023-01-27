@@ -21,6 +21,8 @@ in {
     stateVersion = "22.11";
   };
 
+  fonts.fontconfig.enable = true;
+
   programs.home-manager.enable = true;
 
   programs.firefox = {
