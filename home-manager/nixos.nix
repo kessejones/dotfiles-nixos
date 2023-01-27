@@ -5,14 +5,6 @@
   ...
 }: let
   username = "kesse";
-
-  kvimSource = builtins.fetchGit {
-    url = "https://github.com/kessejones/kvim.git";
-  };
-
-  dotfiles = builtins.fetchGit {
-    url = "https://github.com/kessejones/dotfiles.git";
-  };
 in {
   home = {
     inherit username;
@@ -66,6 +58,7 @@ in {
   };
 
   programs.go.enable = true;
+  programs.dconf.enable = true;
 
   home.packages = with pkgs; [
     neovim
@@ -97,18 +90,37 @@ in {
     gnome.nautilus
   ];
 
-  xdg.enable = true;
-  xdg.configFile.nvim.recursive = true;
-  xdg.configFile.nvim.source = kvimSource;
+  xdg = {
+    enable = true;
 
-  xdg.configFile.awesome.recursive = true;
-  xdg.configFile.awesome.source = "${dotfiles}/.config/awesome";
+    configFile = let
+      dotfiles = builtins.fetchGit {
+        url = "https://github.com/kessejones/dotfiles.git";
+      };
+    in {
+      nvim = {
+        recursive = true;
+        source = builtins.fetchGit {
+          url = "https://github.com/kessejones/kvim.git";
+        };
+      };
 
-  xdg.configFile.fish.recursive = true;
-  xdg.configFile.fish.source = "${dotfiles}/.config/fish";
+      awesome = {
+        recursive = true;
+        source = "${dotfiles}/.config/awesome";
+      };
 
-  xdg.configFile.alacritty.recursive = true;
-  xdg.configFile.alacritty.source = "${dotfiles}/.config/alacritty";
+      fish = {
+        recursive = true;
+        source = "${dotfiles}/.config/fish";
+      };
+
+      alacritty = {
+        recursive = true;
+        source = "${dotfiles}/.config/alacritty";
+      };
+    };
+  };
 
   gtk = {
     enable = true;

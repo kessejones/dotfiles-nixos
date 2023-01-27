@@ -7,9 +7,9 @@
 
   boot.loader = {
     efi = {
-      # canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
+
     grub = {
       enable = true;
       version = 2;
@@ -24,6 +24,11 @@
     fontconfig = {
       enable = true;
     };
+
+    fonts = with pkgs; [
+      hack-font
+      material-icons
+    ];
   };
 
   hardware = {
@@ -104,11 +109,5 @@
     wget
     git
     curl
-    upower
-  ];
-
-  fonts.fonts = with pkgs; [
-    hack-font
-    material-icons
   ];
 }
