@@ -104,4 +104,9 @@
     curl
     upower
   ];
+
+  fonts.fonts = with pkgs; [
+    hack-font
+    material-icons
+  ];
 }
