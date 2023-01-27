@@ -101,6 +101,7 @@
   };
 
   programs.nm-applet.enable = true;
+  programs.dconf.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
