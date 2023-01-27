@@ -58,7 +58,6 @@ in {
   };
 
   programs.go.enable = true;
-  programs.dconf.enable = true;
 
   home.packages = with pkgs; [
     neovim
