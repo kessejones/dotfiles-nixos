@@ -5,6 +5,10 @@
   ...
 }: let
   username = "kesse";
+
+  dotfiles = builtins.fetchGit {
+    url = "https://github.com/kessejones/dotfiles.git";
+  };
 in {
   home = {
     inherit username;
@@ -92,11 +96,7 @@ in {
   xdg = {
     enable = true;
 
-    configFile = let
-      dotfiles = builtins.fetchGit {
-        url = "https://github.com/kessejones/dotfiles.git";
-      };
-    in {
+    configFile = {
       nvim = {
         recursive = true;
         source = builtins.fetchGit {
@@ -121,6 +121,15 @@ in {
     };
   };
 
+  home.file = {
+    ".scripts" = {
+      recursive = true;
+      source = "${dotfiles}/.scripts";
+    };
+
+    ".gitconfig".source = "${dotfiles}/.gitconfig";
+  };
+
   gtk = {
     enable = true;
 
@@ -129,6 +138,16 @@ in {
       package = pkgs.catppuccin-gtk.override {
         variant = "mocha";
       };
+    };
+
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Dark";
+      package = pkgs.catppuccin-cursors;
     };
   };
 }

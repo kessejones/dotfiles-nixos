@@ -28,6 +28,9 @@
     fonts = with pkgs; [
       hack-font
       material-icons
+      material-design-icons
+
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack"];})
     ];
   };
 
