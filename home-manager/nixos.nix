@@ -6,10 +6,13 @@
 }: let
   username = "kesse";
 
-  kvimSource = builtins.fetchTarball "https://github.com/kessejones/kvim.git";
+  kvimSource = builtins.fetchGit {
+    url = "https://github.com/kessejones/kvim.git";
+  };
 
-  dotfiles =
-    builtins.fetchTarball "https://github.com/kessejones/dotfiles/archive/main.tar.gz";
+  dotfiles = builtins.fetchGit {
+    url = "https://github.com/kessejones/dotfiles.git";
+  };
 in {
   home = {
     inherit username;
