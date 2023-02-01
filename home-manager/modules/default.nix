@@ -1,4 +1,4 @@
-{}: {
+{pkgs, lib, ...}: {
   imports = [
     ./modules/dotfiles.nix
     ./modules/gtk.nix
