@@ -1,4 +1,4 @@
-{pkgs}: {
+{pkgs, ...}: {
   xdg.configFile.awesome = {
     recursive = true;
     source = "${pkgs.kesse.dotfiles}/.config/awesome";
