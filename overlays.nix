@@ -8,10 +8,22 @@ self: super: {
     };
   };
 
-  customDiscocss = with self; {
-    catppuccin = pkgs.fetchGit {
+  customDiscocss = {
+    catppuccin = fetchGit {
       url = "https://github.com/catppuccin/discord.git";
       ref = "refs/heads/gh-pages";
+    };
+  };
+
+  customBtop = {
+    catppuccin = fetchGit {
+      url = "https://github.com/catppuccin/btop.git";
+    };
+  };
+
+  kesse = {
+    dotfiles = fetchGit {
+      url = "https://github.com/kessejones/dotfiles.git";
     };
   };
 }

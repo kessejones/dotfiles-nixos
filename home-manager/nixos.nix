@@ -5,11 +5,11 @@
   ...
 }: let
   username = "kesse";
-
-  dotfiles = builtins.fetchGit {
-    url = "https://github.com/kessejones/dotfiles.git";
-  };
 in {
+  imports = [
+    ./modules/btop.nix
+  ];
+
   home = {
     inherit username;
 
@@ -108,17 +108,24 @@ in {
 
       awesome = {
         recursive = true;
-        source = "${dotfiles}/.config/awesome";
+        source = "${pkgs.kesse.dotfiles}/.config/awesome";
       };
 
       fish = {
         recursive = true;
-        source = "${dotfiles}/.config/fish";
+        source = "${pkgs.kesse.dotfiles}/.config/fish";
       };
 
       alacritty = {
         recursive = true;
-        source = "${dotfiles}/.config/alacritty";
+        source = "${pkgs.kesse.dotfiles}/.config/alacritty";
+      };
+    };
+
+    dataFile = {
+      fonts = {
+        recursive = true;
+        source = "${pkgs.kesse.dotfiles}/.fonts";
       };
     };
   };
@@ -126,10 +133,10 @@ in {
   home.file = {
     ".scripts" = {
       recursive = true;
-      source = "${dotfiles}/.scripts";
+      source = "${pkgs.kesse.dotfiles}/.scripts";
     };
 
-    ".gitconfig".source = "${dotfiles}/.gitconfig";
+    ".gitconfig".source = "${pkgs.kesse.dotfiles}/.gitconfig";
   };
 
   gtk = {
