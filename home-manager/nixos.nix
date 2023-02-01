@@ -28,19 +28,21 @@ in {
     };
   };
 
-  programs.discocss = let
-    src = {
-      url = "https://github.com/catppuccin/discord.git";
-      ref = "refs/heads/gh-pages";
-    };
-
-    catppuccin-files = builtins.fetchGit src;
-    theme-file = "${catppuccin-files}/dist/catppuccin-mocha.theme.css";
-  in {
+  programs.discocss = {
     enable = true;
     discordAlias = true;
 
-    css = builtins.readFile theme-file;
+    css = builtins.readFile "${pkgs.customDiscocss.catppuccin}/dist/catppuccin-mocha.theme.css";
+  };
+
+  programs.bat = {
+    enable = true;
+    config = {theme = "catppuccin";};
+    themes = {
+      catppuccin =
+        builtins.readFile
+        (pkgs.customBat.catppuccin + "/Catppuccin-macchiato.tmTheme");
+    };
   };
 
   programs.kitty = {

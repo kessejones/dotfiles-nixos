@@ -18,6 +18,7 @@
     nixosConfigurations = {
       main = nixpkgs.lib.nixosSystem {
         modules = [
+          {nixpkgs.overlays = [(import ./overlays.nix)];}
           ./system/nixos.nix
 
           home-manager.nixosModules.home-manager
