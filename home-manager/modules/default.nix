@@ -1,3 +1,6 @@
 {}: {
-  imports = [./modules/btop.nix];
+  imports = [
+    ./modules/btop.nix
+    ./modules/neovim.nix
+  ];
 }

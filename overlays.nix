@@ -25,5 +25,9 @@ self: super: {
     dotfiles = fetchGit {
       url = "https://github.com/kessejones/dotfiles.git";
     };
+
+    kvim = fetchGit {
+      url = "https://github.com/kessejones/kvim.git";
+    };
   };
 }

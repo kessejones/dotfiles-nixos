@@ -66,7 +66,6 @@ in {
   programs.go.enable = true;
 
   home.packages = with pkgs; [
-    neovim
     btop
     tmux
     fzf
