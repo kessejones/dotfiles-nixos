@@ -28,7 +28,6 @@
     fonts = with pkgs; [
       hack-font
       material-icons
-      material-design-icons
 
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack"];})
     ];
@@ -36,10 +35,6 @@
 
   hardware = {
     opengl.enable = true;
-
-    pulseaudio = {
-      enable = true;
-    };
   };
 
   networking = {
@@ -89,11 +84,23 @@
       };
     };
 
-    picom.enable = true;
+    picom = {
+      enable = true;
+      fade = true;
+      shadow = true;
+      fadeDelta = 4;
+    };
 
     openssh.enable = true;
 
     dbus.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
   system.stateVersion = "22.11"; # Did you read the comment?
