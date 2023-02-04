@@ -13,10 +13,11 @@
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+  };
 
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Dark";
-      package = pkgs.catppuccin-cursors;
-    };
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
   };
 }
