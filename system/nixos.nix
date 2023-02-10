@@ -31,7 +31,7 @@
       hack-font
       material-icons
 
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack"];})
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack" "JetBrainsMono"];})
     ];
   };
 
@@ -103,13 +103,6 @@
         #   }
         # ];
       };
-    };
-
-    picom = {
-      enable = true;
-      fade = true;
-      shadow = true;
-      fadeDelta = 4;
     };
 
     openssh.enable = true;

@@ -12,6 +12,8 @@
     ./discord.nix
     ./bat.nix
     ./firefox.nix
+    ./picom.nix
+    ./rofi.nix
     ./pkgs.nix
   ];
 }
