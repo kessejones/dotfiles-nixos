@@ -22,4 +22,5 @@ in {
 
   programs.home-manager.enable = true;
   programs.go.enable = true;
+  programs.autorandr.enable = true;
 }

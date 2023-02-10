@@ -3,10 +3,9 @@
   config,
   ...
 }: {
-  boot.initrd.availableKernelModules = ["ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "rtsx_usb_sdmmc"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
+  boot.kernelModules = ["kvm-intel" "iwlwifi"];
+  hardware.enableRedistributableFirmware = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS";
@@ -21,4 +20,7 @@
   swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;
+  networking.interfaces.enp3s0f1.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

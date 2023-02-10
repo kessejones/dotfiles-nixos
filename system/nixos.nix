@@ -1,10 +1,12 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [./hardware.nix];
 
+  boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.loader = {
     efi = {
       efiSysMountPoint = "/boot";
@@ -35,6 +37,14 @@
 
   hardware = {
     opengl.enable = true;
+
+    nvidia.prime = {
+      sync.enable = true;
+
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+    nvidia.modesetting.enable = true;
   };
 
   networking = {
@@ -42,6 +52,14 @@
 
     hostName = "ainz-ooal-gown";
     networkmanager.enable = true;
+  };
+
+  specialisation = {
+    external-display.configuration = {
+      system.nixos.tags = ["external-display"];
+      hardware.nvidia.prime.offload.enable = lib.mkForce false;
+      hardware.nvidia.powerManagement.enable = lib.mkForce false;
+    };
   };
 
   sound.enable = true;
@@ -63,7 +81,10 @@
       enable = true;
       layout = "br";
 
+      dpi = 96;
       libinput.enable = true;
+
+      videoDrivers = ["nvidia"];
 
       windowManager = {
         awesome = {

@@ -26,5 +26,9 @@
     rofi
 
     gnome.nautilus
+
+    arandr
+
+    pavucontrol
   ];
 }
