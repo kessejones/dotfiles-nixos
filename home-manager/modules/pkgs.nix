@@ -9,7 +9,7 @@
     gum
     git
     gh
-
+   dotnet
     unzip
     php
     php.packages.composer
