@@ -115,6 +115,10 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    autorandr = {
+      enable = true;
+    };
   };
 
   system.stateVersion = "22.11"; # Did you read the comment?

@@ -14,6 +14,7 @@
     ./firefox.nix
     ./picom.nix
     ./rofi.nix
+    ./autorandr.nix
     ./pkgs.nix
   ];
 }
