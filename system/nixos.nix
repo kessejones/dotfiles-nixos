@@ -141,4 +141,8 @@
     git
     curl
   ];
+
+  environment.shells = [
+    pkgs.fish
+  ];
 }
