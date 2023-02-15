@@ -16,21 +16,29 @@
     home-manager,
   }: {
     nixosConfigurations = {
-      main = nixpkgs.lib.nixosSystem {
-        modules = [
-          {nixpkgs.overlays = [(import ./overlays.nix)];}
-          ./system/nixos.nix
+      main = let
+        username = "kesse";
+      in
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit username;};
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users."kesse" = import ./home-manager/nixos.nix;
-          }
-        ];
+          modules = [
+            {nixpkgs.overlays = [(import ./overlays.nix)];}
+            ./system/nixos.nix
 
-        system = "x86_64-linux";
-      };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home-manager/nixos.nix;
+              home-manager.extraSpecialArgs = {
+                inherit username;
+              };
+            }
+          ];
+
+          system = "x86_64-linux";
+        };
     };
   };
 }

@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  username,
   ...
 }: {
   imports = [./hardware.nix];
@@ -67,9 +68,9 @@
   time.timeZone = "America/Sao_Paulo";
 
   users = {
-    users.kesse = {
+    users.${username} = {
       uid = 1000;
-      home = "/home/kesse";
+      home = "/home/${username}";
       initialPassword = "essek";
       isNormalUser = true;
       shell = pkgs.fish;

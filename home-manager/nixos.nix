@@ -2,10 +2,9 @@
   config,
   pkgs,
   lib,
+  username,
   ...
-}: let
-  username = "kesse";
-in {
+}: {
   imports = [
     ./modules
   ];
