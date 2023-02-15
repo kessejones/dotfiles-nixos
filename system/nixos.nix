@@ -118,6 +118,7 @@
 
     autorandr = {
       enable = true;
+      defaultTarget = "laptop-dual";
     };
   };
 
