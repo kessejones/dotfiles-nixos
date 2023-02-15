@@ -68,11 +68,12 @@
 
   users = {
     users.kesse = {
-      extraGroups = ["audio" "docker" "wheel" "networkmanager"];
-
+      uid = 1000;
       home = "/home/kesse";
+      initialPassword = "essek";
       isNormalUser = true;
       shell = pkgs.fish;
+      extraGroups = ["audio" "docker" "wheel" "networkmanager"];
     };
   };
 
