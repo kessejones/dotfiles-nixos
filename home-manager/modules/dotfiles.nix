@@ -9,6 +9,11 @@
     source = "${pkgs.kesse.dotfiles}/.config/fish";
   };
 
+  xdg.configFile.tmux = {
+    recursive = true;
+    source = "${pkgs.kesse.dotfiles}/.config/tmux";
+  };
+
   xdg.configFile.alacritty = {
     recursive = true;
     source = "${pkgs.kesse.dotfiles}/.config/alacritty";
