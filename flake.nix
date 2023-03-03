@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nur.url = "github:nix-community/NUR";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,6 +14,7 @@
   outputs = {
     self,
     nixpkgs,
+    nur,
     home-manager,
   }: {
     nixosConfigurations = {
@@ -23,7 +25,7 @@
           specialArgs = {inherit username;};
 
           modules = [
-            {nixpkgs.overlays = [(import ./overlays.nix) (import ./pkgs)];}
+            {nixpkgs.overlays = [(import ./overlays.nix) (import ./pkgs) nur.overlay];}
             ./system/nixos.nix
 
             home-manager.nixosModules.home-manager
