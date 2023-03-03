@@ -141,9 +141,17 @@
     wget
     git
     curl
+    podman-compose
   ];
 
   environment.shells = [
     pkgs.fish
   ];
+
+  virtualisation = {
+    podman = {
+      enable = true;
+      defaultNetwork.settings.dns_name.enabled = true;
+    };
+  };
 }
