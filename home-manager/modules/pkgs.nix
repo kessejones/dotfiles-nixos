@@ -29,6 +29,12 @@
 
     arandr
 
+    mpv
     pavucontrol
+    pulseaudio
+
+    xclip
+
+    TLauncher
   ];
 }
