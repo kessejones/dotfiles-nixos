@@ -5,6 +5,7 @@
 }: {
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
   boot.kernelModules = ["kvm-intel" "iwlwifi"];
+  boot.supportedFilesystems = lib.mkForce ["btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "ext4"];
   hardware.enableRedistributableFirmware = true;
 
   fileSystems."/" = {
@@ -15,6 +16,12 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/BOOT";
     fsType = "vfat";
+  };
+
+  fileSystems."/media/Data" = {
+    device = "/dev/sda1";
+    fsType = "ntfs";
+    options = ["rw" "uid=1000"];
   };
 
   swapDevices = [];
