@@ -154,5 +154,6 @@
       enable = true;
       defaultNetwork.settings.dns_name.enabled = true;
     };
+    docker.enable = true;
   };
 }
