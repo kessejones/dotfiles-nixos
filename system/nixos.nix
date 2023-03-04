@@ -63,7 +63,8 @@
     };
   };
 
-  sound.enable = true;
+  sound.enable = false;
+  security.rtkit.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
 
@@ -116,6 +117,14 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      config.pipewire-pulse = {
+        "context.exec" = [
+          {
+            path = "pactl";
+            args = "load-module module-switch-on-connect";
+          }
+        ];
+      };
     };
 
     autorandr = {
@@ -143,6 +152,7 @@
     curl
     cryptsetup
     podman-compose
+    alsa-utils
   ];
 
   environment.shells = [
