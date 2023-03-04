@@ -32,6 +32,7 @@
     mpv
     pavucontrol
     pulseaudio
+    deluge
 
     xclip
 
