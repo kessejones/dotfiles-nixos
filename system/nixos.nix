@@ -141,6 +141,7 @@
     wget
     git
     curl
+    cryptsetup
     podman-compose
   ];
 
