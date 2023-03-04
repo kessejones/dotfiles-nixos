@@ -9,6 +9,7 @@
     gum
     git
     gh
+    fd
 
     unzip
     php
