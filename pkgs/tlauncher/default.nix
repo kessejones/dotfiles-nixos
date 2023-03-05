@@ -5,6 +5,7 @@
   symlinkJoin,
   writeShellScriptBin,
   jdk,
+  alsa-oss,
   ...
 }
 : let
@@ -29,7 +30,7 @@
   icon = ./TLauncher.svg;
 
   script = writeShellScriptBin pname ''
-    ${jdk}/bin/java -jar ${src}
+    ${alsa-oss}/bin/aoss ${jdk}/bin/java -jar ${src}
   '';
 in
   symlinkJoin {
