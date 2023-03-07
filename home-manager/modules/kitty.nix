@@ -10,6 +10,7 @@
 
     extraConfig = ''
       background #1E1E2F
+      active_tab_background   #89b4fa
     '';
 
     settings = {
@@ -27,10 +28,11 @@
       hide_window_decorations = "titlebar-only";
       confirm_os_window_close = 0;
 
-      tab_bar_style = "powerline";
-      tab_title_template = "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{index}:{tab.active_exe}";
-      tab_title_max_length = 20;
       enabled_layouts = "splits,stack";
+      tab_bar_style = "separator";
+      tab_separator = ''""'';
+      tab_title_template = ''" {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{fmt.fg.tab}{index}:{tab.active_exe} "'';
+      tab_title_max_length = "20";
 
       shell_integration = "disabled";
       shell = "tmux -u new-session -A -s main";
