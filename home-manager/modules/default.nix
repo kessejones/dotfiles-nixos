@@ -15,7 +15,7 @@
     ./picom.nix
     ./rofi.nix
     ./autorandr.nix
-    # ./java.nix
+    ./zathura.nix
     ./pkgs.nix
   ];
 }
