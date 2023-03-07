@@ -16,6 +16,7 @@
     ./rofi.nix
     ./autorandr.nix
     ./zathura.nix
+    ./tmux.nix
     ./pkgs.nix
   ];
 }
