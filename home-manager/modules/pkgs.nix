@@ -27,6 +27,8 @@
     rofi
 
     gnome.nautilus
+    # cinnamon.nemo
+    # cinnamon.nemo-fileroller
 
     arandr
 

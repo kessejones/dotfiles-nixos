@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   programs.bat = {
     enable = true;
-    config = {theme = "catppuccin";};
+    config = {
+      theme = "catppuccin";
+    };
     themes = {
-      catppuccin =
-        builtins.readFile
-        (pkgs.customBat.catppuccin + "/Catppuccin-macchiato.tmTheme");
+      catppuccin = builtins.readFile "${pkgs.catppuccin.bat}/Catppuccin-macchiato.tmTheme";
     };
   };
 }

@@ -6,7 +6,5 @@
     };
   };
 
-  xdg.configFile."btop/themes/catppuccin_mocha.theme" = {
-    source = "${pkgs.customBtop.catppuccin}/catppuccin_mocha.theme";
-  };
+  xdg.configFile."btop/themes/catppuccin_mocha.theme".text = builtins.readFile "${pkgs.catppuccin.btop}/catppuccin_mocha.theme";
 }
