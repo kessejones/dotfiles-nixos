@@ -18,6 +18,7 @@
     ./zathura.nix
     ./tmux.nix
     ./mpv.nix
+    ./awesomewm.nix
     ./git
     ./fish
     ./pkgs.nix
