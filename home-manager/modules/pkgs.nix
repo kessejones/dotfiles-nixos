@@ -6,7 +6,6 @@
     exa
     ripgrep
     gum
-    git
     gh
     fd
 
@@ -21,6 +20,8 @@
     nodejs
 
     alejandra
+    clang-tools
+    lua-language-server
 
     alacritty
     rofi

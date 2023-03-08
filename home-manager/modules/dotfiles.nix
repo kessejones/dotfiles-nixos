@@ -18,11 +18,4 @@
     recursive = true;
     source = "${pkgs.kesse.dotfiles}/.fonts";
   };
-
-  home.file.".scripts" = {
-    recursive = true;
-    source = "${pkgs.kesse.dotfiles}/.scripts";
-  };
-
-  home.file.".gitconfig".source = "${pkgs.kesse.dotfiles}/.gitconfig";
 }
