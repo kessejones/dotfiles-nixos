@@ -4,11 +4,6 @@
     source = "${pkgs.kesse.dotfiles}/.config/awesome";
   };
 
-  xdg.configFile.fish = {
-    recursive = true;
-    source = "${pkgs.kesse.dotfiles}/.config/fish";
-  };
-
   xdg.configFile.alacritty = {
     recursive = true;
     source = "${pkgs.kesse.dotfiles}/.config/alacritty";

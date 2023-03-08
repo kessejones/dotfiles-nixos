@@ -19,6 +19,7 @@
     ./tmux.nix
     ./mpv.nix
     ./git
+    ./fish
     ./pkgs.nix
   ];
 }
