@@ -32,7 +32,6 @@
 
     arandr
 
-    mpv
     pavucontrol
     pulseaudio
     deluge

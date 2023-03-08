@@ -17,6 +17,7 @@
     ./autorandr.nix
     ./zathura.nix
     ./tmux.nix
+    ./mpv.nix
     ./git
     ./pkgs.nix
   ];
