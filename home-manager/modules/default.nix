@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./dotfiles.nix
     ./gtk.nix
     ./btop.nix
     ./neovim.nix
@@ -19,6 +18,7 @@
     ./tmux.nix
     ./mpv.nix
     ./awesomewm.nix
+    ./alacritty.nix
     ./git
     ./fish
     ./pkgs.nix

@@ -23,7 +23,6 @@
     clang-tools
     lua-language-server
 
-    alacritty
     rofi
 
     gnome.nautilus
