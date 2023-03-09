@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       color_theme = "catppuccin_mocha.theme";
+      vim_keys = true;
     };
   };
 
