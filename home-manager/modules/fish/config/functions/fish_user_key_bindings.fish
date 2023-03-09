@@ -10,6 +10,7 @@ function fish_user_key_bindings
     bind --user -M insert \ce dotconf
     bind --user -M insert \cf accept-autosuggestion
     bind --user -M insert \cg accept-autosuggestion execute
+    bind --user -M insert \cr _fzf_search_history
 
     bind --user -M insert \co '$EDITOR'
 
