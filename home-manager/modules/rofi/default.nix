@@ -3,8 +3,8 @@
     enable = true;
   };
 
-  xdg.configFile."rofi" = {
+  xdg.configFile.rofi = {
     recursive = true;
-    source = "${pkgs.kesse.dotfiles}/.config/rofi";
+    source = ./config;
   };
 }

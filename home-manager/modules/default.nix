@@ -12,7 +12,6 @@
     ./bat.nix
     ./firefox.nix
     ./picom.nix
-    ./rofi.nix
     ./autorandr.nix
     ./zathura.nix
     ./tmux.nix
@@ -21,6 +20,7 @@
     ./alacritty.nix
     ./git
     ./fish
+    ./rofi
     ./pkgs.nix
   ];
 }
