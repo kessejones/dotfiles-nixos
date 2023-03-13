@@ -5,7 +5,7 @@
       theme = "catppuccin";
     };
     themes = {
-      catppuccin = builtins.readFile "${pkgs.catppuccin.bat}/Catppuccin-macchiato.tmTheme";
+      catppuccin = builtins.readFile "${pkgs.catppuccin.bat}/Catppuccin-mocha.tmTheme";
     };
   };
 }
