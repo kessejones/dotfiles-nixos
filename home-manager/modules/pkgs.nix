@@ -1,42 +1,36 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    btop
+    # command utils
     fzf
-    tree-sitter
     exa
     ripgrep
     gum
     gh
     fd
-
     unzip
-    php
-    php.packages.composer
-
-    cargo
-    gcc
-    gnumake
-
-    nodejs
-
-    alejandra
-    clang-tools
-    lua-language-server
-
-    rofi
-
-    gnome.nautilus
-    # cinnamon.nemo
-    # cinnamon.nemo-fileroller
-
-    arandr
-
-    pavucontrol
-    pulseaudio
-    deluge
-
     xclip
 
+    # dev
+    php
+    php.packages.composer
+    rustup
+    gcc
+    gnumake
+    nodejs
+
+    # desktop
+    gnome.nautilus
+    gnome.file-roller
+    (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
+    qalculate-gtk
+    deluge
+    arandr
+
+    # system manager
+    pulseaudio
+    pavucontrol
+
+    # games
     TLauncher
   ];
 }
