@@ -25,6 +25,7 @@
     qalculate-gtk
     deluge
     arandr
+    brave
 
     # system manager
     pulseaudio
