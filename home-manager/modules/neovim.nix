@@ -19,6 +19,7 @@
       rustfmt
       gopls
       nil
+      stylua
     ];
   };
 
