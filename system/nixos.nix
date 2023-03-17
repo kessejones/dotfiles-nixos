@@ -63,7 +63,7 @@
     };
   };
 
-  sound.enable = false;
+  sound.enable = true;
   security.rtkit.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
