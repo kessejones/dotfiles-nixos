@@ -20,6 +20,8 @@
       gopls
       nil
       stylua
+
+      nodeCustomPackages.prettierd
     ];
   };
 
