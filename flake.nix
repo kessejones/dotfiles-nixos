@@ -25,7 +25,7 @@
           specialArgs = {inherit username;};
 
           modules = [
-            {nixpkgs.overlays = [(import ./overlays.nix) (import ./pkgs) nur.overlay];}
+            {nixpkgs.overlays = [(import ./pkgs) nur.overlay];}
             ./system/nixos.nix
 
             home-manager.nixosModules.home-manager
