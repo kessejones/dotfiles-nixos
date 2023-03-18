@@ -3,11 +3,11 @@
 ## Installation
 
 ```shell
-sudo nixos-install --impure --flake github:kessejones/dotfiles-nixos#main
+sudo nixos-install --flake github:kessejones/dotfiles-nixos#main
 ```
 
 ## Rebuild
 
 ```shell
-sudo nixos-rebuild switch --impure --flake github:kessejones/dotfiles-nixos#main
+sudo nixos-rebuild switch --flake github:kessejones/dotfiles-nixos#main
 ```
