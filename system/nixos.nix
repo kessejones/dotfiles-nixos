@@ -5,7 +5,10 @@
   username,
   ...
 }: {
-  imports = [./hardware.nix];
+  imports = [
+    ./hardware.nix
+    ./modules
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.loader = {
@@ -98,15 +101,30 @@
       };
 
       displayManager = {
-        lightdm.enable = true;
-        # defaultSession = "AwesomeXsession";
-        # session = [
-        #   {
-        #     manage = "desktop";
-        #     name = "AwesomeXsession";
-        #     start = "$HOME/.Xsession";
-        #   }
-        # ];
+        lightdm = {
+          enable = true;
+          greeters.gtk = {
+            enable = true;
+
+            theme = {
+              name = "Catppuccin-Mocha-Standard-Blue-Dark";
+              package = pkgs.catppuccin-gtk.override {
+                variant = "mocha";
+              };
+            };
+            iconTheme = {
+              name = "Papirus";
+              package = pkgs.papirus-icon-theme;
+            };
+          };
+          background = "#181825";
+
+          extraSeatDefaults = ''
+            display-setup-script=${pkgs.writeShellScript "lightdm-setup-autorandr" ''
+              ${pkgs.autorandr}/bin/autorandr -c
+            ''}
+          '';
+        };
       };
     };
 
@@ -129,10 +147,10 @@
       };
     };
 
-    autorandr = {
-      enable = true;
-      defaultTarget = "laptop-dual";
-    };
+    # autorandr = {
+    #   enable = true;
+    #   defaultTarget = "laptop-dual";
+    # };
   };
 
   system.stateVersion = "22.11"; # Did you read the comment?

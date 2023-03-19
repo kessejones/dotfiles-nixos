@@ -12,7 +12,6 @@
     ./bat.nix
     ./firefox.nix
     ./picom.nix
-    ./autorandr.nix
     ./zathura.nix
     ./tmux.nix
     ./mpv.nix

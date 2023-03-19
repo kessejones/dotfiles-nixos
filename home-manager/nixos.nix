@@ -21,6 +21,4 @@
 
   programs.home-manager.enable = true;
   programs.go.enable = true;
-
-  services.pasystray.enable = true;
 }
