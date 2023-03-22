@@ -34,7 +34,6 @@
     };
 
     fonts = with pkgs; [
-      hack-font
       material-icons
 
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack" "JetBrainsMono"];})
