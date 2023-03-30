@@ -10,7 +10,7 @@
     ./modules
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_5_10;
+  boot.kernelPackages = pkgs.linuxPackages_6_2;
   boot.loader = {
     efi = {
       efiSysMountPoint = "/boot";
@@ -136,20 +136,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      config.pipewire-pulse = {
-        "context.exec" = [
-          {
-            path = "pactl";
-            args = "load-module module-switch-on-connect";
-          }
-        ];
-      };
     };
-
-    # autorandr = {
-    #   enable = true;
-    #   defaultTarget = "laptop-dual";
-    # };
   };
 
   system.stateVersion = "22.11"; # Did you read the comment?
@@ -161,6 +148,7 @@
 
   programs.nm-applet.enable = true;
   programs.dconf.enable = true;
+  programs.fish.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.pulseaudio = true;
