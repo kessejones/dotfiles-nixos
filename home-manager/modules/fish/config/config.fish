@@ -8,6 +8,8 @@ set fish_cursor_insert line
 set fish_cursor_replace underscore
 set fish_cursor_replace_one underscore
 
+set fish_prompt_separator 1
+
 # local config
 if test -f ~/.config.fish
     source ~/.config.fish
