@@ -30,6 +30,12 @@ final: prev: {
       rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
       hash = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
     };
+    alacritty = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "alacritty";
+      rev = "406dcd431b1e8866533798d10613cdbab6568619";
+      hash = "sha256-RyxD54fqvs0JK0hmwJNIcW22mhApoNOgZkyhFCVG6FQ=";
+    };
 
     grub-mocha = final.callPackage ./grub-catppuccin-mocha {};
   };

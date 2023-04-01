@@ -1,14 +1,17 @@
 {pkgs, ...}: {
+  xdg.configFile."alacritty/catppuccin-mocha.yml".text = builtins.readFile "${pkgs.catppuccin.alacritty}/catppuccin-mocha.yml";
+
   programs.alacritty = {
     enable = true;
 
     settings = let
-      family = "JetBrainsMono Nerd Font Mono";
+      family = "JetBrainsMono Nerd Font";
     in {
-      env.TERM = "tmux-256color";
-
+      import = [
+        "~/.config/alacritty/catppuccin-mocha.yml"
+      ];
       font = {
-        size = 12;
+        size = 11;
         normal = {
           inherit family;
           style = "Regular";
@@ -56,17 +59,6 @@
       };
 
       live_config_release = true;
-
-      shell = {
-        program = "tmux";
-        args = [
-          "-u"
-          "new-session"
-          "-A"
-          "main"
-        ];
-      };
-
       key_bindings = [
         {
           key = "N";
