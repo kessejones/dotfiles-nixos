@@ -181,10 +181,6 @@
     alsa-utils
   ];
 
-  environment.shells = [
-    pkgs.fish
-  ];
-
   virtualisation = {
     podman = {
       enable = true;
