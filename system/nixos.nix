@@ -22,4 +22,11 @@
   programs.nm-applet.enable = true;
   programs.dconf.enable = true;
   programs.fish.enable = true;
+
+  environment.shellAliases = {
+    ls = "${pkgs.exa}/bin/exa";
+    ll = "${pkgs.exa}/bin/exa --long --group";
+    la = "${pkgs.exa}/bin/exa --long --group --all";
+    lt = "${pkgs.exa}/bin/exa --long --group --tree";
+  };
 }
