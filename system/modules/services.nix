@@ -53,5 +53,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    udisks2.enable = true;
   };
 }
