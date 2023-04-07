@@ -11,6 +11,10 @@
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       nodePackages.prettier
+
+      php.packages.phpcs
+      php.packages.php-cs-fixer
+
       lua-language-server
       rust-analyzer
       tree-sitter
