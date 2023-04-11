@@ -27,6 +27,11 @@
     ls = "${pkgs.exa}/bin/exa";
     ll = "${pkgs.exa}/bin/exa --long --group";
     la = "${pkgs.exa}/bin/exa --long --group --all";
-    lt = "${pkgs.exa}/bin/exa --long --group --tree";
+    lt = "${pkgs.exa}/bin/exa --tree";
+    ltt = "${pkgs.exa}/bin/exa --long --group --tree";
+    lt2 = "${pkgs.exa}/bin/exa --tree -L 2";
+    lt3 = "${pkgs.exa}/bin/exa --tree -L 3";
+    lt4 = "${pkgs.exa}/bin/exa --tree -L 4";
+    lt5 = "${pkgs.exa}/bin/exa --tree -L 5";
   };
 }
