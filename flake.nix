@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nur.url = "github:nix-community/NUR";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,6 +16,7 @@
     self,
     nixpkgs,
     nur,
+    neovim-nightly,
     home-manager,
   }: {
     nixosConfigurations = {
@@ -25,7 +27,7 @@
           specialArgs = {inherit username;};
 
           modules = [
-            {nixpkgs.overlays = [(import ./pkgs) nur.overlay];}
+            {nixpkgs.overlays = [(import ./pkgs) nur.overlay neovim-nightly.overlay];}
             ./system/nixos.nix
 
             home-manager.nixosModules.home-manager
