@@ -6,7 +6,7 @@
       options = {
         syntax-theme = "catppuccin";
         line-numbers = true;
-        side-by-side = false;
+        side-by-side = true;
         file-modified-label = "modified:";
         light = false;
       };
