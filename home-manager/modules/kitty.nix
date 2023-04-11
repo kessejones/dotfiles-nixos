@@ -9,7 +9,7 @@
     };
 
     extraConfig = ''
-      background #1E1E2F
+      #background #1E1E2F
       active_tab_background   #89b4fa
     '';
 
@@ -21,8 +21,9 @@
       cursor_blink_interval = 0;
       cursor_stop_blinking_after = 0;
 
-      background_opacity = "0.9";
+      # background_opacity = "0.9";
       draw_minimal_borders = "yes";
+      dynamic_background_opacity = "yes";
       sync_to_monitor = "no";
 
       hide_window_decorations = "titlebar-only";
@@ -67,6 +68,12 @@
       "ctrl+a>," = "set_tab_title";
       "ctrl+a>z" = "toggle_layout stack";
       "ctrl+a>e" = "launch --type=overlay fish $EDITOR";
+
+      "ctrl+a>[" = "set_background_opacity 0.9";
+      "ctrl+a>]" = "set_background_opacity 1";
+
+      "ctrl+shift+k" = "scroll_line_up";
+      "ctrl+shift+j" = "scroll_line_down";
     };
 
     package = pkgs.kitty;
