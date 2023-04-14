@@ -17,6 +17,8 @@
     ./mpv.nix
     ./awesomewm.nix
     ./alacritty.nix
+    ./ncmpcpp.nix
+    ./mpd.nix
     ./git
     ./fish
     ./rofi
