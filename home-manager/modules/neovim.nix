@@ -16,6 +16,7 @@
       php.packages.phpcs
       php.packages.php-cs-fixer
 
+      haskell-language-server
       lua-language-server
       rust-analyzer
       tree-sitter

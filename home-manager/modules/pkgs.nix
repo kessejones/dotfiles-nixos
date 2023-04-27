@@ -22,10 +22,15 @@
     gnome.nautilus
     gnome.file-roller
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
+    cinnamon.pix
     qalculate-gtk
-    deluge
     arandr
     brave
+    librewolf
+
+    # torrents
+    deluge
+    qbittorrent
 
     # system manager
     pulseaudio

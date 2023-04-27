@@ -42,11 +42,11 @@
     };
 
     keybindings = {
-      "ctrl+shift+r" = "load_config_file";
+      "ctrl+a>r" = "load_config_file";
 
       "0x1b" = "escape";
-      "ctrl+shift+c" = "copy_to_clipboard";
-      "ctrl+shift+v" = "paste_from_clipboard";
+      "$kitty_mod+c" = "copy_to_clipboard";
+      "$kitty_mod+v" = "paste_from_clipboard";
 
       "ctrl+a>n" = "next_tab";
       "ctrl+a>p" = "previous_tab";
@@ -55,10 +55,10 @@
       "ctrl+a>'" = "launch --location=hsplit $SHELL";
       "ctrl+a>\\" = "launch --location=vsplit $SHELL";
 
-      # map kitty_mod+m>k move_window top
-      # map kitty_mod+m>j move_window down
-      # map kitty_mod+m>l move_window right
-      # map kitty_mod+m>h move_window left
+      "ctrl+a>shift+k" = "move_window top";
+      "ctrl+a>shift+j" = "move_window down";
+      "ctrl+a>shift+h" = "move_window left";
+      "ctrl+a>shift+l" = "move_window right";
 
       "ctrl+a>h" = "neighboring_window left";
       "ctrl+a>l" = "neighboring_window right";
@@ -72,8 +72,8 @@
       "ctrl+a>[" = "set_background_opacity 0.9";
       "ctrl+a>]" = "set_background_opacity 1";
 
-      "ctrl+shift+k" = "scroll_line_up";
-      "ctrl+shift+j" = "scroll_line_down";
+      "$kitty_mod+k" = "scroll_line_up";
+      "$kitty_mod+j" = "scroll_line_down";
     };
 
     package = pkgs.kitty;

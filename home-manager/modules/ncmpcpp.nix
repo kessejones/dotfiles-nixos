@@ -80,10 +80,6 @@
         key = "K";
         command = ["select_item" "scroll_up"];
       }
-      {
-        key = ";";
-        command = ["show_visualizer"];
-      }
     ];
   };
 }
