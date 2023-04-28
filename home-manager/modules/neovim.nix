@@ -26,6 +26,7 @@
       gopls
       nil
       stylua
+      elixir_ls
 
       nodeCustomPackages.prettierd
     ];

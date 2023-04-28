@@ -19,6 +19,7 @@
     ./alacritty.nix
     ./ncmpcpp.nix
     ./mpd.nix
+    ./nnn.nix
     ./git
     ./fish
     ./rofi
