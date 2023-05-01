@@ -1,64 +1,62 @@
 {...}: {
   networking = {
+    nameservers = ["103.86.96.100" "103.86.99.100"];
+
     firewall = let
-      tcp_ports = [22 25565];
-      wifi_dev = "wlp2s0";
-      ether_dev = "enp3s0f1";
+      tcpPorts = [22 25565];
+      wifiInterface = "wlp2s0";
+      etherInterface = "enp3s0f1";
       networks = [
+        "172.18.0.1/24"
         "192.168.0.1/24"
         "10.0.0.1/24"
       ];
-
-      vpn_servers = [
-        "193.19.205.209"
-        "185.153.176.17"
-        "185.153.176.64"
-        "185.153.176.183"
-        "185.153.176.235"
-      ];
-
-      mkVpnRule = ip: interface: ''
-        iptables -A OUTPUT -j ACCEPT -d ${ip} -o ${interface} -p udp -m udp --dport 1194
-        iptables -A INPUT -j ACCEPT -s ${ip} -i ${interface} -p udp -m udp --sport 1194
-      '';
-
-      mkLocalRule = ip: interface: ''
-        iptables -A INPUT --src ${ip} -j ACCEPT -i ${interface}
-        iptables -A OUTPUT -d ${ip} -j ACCEPT -o ${interface}
-      '';
     in {
       enable = true;
 
-      interfaces.${wifi_dev}.allowedTCPPorts = tcp_ports;
-      interfaces.${ether_dev}.allowedTCPPorts = tcp_ports;
+      interfaces.${wifiInterface}.allowedTCPPorts = tcpPorts;
+      interfaces.${etherInterface}.allowedTCPPorts = tcpPorts;
 
       extraCommands = let
-        local_rules = builtins.concatStringsSep "\n" (builtins.map (n: ''
-            ${mkLocalRule n wifi_dev}
-            ${mkLocalRule n ether_dev}
-          '')
+        mkLocalRule = network: ''
+          iptables -A nixos-vpn-killswitch -d ${network} -j ACCEPT
+        '';
+
+        localRules = builtins.concatStringsSep "\n" (builtins.map (
+            n: (mkLocalRule n)
+          )
           networks);
 
-        vpn_rules = builtins.concatStringsSep "\n" (builtins.map (ip: ''
-            ${mkVpnRule ip wifi_dev}
-            ${mkVpnRule ip ether_dev}
-          '')
-          vpn_servers);
+        killSwitchRule = ''
+          # Flush old firewall rules
+          iptables -D OUTPUT -j nixos-vpn-killswitch 2> /dev/null || true
+          iptables -F "nixos-vpn-killswitch" 2> /dev/null || true
+          iptables -X "nixos-vpn-killswitch" 2> /dev/null || true
+
+          # Create chain
+          iptables -N nixos-vpn-killswitch
+
+          # Allow traffic on localhost
+          iptables -A nixos-vpn-killswitch -o lo -j ACCEPT
+
+          # Allow lan traffic
+          ${localRules}
+
+          # Allow connecition to vpn server
+          iptables -A nixos-vpn-killswitch -p udp -m udp --dport 1194 -j ACCEPT
+
+          # Allow connections tunneled over VPN
+          iptables -A nixos-vpn-killswitch -o tun0 -j ACCEPT
+
+          # Disallow outgoing traffic by default
+          iptables -A nixos-vpn-killswitch -j DROP
+
+          # Enable killswitch
+          iptables -A OUTPUT -j nixos-vpn-killswitch
+        '';
       in ''
-        iptables -P OUTPUT DROP
-
-        iptables -A INPUT -j ACCEPT -i lo
-        iptables -A OUTPUT -j ACCEPT -o lo
-
-        ${local_rules}
-
-        ${vpn_rules}
-
-        iptables -A INPUT -j ACCEPT -i tun0
-        iptables -A OUTPUT -j ACCEPT -o tun0
-      '';
-      extraStopCommands = ''
-        iptables -P INPUT ACCEPT
+        # Enable killswitch by default
+        ${killSwitchRule}
       '';
     };
 
