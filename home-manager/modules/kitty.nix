@@ -4,8 +4,8 @@
 
     theme = "Catppuccin-Mocha";
     font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 11;
+      name = "JetBrainsMono Nerd Font Mono";
+      size = 10;
     };
 
     extraConfig = ''
@@ -74,6 +74,10 @@
 
       "$kitty_mod+k" = "scroll_line_up";
       "$kitty_mod+j" = "scroll_line_down";
+
+      "ctrl+a>ctrl+k" = "change_font_size all +1.0";
+      "ctrl+a>ctrl+j" = "change_font_size all -1.0";
+      "ctrl+a>ctrl+," = "change_font_size all 0";
     };
 
     package = pkgs.kitty;
