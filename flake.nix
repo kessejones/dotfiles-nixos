@@ -19,30 +19,46 @@
     neovim-nightly,
     home-manager,
   }: {
-    nixosConfigurations = {
-      main = let
-        username = "kesse";
-      in
-        nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit username;};
+    nixosConfigurations = let
+      username = "kesse";
+      system = "x86_64-linux";
 
-          modules = [
-            {nixpkgs.overlays = [(import ./pkgs) nur.overlay neovim-nightly.overlay];}
-            ./system/nixos.nix
+      common-modules = [
+        {nixpkgs.overlays = [(import ./pkgs) nur.overlay neovim-nightly.overlay];}
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = import ./home-manager/nixos.nix;
+          home-manager.extraSpecialArgs = {
+            inherit username;
+          };
+        }
+      ];
+    in {
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit username;};
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home-manager/nixos.nix;
-              home-manager.extraSpecialArgs = {
-                inherit username;
-              };
-            }
+        modules =
+          common-modules
+          ++ [
+            ./hosts/laptop
           ];
 
-          system = "x86_64-linux";
-        };
+        inherit system;
+      };
+
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit username;};
+
+        modules =
+          common-modules
+          ++ [
+            ./hosts/desktop
+          ];
+
+        inherit system;
+      };
     };
   };
 }

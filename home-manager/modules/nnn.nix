@@ -13,5 +13,7 @@
       f = "finder";
       v = "imgview";
     };
+
+    extraPackages = with pkgs; [ffmpegthumbnailer mediainfo sxiv];
   };
 }
