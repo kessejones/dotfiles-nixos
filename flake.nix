@@ -24,12 +24,18 @@
       system = "x86_64-linux";
 
       common-modules = [
-        {nixpkgs.overlays = [(import ./pkgs) nur.overlay neovim-nightly.overlay];}
+        {
+          nixpkgs.overlays = [
+            (import ./pkgs)
+            nur.overlay
+            neovim-nightly.overlay
+          ];
+        }
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./home-manager/nixos.nix;
+          home-manager.users.${username} = import ./home-manager;
           home-manager.extraSpecialArgs = {
             inherit username;
           };

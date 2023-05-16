@@ -4,8 +4,8 @@
 
     theme = "Catppuccin-Mocha";
     font = {
-      name = "JetBrainsMono Nerd Font Mono";
-      size = 10;
+      name = "JetBrainsMono Nerd Font";
+      size = 10.0;
     };
 
     extraConfig = ''
