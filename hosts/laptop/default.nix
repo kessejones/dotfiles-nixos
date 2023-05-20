@@ -1,13 +1,11 @@
-{
-  config,
-  pkgs,
-  lib,
-  username,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware.nix
     ./modules
     ../_common
   ];
+
+  networking = {
+    hostName = "ainz-ooal-gown";
+  };
 }

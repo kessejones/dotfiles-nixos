@@ -3,13 +3,15 @@
   config,
   ...
 }: {
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
   boot.kernelModules = ["kvm-intel" "iwlwifi"];
   boot.supportedFilesystems = lib.mkForce ["btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "ext4"];
   boot.blacklistedKernelModules = [];
 
   hardware = {
     opengl.enable = true;
+    enableRedistributableFirmware = true;
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 
   fileSystems."/boot" = {
@@ -22,12 +24,12 @@
     fsType = "ext4";
   };
 
-  # fileSystems."/media/Data" = {
-  #   device = "/dev/sda1";
-  #   fsType = "ntfs";
-  #   options = ["rw" "uid=1000"];
-  # };
-  #
+  fileSystems."/media/Data" = {
+    device = "/dev/disk/by-label/Data";
+    fsType = "ntfs";
+    options = ["rw" "uid=1000"];
+  };
+
   swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;

@@ -6,5 +6,7 @@
     curl
     cryptsetup
     alsa-utils
+
+    sshfs
   ];
 }
