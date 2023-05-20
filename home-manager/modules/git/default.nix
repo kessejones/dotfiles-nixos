@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  programs.git = {
+  programs.git = let
+    scripts = import ./scripts.nix {pkgs = pkgs;};
+  in {
     enable = true;
     delta = {
       enable = true;
@@ -40,7 +42,7 @@
     };
 
     aliases = {
-      a = "!~/.scripts/git/git-add.sh";
+      a = "!${scripts.git-add}";
 
       d = "diff";
       b = "branch";
@@ -48,12 +50,12 @@
       s = "status";
       f = "fetch";
 
-      r = "!~/.scripts/git/git-rebase.sh";
-      m = "!~/.scripts/git/git-merge.sh";
+      r = "!${scripts.git-rebase}";
+      m = "!${scripts.git-merge}";
 
       lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
 
-      ls = "!~/.scripts/git/git-show.sh";
+      ls = "!${scripts.git-show}";
 
       # add
       aa = "add --all";
@@ -61,11 +63,11 @@
       ai = "add --interactive";
 
       # checkout
-      co = "!~/.scripts/git/git-checkout.sh";
+      co = "!${scripts.git-checkout}";
       cb = "checkout -b";
 
       # discard files
-      cd = "!~/.scripts/git/git-discard.sh";
+      cd = "!${scripts.git-discard}";
 
       # commit
       ci = "commit";
@@ -83,8 +85,8 @@
       bm = "branch -m";
       bM = "branch -M";
 
-      bd = "!~/.scripts/git/git-branch-delete.sh -d";
-      bx = "!~/.scripts/git/git-branch-delete.sh -D";
+      bd = "!${scripts.git-branch-delete} -d";
+      bx = "!${scripts.git-branch-delete} -D";
 
       # diff
       dh = "diff HEAD^";
@@ -94,10 +96,10 @@
       rc = "rebase --continue";
       rs = "rebase --skip";
       ra = "rebase --abort";
-      ri = "!~/.scripts/git/git-rebase-interactive.sh";
+      ri = "!${scripts.git-rebase-interactive}";
 
       # restore
-      rt = "!~/.scripts/git/git-restore-staged.sh";
+      rt = "!${scripts.git-restore-staged}";
 
       # merge
       ma = "merge --abort";
@@ -105,19 +107,14 @@
 
       # stash
       ss = "stash";
-      sa = "!~/.scripts/git/git-stash.sh apply";
-      sd = "!~/.scripts/git/git-stash.sh drop";
-      sp = "!~/.scripts/git/git-stash.sh pop";
+      sa = "!${scripts.git-stash} apply";
+      sd = "!${scripts.git-stash} drop";
+      sp = "!${scripts.git-stash} pop";
       sl = "!git stash list | gum choose --limit 1 >/dev/null";
     };
 
     includes = [
       {path = "~/.gitconfig-local";}
     ];
-  };
-
-  home.file.".scripts/git" = {
-    recursive = true;
-    source = ./scripts;
   };
 }
