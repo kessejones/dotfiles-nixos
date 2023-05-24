@@ -7,5 +7,6 @@
     ./system-pkgs.nix
     ./users.nix
     ./virtualisation.nix
+    ./vpn.nix
   ];
 }

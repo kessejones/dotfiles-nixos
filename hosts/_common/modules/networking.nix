@@ -4,8 +4,8 @@
 
     firewall = let
       tcpPorts = [22 25565];
-      wifiInterface = "wlp0s20f3";
-      etherInterface = "eno1";
+      wifiInterface = "wlp2s0";
+      etherInterface = "enp3s0f1";
       networks = [
         "172.18.0.1/24"
         "192.168.0.1/24"

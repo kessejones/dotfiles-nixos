@@ -1,13 +1,12 @@
-{...}: {
+{pkgs, ...}: {
   networking = {
-    networkmanager.enable = true;
-    hostName = "momon-san";
+    hostName = "ainz-ooal-gown";
     nameservers = ["103.86.96.100" "103.86.99.100"];
 
     firewall = let
-      tcpPorts = [22 24800 25565];
-      wifiInterface = "wlp0s20f3";
-      etherInterface = "eno1";
+      tcpPorts = [22 25565];
+      wifiInterface = "wlp2s0";
+      etherInterface = "enp3s0f1";
       networks = [
         "172.18.0.1/24"
         "192.168.0.1/24"
@@ -60,10 +59,8 @@
         # Enable killswitch by default
         ${killSwitchRule}
       '';
-
-      extraStopCommands = ''
-        iptables -D OUTPUT -j nixos-vpn-killswitch
-      '';
     };
+
+    networkmanager.enable = true;
   };
 }
