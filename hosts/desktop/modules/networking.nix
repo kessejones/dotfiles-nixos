@@ -15,7 +15,6 @@
       ];
     in {
       enable = true;
-
       interfaces.${wifiInterface}.allowedTCPPorts = tcpPorts;
       interfaces.${etherInterface}.allowedTCPPorts = tcpPorts;
 
@@ -46,9 +45,11 @@
 
           # Allow connecition to vpn server
           iptables -A nixos-vpn-killswitch -p udp -m udp --dport 1194 -j ACCEPT
+          iptables -A nixos-vpn-killswitch -p udp -m udp --dport 51820 -j ACCEPT
 
           # Allow connections tunneled over VPN
           iptables -A nixos-vpn-killswitch -o tun0 -j ACCEPT
+          iptables -A nixos-vpn-killswitch -o wg0 -j ACCEPT
 
           # Disallow outgoing traffic by default
           iptables -A nixos-vpn-killswitch -j DROP

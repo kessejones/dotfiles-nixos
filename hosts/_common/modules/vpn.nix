@@ -64,18 +64,79 @@
       killswitch-up
     fi
   '';
+
+  nordvpn-generate-key = pkgs.writeScriptBin "nordvpn-generate-key" ''
+    #!${pkgs.runtimeShell}
+    export PATH=$PATH:${pkgs.curl}/bin:${pkgs.jq}/bin
+
+    if [ "$(id -u)" != 0 ]; then
+        exec sudo -E -- "$0" "$@" || die "this script needs to run as root"
+    else
+        : "$\{SUDO_UID:=0}" "$\{SUDO_GID:=0}"
+    fi
+
+    if [ -z "$1" ]; then
+      printf "Permanent token is required to generate private key"
+      exit 1
+    fi
+
+    host="api.nordvpn.com"
+    auth_token="$(printf "%s" "token:$1" | base64 -w 0)"
+    credentials="/root/wireguard/credentials.json"
+    privkeyfile="/root/wireguard/nordvpn.key"
+
+    curl -s -H "User-Agent: NordApp Linux 3.16.1 Linux 5.4.0-58-generic" \
+      "https://$host/v1/users/services/credentials" \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Basic $auth_token" > $credentials
+
+    err=$(jq .errors.message credentials.json)
+    if [ "$err" = "null" ]; then
+      privkey=$(jq -j ".nordlynx_private_key" $credentials)
+      echo $privkey > $privkeyfile
+      printf "Key generated successfully"
+    else
+      printf "Error getting credentials: $err"
+      exit 1
+    fi
+  '';
 in {
-  environment.systemPackages = [killswitch-enabled killswitch-status killswitch-up killswitch-down killswitch-toggle];
+  environment.systemPackages = [
+    killswitch-enabled
+    killswitch-status
+    killswitch-up
+    killswitch-down
+    killswitch-toggle
+
+    nordvpn-generate-key
+  ];
 
   services.openvpn = {
     servers = {
       nordvpn89 = {
-        autoStart = true;
+        autoStart = false;
         config = ''
           config /root/openvpn/br89.nordvpn.com.udp.ovpn
           auth-user-pass /root/openvpn/nordvpn.txt
         '';
       };
+    };
+  };
+
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = ["10.5.0.2/24"];
+      privateKeyFile = "/root/wireguard/nordvpn.key";
+      listenPort = 51820;
+
+      peers = [
+        {
+          publicKey = "ObOAEerHpiFeJaqUbs59yihD4JbLqlC6cQn01guu3UU=";
+          allowedIPs = ["0.0.0.0/0" "::/0"];
+          endpoint = "185.153.176.165:51820";
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 }
