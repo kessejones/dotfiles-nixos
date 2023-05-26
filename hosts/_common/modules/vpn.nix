@@ -82,15 +82,18 @@
 
     host="api.nordvpn.com"
     auth_token="$(printf "%s" "token:$1" | base64 -w 0)"
-    credentials="/root/wireguard/credentials.json"
-    privkeyfile="/root/wireguard/nordvpn.key"
+    confpath="/root/wireguard"
+    credentials="$confpath/credentials.json"
+    privkeyfile="$confpath/nordvpn.key"
+
+    mkdir -p $confpath
 
     curl -s -H "User-Agent: NordApp Linux 3.16.1 Linux 5.4.0-58-generic" \
       "https://$host/v1/users/services/credentials" \
       -H "Content-Type: application/json" \
       -H "Authorization: Basic $auth_token" > $credentials
 
-    err=$(jq .errors.message credentials.json)
+    err=$(jq .errors.message $credentials)
     if [ "$err" = "null" ]; then
       privkey=$(jq -j ".nordlynx_private_key" $credentials)
       echo $privkey > $privkeyfile
