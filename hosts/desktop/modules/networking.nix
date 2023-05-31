@@ -17,6 +17,12 @@
       enable = true;
       interfaces.${wifiInterface}.allowedTCPPorts = tcpPorts;
       interfaces.${etherInterface}.allowedTCPPorts = tcpPorts;
+      allowedUDPPorts = [
+        10001
+        10002
+        10011
+        10012
+      ];
 
       extraCommands = let
         mkLocalRule = network: ''
