@@ -7,6 +7,7 @@
     ./system-pkgs.nix
     ./users.nix
     ./virtualisation.nix
-    ./vpn.nix
+    ./vpn-scripts.nix
+    ./openvpn.nix
   ];
 }
