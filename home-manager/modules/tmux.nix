@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{pkgs, ...}: let
   base = "#1e1e2e";
   mantle = "#181825";
   surface0 = "#313244";
@@ -30,10 +26,20 @@ in {
     shortcut = "t";
     mouse = true;
     disableConfirmationPrompt = true;
+    terminal = "tmux-256color";
+
+    plugins = [
+      {
+        plugin = pkgs.tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '5'
+        '';
+      }
+    ];
 
     extraConfig = ''
-      set -sa terminal-overrides ",tmux-256color:RGB"
-      set -ga terminal-overrides ",tmux-256color:Tc"
+      set -sa terminal-overrides ',tmux-256color:Tc'
 
       # global settings
       set -g focus-events on
