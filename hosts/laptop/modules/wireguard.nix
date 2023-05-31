@@ -1,6 +1,6 @@
 {...}: {
   networking.wg-quick.interfaces.wg0 = let
-    endpoint = "185.153.176.165";
+    endpoint = "185.153.176.183";
   in {
     address = ["10.5.0.3/24"];
     privateKeyFile = "/root/wireguard/nordvpn.key";
