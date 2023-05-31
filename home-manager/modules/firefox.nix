@@ -40,7 +40,7 @@
         "beacon.enabled" = false;
         "browser.send_pings" = false;
         "dom.webnotifications.enabled" = false;
-
+        "toolkit.tabbox.switchByScrolling" = true;
         "browser.ctrlTab.recentlyUsedOrder" = false;
         "browser.search.hiddenOneOffs" = "";
         "browser.urlbar.suggest.searches" = false;
@@ -58,21 +58,6 @@
         "browser.homepage_welcome_url" = "";
         "browser.homepage_welcome_url.additional" = "";
         "browser.homepage_override_url" = "";
-
-        # hardware acceleration
-        "gfx.webrender.all" = true;
-        "media.ffmpeg.vaapi-drm-display.enabled" = true;
-        "media.ffmpeg.vaapi.enabled" = true;
-        "media.ffvpx.enabled" = false;
-        "media.rdd-vpx.enabled" = false;
-        "gfx.webrender.compositor.force-enabled" = true;
-        "media.navigator.mediadatadecoder_vpx_enabled" = true;
-        "webgl.force-enabled" = true;
-        "layers.acceleration.force-enabled" = true;
-        "layers.offmainthreadcomposition.enabled" = true;
-        "layers.offmainthreadcomposition.async-animations" = true;
-        "layers.async-video.enabled" = true;
-        "html5.offmainthread" = true;
       };
     };
 
