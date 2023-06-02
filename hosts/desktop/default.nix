@@ -5,46 +5,21 @@
     ../_common
   ];
 
-  environment.etc."pipewire/pipewire.conf.d/60-roc-source.conf".text = ''
-     context.modules = [
-      {   name = libpipewire-module-roc-source
-          args = {
-              local.ip = 0.0.0.0
-              resampler.profile = medium
-              fec.code = disable
-              sess.latency.msec = 5000
-              local.source.port = 10001
-              local.repair.port = 10002
-              source.name = "ROC Source"
-              source.props = {
-                node.name = "roc-source"
-                target.object = "combine-sink-stereo"
-              }
-          }
-      }
-    ]
-  '';
-
-  environment.etc."pipewire/pipewire.conf.d/50-combine-output-20.conf".text = ''
+  environment.etc."pipewire/pipewire.conf.d/10-loopback-line_in.conf".text = ''
     context.modules = [
       {
-        name = libpipewire-module-combine-stream
+        name = libpipewire-module-loopback
         args = {
-          combine.mode = sink
-          node.name = "combine-output-20"
-          node.description = "Output Proxy 2.0"
-          combine.latency-compensate = false   # if true, match latencies by adding delays
-          combine.props = {
+          node.description = "Loopback Line-in"
+          capture.props = {
             audio.position = [ FL FR ]
+            node.target = "alsa_input.pci-0000_00_1f.3.analog-stereo"
           }
-          stream.props = {
+          playback.props = {
+            audio.position = [ FL FR ]
+            node.name = "Loopback-line_in"
+            media.class = "Stream/Output/Audio"
           }
-          stream.rules = [
-            {
-              matches = [ { media.class = "Audio/Sink" } ]
-              actions = { create-stream = { } }
-            }
-          ]
         }
       }
     ]

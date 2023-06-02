@@ -2,7 +2,7 @@
   system.stateVersion = "22.11";
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.pulseaudio = true;
+  # nixpkgs.config.pulseaudio = true;
 
   nix = {
     extraOptions = ''
