@@ -10,7 +10,13 @@
       initialPassword = "essek";
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = ["audio" "docker" "wheel" "networkmanager"];
+      extraGroups = [
+        "audio"
+        "docker"
+        "wheel"
+        "networkmanager"
+        "nordvpn"
+      ];
     };
   };
 }

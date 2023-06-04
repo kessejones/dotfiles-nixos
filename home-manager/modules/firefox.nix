@@ -18,9 +18,12 @@
         "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
-
+        "services.sync.prefs.sync.browser.newtabpage.pinned" = false;
         "browser.newtabpage.activity-stream.telemetry" = false;
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+
+        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "duckduckgo";
+        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckduckgo";
 
         # privacy
         "privacy.donottrackheader.enabled" = true;
@@ -34,13 +37,14 @@
         "toolkit.telemetry.unified" = false;
         "toolkit.telemetry.archive.enabled" = false;
         "geo.enabled" = false;
+        "geo.wifi.logging.enable" = false;
+        "geo.wifi.uri" = "";
         "dom.battery.enabled" = false;
         "network.IDN_show_punycode" = true;
         "plugins.enumerable_names" = "";
         "beacon.enabled" = false;
         "browser.send_pings" = false;
         "dom.webnotifications.enabled" = false;
-        "toolkit.tabbox.switchByScrolling" = true;
         "browser.ctrlTab.recentlyUsedOrder" = false;
         "browser.search.hiddenOneOffs" = "";
         "browser.urlbar.suggest.searches" = false;
@@ -58,6 +62,37 @@
         "browser.homepage_welcome_url" = "";
         "browser.homepage_welcome_url.additional" = "";
         "browser.homepage_override_url" = "";
+
+        "browser.newtabpage.pinned" = builtins.toJSON [
+          {
+            title = "Youtube";
+            url = "https://youtube.com";
+          }
+          {
+            title = "Twitch";
+            url = "https://twitch.tv";
+          }
+          {
+            title = "Reddit";
+            url = "https://reddit.com";
+          }
+          {
+            title = "WhatsApp";
+            url = "https://web.whatsapp.com";
+          }
+          {
+            title = "Outlook";
+            url = "https://outlook.live.com";
+          }
+          {
+            title = "Github";
+            url = "https://github.com";
+          }
+          {
+            title = "Sourcegraph";
+            url = "https://sourcegraph.com";
+          }
+        ];
       };
     };
 

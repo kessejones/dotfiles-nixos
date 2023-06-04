@@ -23,6 +23,11 @@
       username = "kesse";
       system = "x86_64-linux";
 
+      nur-modules = import nur {
+        nurpkgs = nixpkgs.legacyPackages.${system};
+        pkgs = nixpkgs.legacyPackages.${system};
+      };
+
       common-modules = [
         {
           nixpkgs.overlays = [
@@ -40,6 +45,9 @@
             inherit username;
           };
         }
+
+        nur.nixosModules.nur
+        nur-modules.repos.LuisChDev.modules.nordvpn
       ];
     in {
       laptop = nixpkgs.lib.nixosSystem {

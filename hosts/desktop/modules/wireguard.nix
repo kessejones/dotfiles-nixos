@@ -2,6 +2,7 @@
   networking.wg-quick.interfaces.wg0 = let
     endpoint = "185.153.176.165";
   in {
+    autostart = false;
     address = ["10.5.0.2/24"];
     privateKeyFile = "/root/wireguard/nordvpn.key";
     listenPort = 51820;

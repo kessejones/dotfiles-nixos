@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   networking = {
     hostName = "ainz-ooal-gown";
     nameservers = ["103.86.96.100" "103.86.99.100"];

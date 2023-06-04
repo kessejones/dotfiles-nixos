@@ -14,7 +14,7 @@
         "10.0.0.1/24"
       ];
     in {
-      enable = true;
+      enable = false;
       interfaces.${wifiInterface} = {
         allowedTCPPorts = tcpPorts;
         allowedUDPPorts = [
