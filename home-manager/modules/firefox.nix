@@ -16,12 +16,13 @@
 
         "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-        "browser.newtabpage.activity-stream.showSponsored" = false;
         "services.sync.prefs.sync.browser.newtabpage.pinned" = false;
+
         "browser.newtabpage.activity-stream.telemetry" = false;
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
         "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "duckduckgo";
         "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckduckgo";
 
@@ -65,31 +66,31 @@
 
         "browser.newtabpage.pinned" = builtins.toJSON [
           {
-            title = "Youtube";
+            label = "Youtube";
             url = "https://youtube.com";
           }
           {
-            title = "Twitch";
+            label = "Twitch";
             url = "https://twitch.tv";
           }
           {
-            title = "Reddit";
+            label = "Reddit";
             url = "https://reddit.com";
           }
           {
-            title = "WhatsApp";
+            label = "WhatsApp";
             url = "https://web.whatsapp.com";
           }
           {
-            title = "Outlook";
+            label = "Outlook";
             url = "https://outlook.live.com";
           }
           {
-            title = "Github";
+            label = "Github";
             url = "https://github.com";
           }
           {
-            title = "Sourcegraph";
+            label = "Sourcegraph";
             url = "https://sourcegraph.com";
           }
         ];
