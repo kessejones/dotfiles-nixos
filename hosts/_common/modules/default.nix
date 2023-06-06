@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./autorandr.nix
     ./fonts.nix
     ./nix-config.nix
     ./services.nix

@@ -4,7 +4,6 @@
       enable = true;
       layout = "br";
 
-      dpi = 96;
       libinput.enable = true;
 
       videoDrivers = ["nvidia"];

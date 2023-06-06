@@ -1,9 +1,4 @@
 {pkgs, ...}: {
-  # xdg.configFile.fish = {
-  #   recursive = true;
-  #   source = ./config;
-  # };
-
   programs.fish = {
     enable = true;
 
@@ -17,7 +12,7 @@
       set fish_cursor_replace underscore
       set fish_cursor_replace_one underscore
 
-      set fish_prompt_separator 1
+      set fish_prompt_separator 0
 
       ## local config
       if test -f ~/.config.fish
@@ -48,6 +43,15 @@
       export GUM_FILTER_CURSOR_PREFIX="[ ] "
       export GUM_FILTER_INDICATOR="> "
       export GUM_INPUT_PROMPT="> "
+
+      ## prompt separator
+      function prompt_separator --on-event fish_postexec
+        if test $fish_prompt_separator -eq 1
+            set_color 45475a
+            echo (string repeat -n $COLUMNS '─')
+            echo -n $line
+        end
+      end
 
       ## zoxide variables
       zoxide init fish | source
