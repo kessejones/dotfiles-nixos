@@ -5,6 +5,7 @@
     ./services.nix
     ./system-pkgs.nix
     ./users.nix
+    ./polkit.nix
     ./virtualisation.nix
     ./vpn-scripts.nix
     ./openvpn.nix
