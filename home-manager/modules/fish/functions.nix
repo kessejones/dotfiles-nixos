@@ -25,7 +25,7 @@ in {
           end
       end
 
-      if test "$fish_private_mode" = "1"
+      if test -n "$fish_private_mode"
           _power_prompt --text=' 󰗹 ' --background="292c3c" --foreground="cdd6f4" --reset=$reset_color --bold
       end
 
@@ -69,8 +69,18 @@ in {
     bind --user -M insert \cr _fzf_search_history
 
     bind --user -M insert \co '$EDITOR'
+    bind --user -M insert \cp __fish_toggle_private_mode
 
     set -g fish_key_bindings fish_vi_key_bindings
+  '';
+
+  __fish_toggle_private_mode.body = ''
+    if test -n "$fish_private_mode"
+      set -e fish_private_mode
+    else
+      set -g fish_private_mode 1
+    end
+    commandline --function repaint
   '';
 
   _power_prompt.body = ''
