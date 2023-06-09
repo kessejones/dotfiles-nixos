@@ -5,7 +5,7 @@
 }: {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
+    package = pkgs.neovim-unwrapped;
 
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
