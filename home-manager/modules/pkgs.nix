@@ -7,6 +7,7 @@
     gum
     gh
     fd
+    zip
     unzip
     xclip
 
