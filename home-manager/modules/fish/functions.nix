@@ -74,11 +74,13 @@ in {
     set -g fish_key_bindings fish_vi_key_bindings
   '';
 
+  fish_greeting.body = "";
+
   __fish_toggle_private_mode.body = ''
     if test -n "$fish_private_mode"
-      set -e fish_private_mode
+      exec fish
     else
-      set -g fish_private_mode 1
+      exec fish --private
     end
     commandline --function repaint
   '';
