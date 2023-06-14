@@ -39,5 +39,6 @@
 
     # games
     TLauncher
+    prismlauncher
   ];
 }
