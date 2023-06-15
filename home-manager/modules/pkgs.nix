@@ -40,5 +40,8 @@
     # games
     TLauncher
     prismlauncher
+    minecraft
+
+    oraclejdk17
   ];
 }

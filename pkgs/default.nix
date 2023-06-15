@@ -1,5 +1,6 @@
 final: prev: {
   TLauncher = final.callPackage ./tlauncher {};
+  oraclejdk17 = final.callPackage ./oraclejdk17 {};
 
   nodeCustomPackages = {
     prettierd = final.callPackage ./prettierd {};
