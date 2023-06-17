@@ -28,6 +28,7 @@
     arandr
     brave
     librewolf
+    gimp
 
     # torrents
     deluge
