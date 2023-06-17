@@ -16,6 +16,7 @@
   programs.dconf.enable = true;
   programs.fish.enable = true;
   programs.command-not-found.enable = false;
+  programs.gamemode.enable = true;
 
   documentation.nixos.enable = false;
 
