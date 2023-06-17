@@ -5,37 +5,38 @@ in {
     set -l reset_color $mode_color_normal
     set -l mode_text ""
     if test "$fish_key_bindings" = fish_vi_key_bindings
-          or test "$fish_key_bindings" = fish_hybrid_key_bindings
+        or test "$fish_key_bindings" = fish_hybrid_key_bindings
           switch $fish_bind_mode
-              case default
-                  set mode_text "[N]"
-                  set reset_color $mode_color_normal
-              case insert
-                  set mode_text "[I]"
-                  set reset_color $mode_color_insert
-              case replace_one
-                  set mode_text "[R]"
-                  set reset_color $mode_color_green
-              case replace
-                  set mode_text "[R]"
-                  set reset_color $mode_color_replace
-              case visual
-                  set mode_text "[V]"
-                  set reset_color $mode_color_visual
+            case default
+              set mode_text "[N]"
+              set reset_color $mode_color_normal
+            case insert
+              set mode_text "[I]"
+              set reset_color $mode_color_insert
+            case replace_one
+              set mode_text "[R]"
+              set reset_color $mode_color_green
+            case replace
+              set mode_text "[R]"
+              set reset_color $mode_color_replace
+            case visual
+              set mode_text "[V]"
+              set reset_color $mode_color_visual
           end
       end
 
       if test -n "$SSH_TTY" || test -n "$SSH_CLIENT"
-          set -l machine (hostname)
-          _power_prompt --text="[$machine]" --background=$fish_color_lavender --foreground=$fish_color_base --reset=$reset_color --bold
+        set -l machine (hostname)
+        _power_prompt --text="[$machine]" --background=$fish_color_lavender --foreground=$fish_color_base --reset=$reset_color --bold
+        set reset_color $fish_color_lavender
       end
 
       if test -n "$fish_private_mode"
-          _power_prompt --text=' 󰗹 ' --background="292c3c" --foreground="cdd6f4" --reset=$reset_color --bold
+        _power_prompt --text=' 󰗹 ' --background="292c3c" --foreground="cdd6f4" --reset=$reset_color --bold
       end
 
     if test "$fish_key_bindings" = fish_vi_key_bindings
-          or test "$fish_key_bindings" = fish_hybrid_key_bindings
+        or test "$fish_key_bindings" = fish_hybrid_key_bindings
       _power_prompt --text=$mode_text --background=$reset_color --foreground=$mode_fg --reset=$mode_color_reset --bold
       echo -n -s ' '
     end
@@ -50,10 +51,10 @@ in {
 
     set -l git_info (fish_git_prompt)
     if test -n "$git_info"
-        _power_prompt --text="$cwd " --background=$fish_color_cwd_bg --foreground=$fish_color_cwd_fg --reset=$fish_color_git_bg
-        _power_prompt --text="$git_info" --background=$fish_color_git_bg --foreground=$fish_color_git_fg --reset=normal
+      _power_prompt --text="$cwd " --background=$fish_color_cwd_bg --foreground=$fish_color_cwd_fg --reset=$fish_color_git_bg
+      _power_prompt --text="$git_info" --background=$fish_color_git_bg --foreground=$fish_color_git_fg --reset=normal
     else
-        _power_prompt --text="$cwd " --background=$fish_color_cwd_bg --foreground=$fish_color_cwd_fg --reset=normal
+      _power_prompt --text="$cwd " --background=$fish_color_cwd_bg --foreground=$fish_color_cwd_fg --reset=normal
     end
 
     echo -n -s ' ' $normal
@@ -105,9 +106,9 @@ in {
     set_color -b $_flag_r
 
     if test -n "$_flag_o"
-        set_color --bold $_flag_b
+      set_color --bold $_flag_b
     else
-        set_color $_flag_b
+      set_color $_flag_b
     end
 
     echo -n -s ''
@@ -136,7 +137,7 @@ in {
     clear
     set -l selected (gum choose --limit 1 $dots | cut -d' ' -f2)
     if test -n "$selected"
-        cd $selected
+      cd $selected
     end
 
     commandline --function repaint
@@ -157,7 +158,7 @@ in {
     set file_paths_selected (fd $fd_opts 2>/dev/null | _fzf_wrapper $fzf_arguments)
 
     if test $status -eq 0
-        cd $HOME/$file_paths_selected
+      cd $HOME/$file_paths_selected
     end
 
     commandline --function repaint
@@ -168,31 +169,31 @@ in {
     builtin history merge
 
     set command_with_ts (
-        # Reference https://devhints.io/strftime to understand strftime format symbols
-        builtin history --null --show-time="%d/%m - %H:%M:%S │ " |
-        _fzf_wrapper --read0 \
-            --tiebreak=index \
-            --query=(commandline) \
-            --header-first \
-            --header 'Search in history' \
-            # preview current command using fish_ident in a window at the bottom 3 lines tall
-            # --preview="echo -- {4..} | fish_indent --ansi" \
-            # --preview-window="bottom:3:wrap" \
-            --bind "ctrl-space:execute(echo 'REPLACE │ {}')+abort,enter:execute(echo 'RUN │ {}')+abort" \
-            $fzf_history_opts |
-        string collect
+      # Reference https://devhints.io/strftime to understand strftime format symbols
+      builtin history --null --show-time="%d/%m - %H:%M:%S │ " |
+      _fzf_wrapper --read0 \
+        --tiebreak=index \
+        --query=(commandline) \
+        --header-first \
+        --header 'Search in history' \
+        # preview current command using fish_ident in a window at the bottom 3 lines tall
+        # --preview="echo -- {4..} | fish_indent --ansi" \
+        # --preview-window="bottom:3:wrap" \
+        --bind "ctrl-space:execute(echo 'REPLACE │ {}')+abort,enter:execute(echo 'RUN │ {}')+abort" \
+        $fzf_history_opts |
+      string collect
     )
 
     if test $status -eq 0
-        set selected_parts (string split --max 3 " │ " $command_with_ts)
+      set selected_parts (string split --max 3 " │ " $command_with_ts)
 
-        set command_selected $selected_parts[3]
-        switch $selected_parts[1]
-            case RUN
-                eval $command_selected
-            case REPLACE
-                commandline --replace -- $command_selected
-        end
+      set command_selected $selected_parts[3]
+      switch $selected_parts[1]
+        case RUN
+          eval $command_selected
+        case REPLACE
+          commandline --replace -- $command_selected
+      end
     end
 
     commandline --function repaint
@@ -202,7 +203,7 @@ in {
     set --local --export SHELL (command --search fish)
 
     if not set --query FZF_DEFAULT_OPTS
-        set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
+      set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
     end
 
     ${fzf} $argv
