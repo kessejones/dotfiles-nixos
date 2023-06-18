@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{...}: let
   base = "#1e1e2e";
   mantle = "#181825";
   surface0 = "#313244";
@@ -28,15 +28,7 @@ in {
     disableConfirmationPrompt = true;
     terminal = "tmux-256color";
 
-    plugins = [
-      {
-        plugin = pkgs.tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '5'
-        '';
-      }
-    ];
+    plugins = [];
 
     extraConfig = ''
       set -sa terminal-overrides ',tmux-256color:Tc'
@@ -86,6 +78,10 @@ in {
       bind l select-pane -R
       bind k select-pane -U
       bind j select-pane -D
+
+      # swap pane
+      bind p swap-pane -U
+      bind n swap-pane -D
 
       # Resizing pane (vim-like)
       bind -r C-j resize-pane -D 2
