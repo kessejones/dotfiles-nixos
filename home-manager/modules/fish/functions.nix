@@ -28,7 +28,7 @@ in {
       if test -n "$SSH_TTY" || test -n "$SSH_CLIENT"
         set -l machine (hostname)
         _power_prompt --text="[$machine]" --background=$fish_color_lavender --foreground=$fish_color_base --reset=$reset_color --bold
-        set reset_color $fish_color_lavender
+        set reset_color "292c3c"
       end
 
       if test -n "$fish_private_mode"
