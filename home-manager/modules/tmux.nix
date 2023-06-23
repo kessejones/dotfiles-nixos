@@ -31,7 +31,8 @@ in {
     plugins = [];
 
     extraConfig = ''
-      set -sa terminal-overrides ',tmux-256color:Tc'
+      set -sa terminal-overrides ',xterm-kitty:RGB'
+      set -sa terminal-features ",alacritty*:RGB,foot*:RGB,xterm-kitty*:RGB,xterm-256color:RGB"
 
       # global settings
       set -g focus-events on
@@ -78,10 +79,6 @@ in {
       bind l select-pane -R
       bind k select-pane -U
       bind j select-pane -D
-
-      # swap pane
-      bind p swap-pane -U
-      bind n swap-pane -D
 
       # Resizing pane (vim-like)
       bind -r C-j resize-pane -D 2
