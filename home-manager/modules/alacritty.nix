@@ -11,7 +11,7 @@
         "~/.config/alacritty/catppuccin-mocha.yml"
       ];
       font = {
-        size = 11;
+        size = 10;
         normal = {
           inherit family;
           style = "Regular";
@@ -39,7 +39,7 @@
       };
 
       window = {
-        opacity = 0.9;
+        # opacity = 0.9;
         padding = {
           x = 5;
           y = 5;
