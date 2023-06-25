@@ -16,6 +16,7 @@
         "wheel"
         "networkmanager"
         "nordvpn"
+        "plugdev"
       ];
     };
   };

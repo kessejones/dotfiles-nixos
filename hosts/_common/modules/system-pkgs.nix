@@ -8,5 +8,7 @@
     alsa-utils
 
     sshfs
+
+    wally-cli
   ];
 }

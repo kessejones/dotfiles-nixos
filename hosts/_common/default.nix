@@ -31,4 +31,11 @@
     lt4 = "${pkgs.exa}/bin/exa --tree -L 4";
     lt5 = "${pkgs.exa}/bin/exa --tree -L 5";
   };
+
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
+  hardware.keyboard.zsa.enable = true;
 }
