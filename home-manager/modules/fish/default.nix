@@ -2,7 +2,7 @@
   programs.fish = {
     enable = true;
 
-    functions = import ./functions.nix {pkgs = pkgs;};
+    functions = import ./functions.nix {inherit pkgs;};
     shellAliases = import ./alias.nix;
 
     interactiveShellInit = ''
