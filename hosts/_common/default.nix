@@ -38,4 +38,5 @@
   };
 
   hardware.keyboard.zsa.enable = true;
+  hardware.bluetooth.enable = true;
 }
