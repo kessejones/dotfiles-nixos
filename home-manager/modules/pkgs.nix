@@ -18,10 +18,9 @@
     gcc
     gnumake
     nodejs
+    yarn
 
     # desktop
-    gnome.nautilus
-    gnome.file-roller
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
     cinnamon.pix
     qalculate-gtk
@@ -37,6 +36,7 @@
     # system manager
     pulseaudio
     pavucontrol
+    mpc_cli
 
     # games
     TLauncher
