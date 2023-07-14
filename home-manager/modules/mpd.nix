@@ -8,7 +8,7 @@
       port = 6600;
     };
 
-    musicDirectory = "/media/Data/Music";
+    musicDirectory = "~/Music/";
 
     extraConfig = ''
       audio_output {
