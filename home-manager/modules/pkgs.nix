@@ -14,11 +14,11 @@
     # dev
     php
     php.packages.composer
-    rustup
     gcc
     gnumake
     nodejs
     yarn
+    rustup
 
     # desktop
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
@@ -44,5 +44,7 @@
     minecraft
 
     oraclejdk17
+
+    discord
   ];
 }

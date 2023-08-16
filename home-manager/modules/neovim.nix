@@ -18,11 +18,9 @@
 
       haskell-language-server
       lua-language-server
-      rust-analyzer
       tree-sitter
       clang-tools
       alejandra
-      rustfmt
       gopls
       nil
       stylua
