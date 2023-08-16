@@ -35,9 +35,16 @@
       };
       push = {
         default = "current";
+        autoSetupRemote = true;
       };
       init = {
         defaultBranch = "main";
+      };
+
+      url = {
+        "ssh://git@github.com/" = {
+          insteadOf = "https://github.com/";
+        };
       };
     };
 
@@ -73,6 +80,9 @@
       ci = "commit";
       ca = "commit --amend";
       cu = "reset --soft HEAD^";
+
+      # cherry-pick
+      cp = "cherry-pick";
 
       # push
       ps = "push";
