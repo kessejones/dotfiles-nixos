@@ -40,4 +40,6 @@ final: prev: {
 
     grub-mocha = final.callPackage ./grub-catppuccin-mocha {};
   };
+
+  discord = prev.discord.override {withOpenASAR = true;};
 }
