@@ -4,7 +4,7 @@
       enable = true;
     };
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       material-icons
 
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack" "JetBrainsMono"];})
