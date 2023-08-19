@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  boot.kernelPackages = pkgs.linuxPackages_6_3;
+  boot.kernelPackages = pkgs.linuxPackages_6_4;
   boot.loader = {
     efi = {
       efiSysMountPoint = "/boot";
