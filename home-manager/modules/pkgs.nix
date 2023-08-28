@@ -10,6 +10,7 @@
     zip
     unzip
     xclip
+    lazydocker
 
     # dev
     php
