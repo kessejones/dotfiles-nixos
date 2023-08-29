@@ -19,6 +19,7 @@
     ./git
     ./fish
     ./rofi
+    ./zellij.nix
     ./pkgs.nix
   ];
 }
