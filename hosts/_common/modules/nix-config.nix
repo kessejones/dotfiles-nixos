@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.pulseaudio = true;
