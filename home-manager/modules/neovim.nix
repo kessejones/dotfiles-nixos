@@ -23,6 +23,7 @@
       alejandra
       gopls
       nil
+      nixd
       stylua
       elixir_ls
 
