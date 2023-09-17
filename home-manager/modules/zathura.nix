@@ -1,12 +1,11 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.zathura = {
     enable = true;
+    extraConfig = ''
+      include catppuccin-mocha
+    '';
     options = {
-      include = "catppuccin-mocha";
+      selection-clipboard = "clipboard";
     };
   };
 
