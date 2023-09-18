@@ -42,4 +42,26 @@ final: prev: {
   };
 
   discord = prev.discord.override {withOpenASAR = true;};
+  awesome-git =
+    (prev.awesome.override
+      {
+        gtk3Support = true;
+      })
+    .overrideAttrs (old: {
+      patches = [];
+      cmakeFlags = old.cmakeFlags ++ ["-DGENERATE_MANPAGES=OFF"];
+      version = "aa8c7c6e27a20fa265d3f06c5dc3fe72cc5f021e";
+      src = final.fetchFromGitHub {
+        owner = "awesomeWM";
+        repo = "awesome";
+        rev = "aa8c7c6e27a20fa265d3f06c5dc3fe72cc5f021e";
+        fetchSubmodules = false;
+        sha256 = "sha256-DGAImB4u8sRP9PEoZ4YXAxopa8eaJ7YJxSiBh36yfaE=";
+      };
+
+      postPatch = ''
+        patchShebangs tests/examples/_postprocess.lua
+        patchShebangs tests/examples/_postprocess_cleanup.lua
+      '';
+    });
 }
