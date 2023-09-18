@@ -1,6 +1,7 @@
 final: prev: {
   TLauncher = final.callPackage ./tlauncher {};
   oraclejdk17 = final.callPackage ./oraclejdk17 {};
+  nordvpn = final.callPackage ./nordvpn {};
 
   nodeCustomPackages = {
     prettierd = final.callPackage ./prettierd {};
