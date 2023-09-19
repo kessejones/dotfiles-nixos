@@ -7,7 +7,7 @@
     packages = with pkgs; [
       material-icons
 
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack" "JetBrainsMono"];})
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Hack" "JetBrainsMono" "Ubuntu"];})
     ];
   };
 }

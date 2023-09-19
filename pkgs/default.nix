@@ -65,4 +65,22 @@ final: prev: {
         patchShebangs tests/examples/_postprocess_cleanup.lua
       '';
     });
+
+  picom-git = prev.picom.overrideAttrs (old: {
+    pname = "picom-pijulius";
+    version = "982bb43e5d4116f1a37a0bde01c9bda0b88705b9";
+    src = final.fetchFromGitHub {
+      owner = "pijulius";
+      repo = "picom";
+      rev = "982bb43e5d4116f1a37a0bde01c9bda0b88705b9";
+      fetchSubmodules = false;
+      sha256 = "sha256-YiuLScDV9UfgI1MiYRtjgRkJ0VuA1TExATA2nJSJMhM=";
+    };
+    buildInputs =
+      (old.buildInputs or [])
+      ++ [
+        final.pcre2
+        final.xorg.xcbutil
+      ];
+  });
 }
