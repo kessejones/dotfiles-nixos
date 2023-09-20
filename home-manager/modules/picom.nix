@@ -27,17 +27,17 @@
       transition-pow-h = 0.1;
       size-transition = true;
 
-      animations = true;
-      # auto, none, fly-in, zoom, slide-down, slide-up, slide-left, slide-right, slide-in, slide-out
-      animation-for-transient-window = "slide-down";
-      animation-for-open-window = "none";
-      animation-for-unmap-window = "none";
-      animation-stiffness = 300.0;
-      animation-window_mass = 1.0;
-      animation-dampening = 26;
-      animation-delta = 10;
-      animation-force_steps = false;
-      animation-clamping = true;
+      # animations = true;
+      # # auto, none, fly-in, zoom, slide-down, slide-up, slide-left, slide-right, slide-in, slide-out
+      # animation-for-transient-window = "slide-down";
+      # animation-for-open-window = "none";
+      # animation-for-unmap-window = "none";
+      # animation-stiffness = 300.0;
+      # animation-window_mass = 1.0;
+      # animation-dampening = 26;
+      # animation-delta = 10;
+      # animation-force_steps = false;
+      # animation-clamping = true;
     };
   };
 }

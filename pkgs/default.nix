@@ -67,6 +67,24 @@ final: prev: {
     });
 
   picom-git = prev.picom.overrideAttrs (old: {
+    pname = "picom-git";
+    version = "fbc803b9839c19a65c6c46421147c29b46f446fb";
+    src = final.fetchFromGitHub {
+      owner = "yshui";
+      repo = "picom";
+      rev = "fbc803b9839c19a65c6c46421147c29b46f446fb";
+      fetchSubmodules = false;
+      sha256 = "sha256-OamLuacizek/6nEBPSUj3wOzHuuxZJdowRaXIlBAu94=";
+    };
+    buildInputs =
+      (old.buildInputs or [])
+      ++ [
+        final.pcre2
+        final.xorg.xcbutil
+      ];
+  });
+
+  picom-pijulius = prev.picom.overrideAttrs (old: {
     pname = "picom-pijulius";
     version = "982bb43e5d4116f1a37a0bde01c9bda0b88705b9";
     src = final.fetchFromGitHub {
