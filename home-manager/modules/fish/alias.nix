@@ -1,9 +1,9 @@
 {
-  ls = "exa";
-  ll = "exa --long --group";
+  ls = "eza";
+  ll = "eza --long --group";
   la = "ll --all";
   lt = "ll --tree";
-  li = "exa --icons";
+  li = "eza --icons";
   tree = "lt";
   top = "btop";
   n = "nvim";

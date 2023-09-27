@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # command utils
     fzf
-    exa
+    eza
     ripgrep
     gum
     gh
