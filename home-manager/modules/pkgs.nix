@@ -24,7 +24,8 @@
     # desktop
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
     cinnamon.pix
-    qalculate-gtk
+    gnome.gnome-calculator
+    gnome.gnome-calendar
     arandr
     brave
     librewolf
