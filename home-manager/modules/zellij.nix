@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  home-dir = builtins.getEnv "HOME";
+in {
   programs.zellij = {
     enable = true;
     package = pkgs.zellij;
@@ -123,7 +125,7 @@
 
         tmux {
             bind "t" {
-                NewTab { cwd "/home/kesse"; }
+                NewTab { cwd "${home-dir}"; }
                 SwitchToMode "Normal";
             }
 
