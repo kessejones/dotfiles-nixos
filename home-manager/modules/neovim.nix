@@ -18,6 +18,7 @@
 
       haskell-language-server
       lua-language-server
+      java-language-server
       tree-sitter
       clang-tools
       alejandra
