@@ -11,6 +11,7 @@
     unzip
     xclip
     lazydocker
+    yazi
 
     # dev
     php
@@ -20,6 +21,8 @@
     nodejs
     yarn
     rustup
+    maven
+    gradle
 
     # desktop
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
