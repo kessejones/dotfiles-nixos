@@ -11,6 +11,7 @@
     unzip
     xclip
     lazydocker
+    pass
     yazi
 
     # dev
