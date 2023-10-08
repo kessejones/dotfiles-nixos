@@ -1,5 +1,9 @@
-{pkgs, ...}: let
-  home-dir = builtins.getEnv "HOME";
+{
+  pkgs,
+  username,
+  ...
+}: let
+  home-dir = "/home/${username}";
 in {
   programs.zellij = {
     enable = true;
@@ -125,7 +129,9 @@ in {
 
         tmux {
             bind "t" {
-                NewTab { cwd "${home-dir}"; }
+                NewTab {
+                  cwd "${home-dir}"
+                };
                 SwitchToMode "Normal";
             }
 
@@ -154,8 +160,14 @@ in {
 
             bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 
-            bind "\\" { NewPane; SwitchToMode "Normal"; }
-            bind "'" { NewPane "Down"; SwitchToMode "Normal"; }
+            bind "\\" {
+              NewPane "Right";
+              SwitchToMode "Normal";
+            }
+            bind "'" {
+              NewPane "Down";
+              SwitchToMode "Normal";
+            }
 
             bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
             bind ";" { ToggleFloatingPanes; SwitchToMode "Normal"; }
@@ -248,6 +260,8 @@ in {
     // Default: default
     //
     theme "catppuccin-mocha"
+
+    default_cwd "${home-dir}"
 
     // The name of the default layout to load on startup
     // Default: "default"
