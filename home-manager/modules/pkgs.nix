@@ -49,7 +49,7 @@
     prismlauncher
     minecraft
 
-    oraclejdk17
+    #oraclejdk17
 
     discord
   ];
