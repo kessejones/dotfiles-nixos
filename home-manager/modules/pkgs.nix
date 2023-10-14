@@ -45,7 +45,7 @@
     mpc_cli
 
     # games
-    TLauncher
+    #TLauncher
     prismlauncher
     minecraft
 
