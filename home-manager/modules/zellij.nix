@@ -14,9 +14,11 @@ in {
     keybinds clear-defaults=true {
         normal {
         }
+
         locked {
             bind "Esc" { SwitchToMode "Normal"; }
         }
+
         resize {
             bind "Ctrl n" { SwitchToMode "Normal"; }
             bind "h" "Left" { Resize "Increase Left"; }
@@ -29,6 +31,7 @@ in {
             bind "L" { Resize "Decrease Right"; }
             bind "=" "+" { Resize "Increase"; }
             bind "-" { Resize "Decrease"; }
+            bind "m" { SwitchToMode "Move"; }
         }
         pane {
             bind "Ctrl p" { SwitchToMode "Normal"; }
@@ -47,6 +50,7 @@ in {
             bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
             bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
         }
+
         move {
             bind "Ctrl h" { SwitchToMode "Normal"; }
             bind "n" "Tab" { MovePane; }
@@ -55,7 +59,9 @@ in {
             bind "j" "Down" { MovePane "Down"; }
             bind "k" "Up" { MovePane "Up"; }
             bind "l" "Right" { MovePane "Right"; }
+            bind "r" { SwitchToMode "Resize"; }
         }
+
         tab {
             bind "Ctrl t" { SwitchToMode "Normal"; }
             bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
@@ -80,6 +86,7 @@ in {
             bind "Ctrl s" { SwitchToMode "Normal"; }
             bind "e" { EditScrollback; SwitchToMode "Normal"; }
             bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
+            bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
             bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
             bind "j" "Down" { ScrollDown; }
             bind "k" "Up" { ScrollUp; }
@@ -161,11 +168,17 @@ in {
             bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 
             bind "\\" {
-              NewPane "Right";
+              NewPane {
+                cwd "/home/kesse"
+                direction "Down"
+              };
               SwitchToMode "Normal";
             }
             bind "'" {
-              NewPane "Down";
+              NewPane {
+                cwd "/home/kesse"
+                direction "Down"
+              };
               SwitchToMode "Normal";
             }
 
@@ -175,6 +188,7 @@ in {
 
             bind "r" { SwitchToMode "Resize"; }
             bind "m" { SwitchToMode "Move"; }
+            bind "S" { SwitchToMode "Scroll"; }
 
             bind "s" {
                 LaunchOrFocusPlugin "zellij:session-manager" {
