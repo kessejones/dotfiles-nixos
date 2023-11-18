@@ -46,7 +46,7 @@
 
     # games
     #TLauncher
-    prismlauncher
+    (prismlauncher.override {jdks = [zulu8 zulu17];})
     minecraft
 
     #oraclejdk17
