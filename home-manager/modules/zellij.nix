@@ -216,6 +216,8 @@ in {
         session-manager { path "session-manager"; }
     }
 
+    session_serialization false
+
     // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
     // eg. when terminal window with an active zellij session is closed
     // Options:
