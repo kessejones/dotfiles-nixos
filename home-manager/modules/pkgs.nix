@@ -9,6 +9,7 @@
     fd
     zip
     unzip
+    unrar
     xclip
     lazydocker
     pass
