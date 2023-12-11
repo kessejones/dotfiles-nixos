@@ -12,6 +12,8 @@
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       nodePackages.prettier
+      ocamlPackages.ocaml-lsp
+      ocamlPackages.ocamlformat
 
       php.packages.phpcs
       php.packages.php-cs-fixer
