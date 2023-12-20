@@ -30,11 +30,11 @@
     fsType = "vfat";
   };
 
-  fileSystems."/media/Data" = {
-    device = "/dev/sda1";
-    fsType = "ntfs";
-    options = ["rw" "uid=1000"];
-  };
+  # fileSystems."/media/Data" = {
+  #   device = "/dev/sda1";
+  #   fsType = "ntfs";
+  #   options = ["rw" "uid=1000"];
+  # };
 
   swapDevices = [];
 
