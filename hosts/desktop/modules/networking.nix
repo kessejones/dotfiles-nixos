@@ -2,7 +2,7 @@
   networking = {
     networkmanager.enable = true;
     hostName = "momon-san";
-    nameservers = ["103.86.96.100" "103.86.99.100"];
+    # nameservers = ["103.86.96.100" "103.86.99.100"];
 
     firewall = let
       tcpPorts = [22 24800 25565];
