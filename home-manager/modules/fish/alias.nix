@@ -19,4 +19,5 @@
   ips = "ip -c -br a";
 
   ze = "zellij attach main || zellij --session main";
+  zr = "lazydocker";
 }

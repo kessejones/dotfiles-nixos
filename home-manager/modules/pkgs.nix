@@ -53,5 +53,7 @@
     #oraclejdk17
 
     discord
+    immersed-vr
+    sidequest
   ];
 }
