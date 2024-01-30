@@ -31,6 +31,7 @@
     cinnamon.pix
     gnome.gnome-calculator
     gnome.gnome-calendar
+    gnome.file-roller
     arandr
     brave
     librewolf
