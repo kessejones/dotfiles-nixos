@@ -2,7 +2,7 @@
   services = {
     xserver = {
       enable = true;
-      layout = "br";
+      xkb.layout = "br";
 
       libinput.enable = true;
 
