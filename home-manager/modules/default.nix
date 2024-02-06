@@ -20,6 +20,7 @@
     ./fish
     ./rofi
     ./zellij.nix
+    ./gh.nix
     ./pkgs.nix
   ];
 }

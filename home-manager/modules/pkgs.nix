@@ -5,7 +5,6 @@
     eza
     ripgrep
     gum
-    gh
     fd
     zip
     unzip
@@ -56,5 +55,7 @@
     discord
     immersed-vr
     sidequest
+
+    ngrok
   ];
 }
