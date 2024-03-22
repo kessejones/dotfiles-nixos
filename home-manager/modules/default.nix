@@ -22,5 +22,6 @@
     ./zellij.nix
     ./gh.nix
     ./pkgs.nix
+    ./wezterm.nix
   ];
 }
