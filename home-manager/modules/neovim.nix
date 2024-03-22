@@ -8,6 +8,7 @@
     package = pkgs.neovim-unwrapped;
 
     extraPackages = with pkgs; [
+      luarocks
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
@@ -29,6 +30,7 @@
       nixd
       stylua
       elixir_ls
+      zls
 
       nodeCustomPackages.prettierd
     ];

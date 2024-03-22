@@ -26,6 +26,8 @@
         "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "duckduckgo";
         "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckduckgo";
 
+        # "media.navigator.enabled" = false;
+
         # privacy
         "privacy.donottrackheader.enabled" = true;
         "privacy.donottrackheader.value" = 1;
@@ -33,7 +35,8 @@
         "privacy.trackingprotection.enabled" = true;
         "privacy.trackingprotection.socialtracking.enabled" = true;
         "privacy.trackingprotection.cryptomining.enabled" = true;
-        "privacy.trackingprotection.figerprinting.enabled" = true;
+        # "privacy.trackingprotection.fingerprinting.enabled" = true;
+        # "privacy.resistFingerprinting" = true;
         "toolkit.telemetry.enabled" = false;
         "toolkit.telemetry.unified" = false;
         "toolkit.telemetry.archive.enabled" = false;
@@ -45,6 +48,7 @@
         "geo.wifi.uri" = "";
         "dom.battery.enabled" = false;
         "network.IDN_show_punycode" = true;
+        # "network.ttr.mode" = 5;
         "plugins.enumerable_names" = "";
         "beacon.enabled" = false;
         "browser.send_pings" = false;

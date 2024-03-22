@@ -23,7 +23,11 @@
     yarn
     rustup
     maven
-    gradle
+    # gradle
+    opam
+    dune_3
+    ocamlPackages.ocaml
+    zig
 
     # desktop
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
