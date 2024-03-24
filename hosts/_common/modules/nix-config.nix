@@ -3,6 +3,7 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.pulseaudio = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   nix = {
     extraOptions = ''
