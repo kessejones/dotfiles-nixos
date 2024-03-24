@@ -62,19 +62,16 @@
 
     config.freetype_load_target = "HorizontalLcd"
     config.bold_brightens_ansi_colors = true
-    -- config.max_fps = 120
     config.default_cwd = wezterm.home_dir
     config.hide_tab_bar_if_only_one_tab = true
     config.tab_bar_at_bottom = true
     config.use_fancy_tab_bar = false
     config.default_cursor_style = 'SteadyBar'
-    --  config.default_cursor_style = "BlinkingBar" -- testing
-    config.cursor_blink_rate = 500
-    config.animation_fps = 1
     config.cursor_blink_ease_in = "Constant"
     config.cursor_blink_ease_out = "Constant"
     config.enable_scroll_bar = false
     config.window_decorations = "RESIZE"
+    config.window_close_confirmation = "NeverPrompt"
 
     config = require("keys")(config)
 
