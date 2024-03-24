@@ -47,7 +47,7 @@
   hardware.nvidia.powerManagement.enable = false;
   hardware.nvidia.powerManagement.finegrained = false;
   hardware.nvidia.open = false;
-  hardware.nvidia.nvidiaSettings = true;
+  # hardware.nvidia.nvidiaSettings = true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
     version = "535.154.05";
     sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
