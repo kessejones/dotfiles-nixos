@@ -16,7 +16,7 @@
       ocamlPackages.ocaml-lsp
       ocamlPackages.ocamlformat
 
-      php.packages.php-codesniffer
+      php.packages.phpcs
       php.packages.php-cs-fixer
 
       haskell-language-server

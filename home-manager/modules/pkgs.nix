@@ -33,7 +33,7 @@
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
     cinnamon.pix
     gnome.gnome-calculator
-    # gnome.gnome-calendar
+    gnome.gnome-calendar
     gnome.file-roller
     arandr
     brave
