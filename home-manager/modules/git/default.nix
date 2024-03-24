@@ -84,8 +84,6 @@
       # cherry-pick
       cp = "cherry-pick";
 
-      cl = "clone";
-
       # push
       ps = "push";
       fp = "push --force-with-lease";
