@@ -90,7 +90,7 @@
         {
             key = "t",
             mods = "LEADER",
-            action = act.SpawnTab("CurrentPaneDomain"),
+            action = act.SpawnCommandInNewTab({ cwd = wezterm.home_dir }),
         },
         {
             key = "\\",
@@ -257,6 +257,20 @@
             key = "s",
             mods = "LEADER",
             action = act.ActivateKeyTable({ name = "workspaces", one_shot = true }),
+        },
+        {
+          key = 'u',
+          mods = 'LEADER',
+          action = wezterm.action.QuickSelectArgs {
+            label = 'Open URL',
+            patterns = {
+              'https?://\\S+',
+            },
+            action = wezterm.action_callback(function(window, pane)
+              local url = window:get_selection_text_for_pane(pane)
+              window:copy_to_clipboard(url, 'Clipboard')
+            end),
+          },
         },
     }
 
