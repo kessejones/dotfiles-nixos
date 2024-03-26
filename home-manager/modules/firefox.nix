@@ -103,7 +103,7 @@
     };
 
     package = pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
-      nativeMessagingHosts = with pkgs.nur.repos.wolfangaukang; [vdhcoapp];
+      # nativeMessagingHosts = with pkgs.nur.repos.wolfangaukang; [vdhcoapp];
     };
   };
 }
