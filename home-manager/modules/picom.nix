@@ -2,7 +2,7 @@
   services.picom = {
     enable = true;
     backend = "glx";
-    package = pkgs.picom-git;
+    # package = pkgs.picom-git;
 
     shadow = false;
     shadowOpacity = 0.3;
