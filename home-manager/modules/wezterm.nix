@@ -32,38 +32,29 @@
         window:set_right_status(name or "")
     end)
 
+    config.front_end = "OpenGL"
     config.check_for_updates = false
     config.color_scheme = "Catppuccin Mocha"
     config.colors = {
         background = "#1E1E2F",
     }
 
-    config.font = wezterm.font("JetBrainsMono Nerd Font", { stretch = "Expanded", weight = "DemiBold" })
+    config.font_size = 10
+    config.font = wezterm.font_with_fallback({
+      { family = "JetBrainsMono Nerd Font", weight = "Medium" },
+      { family = "Meslo LG S", scale = 1.3 },
+    })
 
-    if wezterm.target_triple:match("linux") then
-        config.font_size = 9.4
-
-        config.window_padding = {
-            left = 5,
-            right = 0,
-            top = 5,
-            bottom = 0,
-        }
-    else
-        config.font_size = 14.0
-
-        config.window_padding = {
-            left = 2,
-            right = 0,
-            top = 2,
-            bottom = 0,
-        }
-    end
+    config.window_padding = {
+        left = 5,
+        right = 0,
+        top = 5,
+        bottom = 0,
+    }
 
     config.window_close_confirmation = "NeverPrompt"
     config.freetype_load_target = "HorizontalLcd"
     config.bold_brightens_ansi_colors = true
-    -- config.max_fps = 120
     config.default_cwd = wezterm.home_dir
     config.hide_tab_bar_if_only_one_tab = true
     config.tab_bar_at_bottom = true
