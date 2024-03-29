@@ -1,7 +1,11 @@
 {pkgs, ...}: let
-  nixProfileRemove = pkgs.writeShellScript "nix-profile-remove" ''
-    nix profile list | awk -F ' ' '{ print $1 " " $2 }' | gum choose --no-limit | cut -d' ' -f1 | xargs -r nix profile remove
+  gum = "${pkgs.gum}/bin/gum";
+  hm = "${pkgs.home-manager}/bin/home-manager";
+  hm-remove = pkgs.writeShellScriptBin "hm-remove" ''
+    ${hm} generations | ${gum} choose --height 20 --no-limit | awk '{ match($0, /id ([0-9]+) ->/, id); print id[1] }' | xargs ${hm} remove-generations
   '';
 in {
-  home.packages = [nixProfileRemove];
+  home.packages = [
+    hm-remove
+  ];
 }

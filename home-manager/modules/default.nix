@@ -23,5 +23,6 @@
     ./gh.nix
     ./pkgs.nix
     ./wezterm.nix
+    ./scripts.nix
   ];
 }
