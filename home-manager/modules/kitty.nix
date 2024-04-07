@@ -36,7 +36,7 @@
       tab_title_max_length = "20";
 
       shell_integration = "disabled";
-      shell = "tmux -u new-session -A -s main";
+      #shell = "tmux -u new-session -A -s main";
 
       kitty_mod = "ctrl+shift";
     };
