@@ -59,6 +59,25 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+
+      extraConfig.pipewire-pulse = {
+        "remove-capture-dont-move" = {
+          "pulse.rules" = [
+            {
+              actions = {
+                quirks = [
+                  "remove-capture-dont-move"
+                ];
+              };
+              matches = [
+                {
+                  "application.process.binary" = "firefox";
+                }
+              ];
+            }
+          ];
+        };
+      };
     };
 
     udisks2.enable = true;
