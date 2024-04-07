@@ -20,6 +20,7 @@
   programs.zoxide.enable = true;
   services.udiskie.enable = true;
   programs.browserpass.enable = true;
+  programs.opam.enable = true;
 
   home.sessionPath = ["$HOME/.local/bin"];
 
