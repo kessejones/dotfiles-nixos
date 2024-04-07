@@ -13,6 +13,8 @@
     lazydocker
     pass
     yazi
+    hurl
+    jq
 
     # dev
     php
