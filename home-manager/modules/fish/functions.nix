@@ -71,11 +71,11 @@
     bind --user -m insert -M default \cf accept-autosuggestion repaint-mode
     bind --user -m insert -M default \cg accept-autosuggestion execute repaint-mode
 
-    bind --user -M default gl end-of-line
-    bind --user -M default gh beginning-of-line
+    #bind --user -M default gl end-of-line
+    #bind --user -M default gh beginning-of-line
 
-    bind --user -M visual -m insert escape repaint-mode
-    bind --user -m default -M replace escape repaint-mode
+    #bind --user -M visual -m insert escape repaint-mode
+    #bind --user -m default -M replace escape repaint-mode
 
     bind --user -M insert \co '$EDITOR'
     bind --user -M insert \cp __fish_toggle_private_mode
