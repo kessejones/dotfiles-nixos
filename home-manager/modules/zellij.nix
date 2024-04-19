@@ -10,6 +10,42 @@ in {
     package = pkgs.zellij;
   };
 
+  xdg.configFile."zellij/layouts/compact.kdl".text = ''
+    layout {
+        pane
+
+        pane size=1 borderless=true {
+            plugin location="file:${pkgs.zjstatus}/bin/zjstatus.wasm" {
+                format_left  " {mode} #[fg=blue,bold]{session} {tabs}"
+                format_right "{datetime}"
+                format_space ""
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#white]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "false"
+
+                mode_normal  "#[fg=blue]●"
+                mode_pane    "#[fg=yellow]▢"
+                mode_scroll  "#[fg=yellow]▮"
+                mode_search  "#[fg=yellow]∕"
+                mode_session "#[fg=yellow]▤"
+                mode_tab     "#[fg=yellow]◆"
+                mode_tmux    "#[fg=yellow]▪"
+
+                tab_normal   "#[fg=#6C7086] {name} "
+                tab_active   "#[fg=#9399B2,bold] {name} "
+
+                datetime          "{format} "
+                datetime_format   "%A, %d %b %Y %H:%M"
+                datetime_timezone "America/Sao_Paulo"
+            }
+        }
+    }
+  '';
+
   xdg.configFile."zellij/config.kdl".text = ''
     keybinds clear-defaults=true {
         normal {
@@ -137,8 +173,10 @@ in {
         tmux {
             bind "t" {
                 NewTab {
-                  cwd "${home-dir}"
+                  cwd "${home-dir}";
+                  layout "compact";
                 };
+
                 SwitchToMode "Normal";
             }
 
@@ -217,45 +255,19 @@ in {
     }
 
     session_serialization false
-
-    // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
-    // eg. when terminal window with an active zellij session is closed
-    // Options:
-    //   - detach (Default)
-    //   - quit
-    //
-    // on_force_close "quit"
-
-    //  Send a request for a simplified ui (without arrow fonts) to plugins
-    //  Options:
-    //    - true
-    //    - false (Default)
-    //
     simplified_ui true
-
-    // Choose the path to the default shell that zellij will use for opening new panes
-    // Default: $SHELL
-    //
-    // default_shell "fish"
-
-    // Toggle between having pane frames around the panes
-    // Options:
-    //   - true (default)
-    //   - false
-    //
     pane_frames false
-
-    // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
-    // Options:
-    //   - true (default)
-    //   - false
-    //
-    // auto_layout true
-
-    // Define color themes for Zellij
-    // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
-    // Once these themes are defined, one of them should to be selected in the "theme" section of this file
-    //
+    auto_layout false
+    theme "catppuccin-mocha"
+    default_cwd "${home-dir}"
+    default_layout "compact"
+    scrollback_editor "${pkgs.neovim}/bin/nvim"
+    ui {
+        pane_frames {
+            rounded_corners true
+        }
+    }
+    // scroll_buffer_size 10000
     // themes {
     //     dracula {
     //         fg 248 248 242
@@ -271,88 +283,5 @@ in {
     //         white 255 255 255
     //     }
     // }
-
-    // Choose the theme that is specified in the themes section.
-    // Default: default
-    //
-    theme "catppuccin-mocha"
-
-    default_cwd "${home-dir}"
-
-    // The name of the default layout to load on startup
-    // Default: "default"
-    //
-    default_layout "compact"
-
-    // Choose the mode that zellij uses when starting up.
-    // Default: normal
-    //
-    // default_mode "locked"
-
-    // Toggle enabling the mouse mode.
-    // On certain configurations, or terminals this could
-    // potentially interfere with copying text.
-    // Options:
-    //   - true (default)
-    //   - false
-    //
-    // mouse_mode false
-
-    // Configure the scroll back buffer size
-    // This is the number of lines zellij stores for each pane in the scroll back
-    // buffer. Excess number of lines are discarded in a FIFO fashion.
-    // Valid values: positive integers
-    // Default value: 10000
-    //
-    // scroll_buffer_size 10000
-
-    // Provide a command to execute when copying text. The text will be piped to
-    // the stdin of the program to perform the copy. This can be used with
-    // terminal emulators which do not support the OSC 52 ANSI control sequence
-    // that will be used by default if this option is not set.
-    // Examples:
-    //
-    // copy_command "xclip -selection clipboard" // x11
-    // copy_command "wl-copy"                    // wayland
-    // copy_command "pbcopy"                     // osx
-
-    // Choose the destination for copied text
-    // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
-    // Does not apply when using copy_command.
-    // Options:
-    //   - system (default)
-    //   - primary
-    //
-    // copy_clipboard "primary"
-
-    // Enable or disable automatic copy (and clear) of selection when releasing mouse
-    // Default: true
-    //
-    // copy_on_select false
-
-    // Path to the default editor to use to edit pane scrollbuffer
-    // Default: $EDITOR or $VISUAL
-    //
-    // scrollback_editor "/usr/bin/vim"
-
-    // When attaching to an existing session with other users,
-    // should the session be mirrored (true)
-    // or should each user have their own cursor (false)
-    // Default: false
-    //
-    // mirror_session true
-
-    // The folder in which Zellij will look for layouts
-    //
-    // layout_dir "/path/to/my/layout_dir"
-
-    // The folder in which Zellij will look for themes
-    //
-    // theme_dir "/path/to/my/theme_dir"
-    ui {
-        pane_frames {
-            rounded_corners true
-        }
-    }
   '';
 }

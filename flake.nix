@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nur.url = "github:nix-community/NUR";
+    zjstatus.url = "github:dj95/zjstatus";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,6 +17,7 @@
     nixpkgs,
     nur,
     home-manager,
+    zjstatus,
   }: {
     nixosConfigurations = let
       username = "kesse";
@@ -31,6 +33,9 @@
           nixpkgs.overlays = [
             (import ./pkgs)
             nur.overlay
+            (final: prev: {
+              zjstatus = zjstatus.packages.${prev.system}.default;
+            })
           ];
         }
         home-manager.nixosModules.home-manager
