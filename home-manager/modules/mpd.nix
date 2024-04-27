@@ -1,6 +1,6 @@
 {...}: {
   services.mpd = {
-    enable = true;
+    enable = false;
 
     network = {
       startWhenNeeded = true;

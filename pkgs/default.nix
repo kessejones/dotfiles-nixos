@@ -51,13 +51,13 @@ final: prev: {
     .overrideAttrs (old: {
       patches = [];
       cmakeFlags = old.cmakeFlags ++ ["-DGENERATE_MANPAGES=OFF"];
-      version = "aa8c7c6e27a20fa265d3f06c5dc3fe72cc5f021e";
+      version = "8b1f8958b46b3e75618bc822d512bb4d449a89aa";
       src = final.fetchFromGitHub {
         owner = "awesomeWM";
         repo = "awesome";
-        rev = "aa8c7c6e27a20fa265d3f06c5dc3fe72cc5f021e";
+        rev = "8b1f8958b46b3e75618bc822d512bb4d449a89aa";
         fetchSubmodules = false;
-        sha256 = "sha256-DGAImB4u8sRP9PEoZ4YXAxopa8eaJ7YJxSiBh36yfaE=";
+        sha256 = "sha256-ZGZ53IWfQfNU8q/hKexFpb/2mJyqtK5M9t9HrXoEJCg=";
       };
 
       postPatch = ''

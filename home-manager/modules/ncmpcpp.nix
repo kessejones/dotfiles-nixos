@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.ncmpcpp = {
-    enable = true;
+    enable = false;
     package = pkgs.ncmpcpp.override {visualizerSupport = true;};
 
     settings = {
