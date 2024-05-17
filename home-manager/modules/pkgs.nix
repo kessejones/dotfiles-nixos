@@ -15,6 +15,8 @@
     yazi
     hurl
     jq
+    kaf
+    k9s
 
     # dev
     php

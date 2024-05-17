@@ -89,8 +89,8 @@ in {
 
         move {
             bind "Ctrl h" { SwitchToMode "Normal"; }
-            bind "n" "Tab" { MovePane; }
-            bind "p" { MovePaneBackwards; }
+            bind "n" { MoveTab "Right"; }
+            bind "p" { MoveTab "Left"; }
             bind "h" "Left" { MovePane "Left"; }
             bind "j" "Down" { MovePane "Down"; }
             bind "k" "Up" { MovePane "Up"; }
@@ -215,7 +215,7 @@ in {
             bind "'" {
               NewPane {
                 cwd "/home/kesse"
-                direction "Down"
+                direction "Right"
               };
               SwitchToMode "Normal";
             }
