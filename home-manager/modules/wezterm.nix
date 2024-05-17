@@ -32,6 +32,7 @@
         window:set_right_status(name or "")
     end)
 
+    config.term = "wezterm"
     config.front_end = "OpenGL"
     config.check_for_updates = false
     config.color_scheme = "Catppuccin Mocha"
