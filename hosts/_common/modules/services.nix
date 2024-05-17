@@ -1,10 +1,9 @@
 {pkgs, ...}: {
   services = {
+    libinput.enable = true;
     xserver = {
       enable = true;
       xkb.layout = "br";
-
-      libinput.enable = true;
 
       videoDrivers = ["nvidia"];
 

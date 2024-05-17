@@ -1,11 +1,12 @@
 {
   pkgs,
   lib,
+  master-pkgs,
   ...
 }: {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-unwrapped;
+    package = master-pkgs.neovim-unwrapped;
 
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
@@ -29,6 +30,7 @@
       nixd
       stylua
       elixir_ls
+      elixir
 
       nodeCustomPackages.prettierd
     ];

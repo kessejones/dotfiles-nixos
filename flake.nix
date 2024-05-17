@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    master-nixpkgs.url = "github:nixos/nixpkgs";
     nur.url = "github:nix-community/NUR";
     zjstatus.url = "github:dj95/zjstatus";
 
@@ -13,11 +14,12 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nur,
     home-manager,
     zjstatus,
+    master-nixpkgs,
+    ...
   }: {
     nixosConfigurations = let
       username = "kesse";
@@ -26,6 +28,10 @@
       nur-modules = import nur {
         nurpkgs = nixpkgs.legacyPackages.${system};
         pkgs = nixpkgs.legacyPackages.${system};
+      };
+
+      master-pkgs = import master-nixpkgs {
+        inherit system;
       };
 
       common-modules = [
@@ -44,7 +50,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ./home-manager;
           home-manager.extraSpecialArgs = {
-            inherit username;
+            inherit username master-pkgs;
           };
         }
 
