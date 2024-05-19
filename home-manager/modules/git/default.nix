@@ -10,7 +10,7 @@
         line-numbers = true;
         side-by-side = true;
         file-modified-label = "modified:";
-        light = false;
+        dark = true;
       };
     };
 
