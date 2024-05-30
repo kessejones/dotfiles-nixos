@@ -31,6 +31,8 @@
       stylua
       elixir_ls
       elixir
+      mysql
+      sqlite
 
       nodeCustomPackages.prettierd
     ];
