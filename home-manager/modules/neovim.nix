@@ -1,12 +1,12 @@
 {
   pkgs,
   lib,
-  master-pkgs,
+  unstable-pkgs,
   ...
 }: {
   programs.neovim = {
     enable = true;
-    package = master-pkgs.neovim-unwrapped;
+    package = unstable-pkgs.neovim-unwrapped;
 
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server

@@ -1,14 +1,14 @@
 {
-  description = "My Home Manager Flake";
+  description = "Dotfiles NIXOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    master-nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    unstable-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     zjstatus.url = "github:dj95/zjstatus";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -18,7 +18,7 @@
     nur,
     home-manager,
     zjstatus,
-    master-nixpkgs,
+    unstable-nixpkgs,
     ...
   }: {
     nixosConfigurations = let
@@ -30,7 +30,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       };
 
-      master-pkgs = import master-nixpkgs {
+      unstable-pkgs = import unstable-nixpkgs {
         inherit system;
       };
 
@@ -50,7 +50,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ./home-manager;
           home-manager.extraSpecialArgs = {
-            inherit username master-pkgs;
+            inherit username unstable-pkgs;
           };
         }
 
