@@ -1,9 +1,6 @@
 {...}: {
   networking = {
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-    };
+    networkmanager.enable = true;
     hostName = "momon-san";
     # nameservers = ["103.86.96.100" "103.86.99.100"];
 
