@@ -81,5 +81,6 @@
 
     udisks2.enable = true;
     blueman.enable = true;
+    resolved.enable = true;
   };
 }
