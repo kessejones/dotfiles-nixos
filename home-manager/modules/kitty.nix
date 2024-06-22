@@ -78,6 +78,11 @@
       "ctrl+a>ctrl+k" = "change_font_size all +1.0";
       "ctrl+a>ctrl+j" = "change_font_size all -1.0";
       "ctrl+a>ctrl+," = "change_font_size all 0";
+
+      "ctrl+shift+k" = "send_text all \\x1b[75;5u";
+      "ctrl+shift+j" = "send_text all \\x1b[74;5u";
+      "ctrl+shift+h" = "send_text all \\x1b[72;5u";
+      "ctrl+shift+l" = "send_text all \\x1b[76;5u";
     };
 
     package = pkgs.kitty;

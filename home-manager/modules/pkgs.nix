@@ -39,7 +39,6 @@
     gimp
 
     # torrents
-    deluge
     qbittorrent
 
     # system manager
@@ -48,7 +47,6 @@
     mpc_cli
 
     # games
-    #TLauncher
     (prismlauncher.override {jdks = [zulu8 zulu17];})
 
     discord
