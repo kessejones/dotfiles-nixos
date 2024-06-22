@@ -1,6 +1,7 @@
 {...}: {
   programs.mpv = {
     enable = true;
+    catppuccin.enable = true;
     config = {
       alang = "jpn,eng,por";
       slang = "por,jpn,eng";

@@ -1,5 +1,5 @@
 {...}: {
-  programs.bat = {
+  programs.yazi = {
     enable = true;
     catppuccin.enable = true;
   };

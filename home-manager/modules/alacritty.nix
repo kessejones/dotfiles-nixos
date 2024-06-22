@@ -1,15 +1,11 @@
-{pkgs, ...}: {
-  xdg.configFile."alacritty/catppuccin-mocha.yml".text = builtins.readFile "${pkgs.catppuccin.alacritty}/catppuccin-mocha.yml";
-
+{...}: {
   programs.alacritty = {
     enable = true;
+    catppuccin.enable = true;
 
     settings = let
       family = "JetBrainsMono Nerd Font";
     in {
-      import = [
-        "~/.config/alacritty/catppuccin-mocha.yml"
-      ];
       font = {
         size = 10;
         normal = {

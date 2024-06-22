@@ -1,6 +1,11 @@
-{username, ...}: {
+{
+  username,
+  catppuccin,
+  ...
+}: {
   imports = [
     ./modules
+    catppuccin.homeManagerModules.catppuccin
   ];
 
   home = {
@@ -9,6 +14,8 @@
     homeDirectory = "/home/${username}";
     stateVersion = "24.05";
   };
+
+  catppuccin.flavor = "mocha";
 
   xdg.enable = true;
   xdg.userDirs.enable = true;
@@ -19,7 +26,7 @@
   programs.go.enable = true;
   programs.zoxide.enable = true;
   services.udiskie.enable = true;
-  programs.browserpass.enable = true;
+  services.easyeffects.enable = true;
   programs.opam.enable = true;
 
   home.sessionPath = ["$HOME/.local/bin"];

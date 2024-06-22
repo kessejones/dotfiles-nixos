@@ -7,6 +7,7 @@
     nur.url = "github:nix-community/NUR";
     zjstatus.url = "github:dj95/zjstatus";
 
+    catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +20,7 @@
     home-manager,
     zjstatus,
     unstable-nixpkgs,
+    catppuccin,
     ...
   }: {
     nixosConfigurations = let
@@ -50,12 +52,13 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ./home-manager;
           home-manager.extraSpecialArgs = {
-            inherit username unstable-pkgs;
+            inherit username unstable-pkgs catppuccin;
           };
         }
 
         nur.nixosModules.nur
         nur-modules.repos.LuisChDev.modules.nordvpn
+        catppuccin.nixosModules.catppuccin
       ];
     in {
       laptop = nixpkgs.lib.nixosSystem {

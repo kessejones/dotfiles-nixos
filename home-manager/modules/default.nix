@@ -24,5 +24,6 @@
     ./pkgs.nix
     ./wezterm.nix
     ./scripts.nix
+    ./yazi.nix
   ];
 }

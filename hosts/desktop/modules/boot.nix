@@ -12,7 +12,7 @@
       efiSupport = true;
       efiInstallAsRemovable = true;
       gfxmodeEfi = "1920x1080";
-      theme = pkgs.catppuccin.grub-mocha;
+      catppuccin.enable = true;
     };
   };
 }

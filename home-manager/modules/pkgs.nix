@@ -11,8 +11,6 @@
     unrar
     xclip
     lazydocker
-    pass
-    yazi
     hurl
     jq
     kaf
@@ -52,8 +50,6 @@
     # games
     #TLauncher
     (prismlauncher.override {jdks = [zulu8 zulu17];})
-
-    #oraclejdk17
 
     discord
     immersed-vr
