@@ -53,8 +53,7 @@
         end
       end
 
-      ## zoxide variables
-      zoxide init fish | source
+      ${pkgs.zoxide}/bin/zoxide init fish | source
     '';
   };
 }

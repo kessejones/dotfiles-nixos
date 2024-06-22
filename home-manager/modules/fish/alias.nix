@@ -21,4 +21,5 @@
   ze = "zellij attach main || zellij --session main";
   zr = "lazydocker";
   lz = "lazydocker";
+  y = "yazi";
 }
