@@ -6,7 +6,7 @@
     delta = {
       enable = true;
       options = {
-        syntax-theme = "catppuccin-mocha";
+        catppuccin.enable = true;
         line-numbers = true;
         side-by-side = true;
         file-modified-label = "modified:";
