@@ -53,6 +53,7 @@
         bottom = 0,
     }
 
+    config.underline_thickness = "2pt"
     config.window_close_confirmation = "NeverPrompt"
     config.freetype_load_target = "HorizontalLcd"
     config.bold_brightens_ansi_colors = true
