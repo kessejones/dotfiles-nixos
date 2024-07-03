@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  xdg.configFile."fish/themes/Katppuccin Mocha.theme".text = import ./theme.nix;
+
   programs.fish = {
     enable = true;
 
@@ -19,9 +21,12 @@
           source ~/.config.fish
       end
 
-      ## custom theme
-      ${import ./colors.nix}
-      ${import ./theme.nix}
+      ## Git prompt
+      set -g __fish_git_prompt_showuntrackedfiles true
+      set -g __fish_git_prompt_showdirtystate true
+      set -g __fish_git_prompt_showupstream true
+      set -g __fish_git_prompt_char_upstream_equal ""
+      set -g __fish_git_prompt_char_cleanstate ""
 
       ## FZF variables
       set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'

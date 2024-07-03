@@ -1,61 +1,29 @@
 {pkgs, ...}: {
-  fish_default_mode_prompt.body = ''
-    set -l reset_color $mode_color_normal
-    set -l mode_text ""
-    if test "$fish_key_bindings" = fish_vi_key_bindings
-        or test "$fish_key_bindings" = fish_hybrid_key_bindings
-          switch $fish_bind_mode
-            case default
-              set mode_text "[N]"
-              set reset_color $mode_color_normal
-            case insert
-              set mode_text "[I]"
-              set reset_color $mode_color_insert
-            case replace_one
-              set mode_text "[R]"
-              set reset_color $mode_color_green
-            case replace
-              set mode_text "[R]"
-              set reset_color $mode_color_replace
-            case visual
-              set mode_text "[V]"
-              set reset_color $mode_color_visual
-          end
-      end
-
-      if test -n "$SSH_TTY" || test -n "$SSH_CLIENT"
-        set -l machine (hostname)
-        _power_prompt --text="[$machine]" --background=$fish_color_lavender --foreground=$fish_color_base --reset=$reset_color --bold
-        set reset_color "292c3c"
-      end
-
-      if test -n "$fish_private_mode"
-        _power_prompt --text=' 󰗹 ' --background="292c3c" --foreground="cdd6f4" --reset=$reset_color --bold
-      end
-
-    if test "$fish_key_bindings" = fish_vi_key_bindings
-        or test "$fish_key_bindings" = fish_hybrid_key_bindings
-      _power_prompt --text=$mode_text --background=$reset_color --foreground=$mode_fg --reset=$mode_color_reset --bold
-      echo -n -s ' '
-    end
-  '';
+  fish_default_mode_prompt.body = '''';
 
   fish_prompt.body = ''
     set -l cwd (basename (prompt_pwd))
-    set -g __fish_git_prompt_showuntrackedfiles true
-    set -g __fish_git_prompt_showdirtystate true
-    set -g __fish_git_prompt_showupstream true
-    set -g __fish_git_prompt_char_upstream_equal ""
+    set -l git_info (string trim (fish_git_prompt) --chars " ()")
 
-    set -l git_info (fish_git_prompt)
+    echo -n (__power_text_rounded --text="$cwd" --background=$fish_color_blue --foreground=$fish_color_base --reset=normal --bold)
     if test -n "$git_info"
-      _power_prompt --text="$cwd " --background=$fish_color_cwd_bg --foreground=$fish_color_cwd_fg --reset=$fish_color_git_bg
-      _power_prompt --text="$git_info" --background=$fish_color_git_bg --foreground=$fish_color_git_fg --reset=normal
-    else
-      _power_prompt --text="$cwd " --background=$fish_color_cwd_bg --foreground=$fish_color_cwd_fg --reset=normal
+        echo -n ' '
+        echo -n (__power_text_rounded --text="$git_info" --background=$fish_color_mauve --foreground=$fish_color_base --reset=normal --bold)
     end
 
-    echo -n -s ' ' $normal
+    set -l mode_color (set_color normal)
+    switch $fish_bind_mode
+        case default
+            set mode_color (set_color $fish_color_red)
+        case insert
+            set mode_color (set_color $fish_color_subtext1)
+        case visual
+            set mode_color (set_color $fish_color_mauve)
+    end
+
+    echo -n "$mode_color |>"
+    set_color normal
+    echo -n -s ' '
   '';
 
   fish_user_key_bindings.body = ''
@@ -94,6 +62,20 @@
       exec fish --private
     end
     commandline --function repaint
+  '';
+
+  __power_text_rounded.body = ''
+    argparse 'b/background=' 'f/foreground=' 'r/reset=' 'o/bold' 't/text=' -- $argv
+        or return
+
+    set -l text "$_flag_t"
+    if set -ql _flag_o
+        set text (string join "" -- (set_color --bold $_flag_f) $text)
+    else
+        set text (string join "" -- (set_color $_flag_f) $text)
+    end
+
+    string join "" -- (set_color -b $_flag_r) (set_color $_flag_b) "" (set_color -b $_flag_b) "$text" $(set_color -b $_flag_r) (set_color $_flag_b) ""
   '';
 
   _power_prompt.body = ''
