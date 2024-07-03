@@ -5,6 +5,7 @@
     eza
     ripgrep
     gum
+    glow
     fd
     zip
     unzip
