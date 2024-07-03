@@ -32,13 +32,13 @@ final: prev: {
 
   picom-git = prev.picom.overrideAttrs (old: {
     pname = "picom-git";
-    version = "v11.1";
+    version = "next";
     src = final.fetchFromGitHub {
       owner = "yshui";
       repo = "picom";
-      rev = "v11.1";
+      rev = "65452048cfe89dbc616a94a13db5c0c8f791a831";
       fetchSubmodules = false;
-      sha256 = "sha256-KIblpEEW33ZxxTYuQ/lbUGEJcVdmSWdNOrVCvhOY/OU= ";
+      sha256 = "sha256-BLSG59bWQkGwss4yslpXcm3Ib1R1zUP279sT7vDTOLw=";
     };
     buildInputs =
       (old.buildInputs or [])
