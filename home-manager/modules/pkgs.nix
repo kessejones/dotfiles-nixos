@@ -27,6 +27,7 @@
     rustup
     maven
     gradle
+    zig
 
     # desktop
     (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
@@ -51,7 +52,6 @@
     (prismlauncher.override {jdks = [zulu8 zulu17];})
 
     discord
-    immersed-vr
     sidequest
 
     ngrok

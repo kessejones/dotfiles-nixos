@@ -30,21 +30,35 @@ final: prev: {
       '';
     });
 
-  picom-git = prev.picom.overrideAttrs (old: {
-    pname = "picom-git";
-    version = "next";
-    src = final.fetchFromGitHub {
-      owner = "yshui";
-      repo = "picom";
-      rev = "65452048cfe89dbc616a94a13db5c0c8f791a831";
-      fetchSubmodules = false;
-      sha256 = "sha256-BLSG59bWQkGwss4yslpXcm3Ib1R1zUP279sT7vDTOLw=";
-    };
-    buildInputs =
-      (old.buildInputs or [])
-      ++ [
-        final.pcre2
-        final.xorg.xcbutil
-      ];
-  });
+  picom-git = let
+    removeFromList = toRemove: list: final.lib.foldl (l: e: final.lib.remove e l) list toRemove;
+  in
+    prev.picom.overrideAttrs (old: {
+      pname = "picom-git";
+      version = "v12-rc2";
+      src = final.fetchFromGitHub {
+        owner = "yshui";
+        repo = "picom";
+        rev = "v12-rc2";
+        fetchSubmodules = false;
+        sha256 = "sha256-59I6uozu4g9hll5U/r0nf4q92+zwRlbOD/z4R8TpSdo";
+      };
+      nativeBuildInputs =
+        (removeFromList [final.asciidoc] old.nativeBuildInputs)
+        ++ [
+          final.asciidoctor
+        ];
+      buildInputs =
+        [
+          final.pcre2
+          final.xorg.xcbutil
+          final.libepoxy
+        ]
+        ++ (removeFromList [
+            final.xorg.libXinerama
+            final.xorg.libXext
+            final.pcre
+          ]
+          old.buildInputs);
+    });
 }
