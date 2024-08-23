@@ -28,6 +28,7 @@
   services.udiskie.enable = true;
   services.easyeffects.enable = true;
   programs.opam.enable = true;
+  programs.direnv.enable = true;
 
   home.sessionPath = ["$HOME/.local/bin"];
 

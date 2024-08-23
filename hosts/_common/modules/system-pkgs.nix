@@ -6,6 +6,7 @@
     curl
     cryptsetup
     alsa-utils
+    gparted
 
     sshfs
 

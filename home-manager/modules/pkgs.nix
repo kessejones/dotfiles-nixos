@@ -16,6 +16,7 @@
     jq
     kaf
     k9s
+    nvtopPackages.nvidia
 
     # dev
     php
