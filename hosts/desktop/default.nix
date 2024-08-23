@@ -12,5 +12,8 @@
       NIX_PROFILE_LIB
       USER_LIB
     ];
+    WEBKIT_DISABLE_COMPOSITING_MODE = 1;
   };
+
+  programs.steam.enable = true;
 }
