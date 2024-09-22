@@ -8,7 +8,7 @@
           preset = "geometry-change";
           duration = 0.2;
         });
-      },
+      }
     );
   '';
 
@@ -16,7 +16,7 @@
     enable = true;
     package = pkgs.picom-git;
 
-    backend = "glx";
+    backend = "xrender";
     shadow = false;
     fade = false;
     vSync = false;

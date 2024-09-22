@@ -61,7 +61,7 @@
       ];
     in {
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit username;};
+        specialArgs = {inherit username unstable-pkgs;};
 
         modules =
           common-modules
@@ -73,7 +73,7 @@
       };
 
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit username;};
+        specialArgs = {inherit username unstable-pkgs;};
 
         modules =
           common-modules

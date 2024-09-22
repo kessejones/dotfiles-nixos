@@ -16,6 +16,8 @@
             luarocks
           ];
         };
+
+        i3.enable = true;
       };
 
       displayManager = {

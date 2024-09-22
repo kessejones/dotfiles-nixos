@@ -50,7 +50,7 @@
     mpc_cli
 
     # games
-    (prismlauncher.override {jdks = [zulu8 zulu17];})
+    (prismlauncher.override {jdks = [zulu8 zulu17 zulu21];})
 
     discord
     sidequest

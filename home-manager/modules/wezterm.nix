@@ -38,7 +38,9 @@
     config.color_scheme = "Catppuccin Mocha"
     config.colors = {
         background = "#1E1E2F",
+        cursor_fg = "#1e1e2e",
     }
+    force_reverse_video_cursor = true
 
     config.font_size = 10
     config.font = wezterm.font_with_fallback({

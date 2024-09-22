@@ -14,7 +14,6 @@
 
   programs.nm-applet.enable = true;
   programs.dconf.enable = true;
-  programs.fish.enable = true;
   programs.command-not-found.enable = false;
   programs.gamemode.enable = true;
 

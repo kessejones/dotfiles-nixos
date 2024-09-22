@@ -1,5 +1,5 @@
 {
-  pkgs,
+  unstable-pkgs,
   username,
   ...
 }: {
@@ -9,7 +9,7 @@
       home = "/home/${username}";
       initialPassword = "essek";
       isNormalUser = true;
-      shell = pkgs.fish;
+      shell = unstable-pkgs.nushell;
       extraGroups = [
         "audio"
         "docker"
