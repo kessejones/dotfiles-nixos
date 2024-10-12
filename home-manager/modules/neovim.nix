@@ -10,7 +10,7 @@
 
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
+      # nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       nodePackages.prettier
       ocamlPackages.ocaml-lsp

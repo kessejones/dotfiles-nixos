@@ -1,5 +1,6 @@
 {
   pkgs,
+  unstable-pkgs,
   username,
   ...
 }: let
@@ -261,7 +262,7 @@ in {
     theme "catppuccin-mocha"
     default_cwd "${home-dir}"
     default_layout "compact"
-    scrollback_editor "${pkgs.neovim}/bin/nvim"
+    scrollback_editor "${unstable-pkgs.neovim-unwrapped}/bin/nvim"
     ui {
         pane_frames {
             rounded_corners true
