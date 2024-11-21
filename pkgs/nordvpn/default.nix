@@ -32,7 +32,7 @@
     inherit pname version;
 
     src = fetchurl {
-      url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn_${version}_amd64.deb";
+      url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version}_amd64.deb";
       hash = "sha256-0SyDD55P6UmUKgD9h0/dPkJtVpRHj+rlSCyfUwZeu/E=";
     };
 
