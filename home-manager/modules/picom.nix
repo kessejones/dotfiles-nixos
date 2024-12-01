@@ -14,7 +14,7 @@
 
   services.picom = {
     enable = true;
-    package = pkgs.picom-git;
+    package = pkgs.picom;
 
     backend = "xrender";
     shadow = false;

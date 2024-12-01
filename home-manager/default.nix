@@ -14,7 +14,7 @@
     inherit username;
 
     homeDirectory = "/home/${username}";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   catppuccin.flavor = "mocha";

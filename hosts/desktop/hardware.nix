@@ -9,7 +9,7 @@
   boot.blacklistedKernelModules = [];
 
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
@@ -43,6 +43,7 @@
   };
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.open = true;
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
   #   version = "545.29.06";
   #   sha256_64bit = "sha256-grxVZ2rdQ0FsFG5wxiTI3GrxbMBMcjhoDFajDgBFsXs=";

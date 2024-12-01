@@ -41,13 +41,13 @@
   in
     prev.picom.overrideAttrs (old: {
       pname = "picom-git";
-      version = "v12-rc2";
+      version = "v12.5";
       src = final.fetchFromGitHub {
         owner = "yshui";
         repo = "picom";
-        rev = "v12-rc2";
+        rev = "v12.5";
         fetchSubmodules = false;
-        sha256 = "sha256-59I6uozu4g9hll5U/r0nf4q92+zwRlbOD/z4R8TpSdo";
+        sha256 = "sha256-H8IbzzrzF1c63MXbw5mqoll3H+vgcSVpijrlSDNkc+o=";
       };
       nativeBuildInputs =
         (removeFromList [final.asciidoc] old.nativeBuildInputs)

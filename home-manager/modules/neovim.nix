@@ -31,7 +31,7 @@
       stylua
       elixir_ls
       elixir
-      mysql
+      mariadb-client
       sqlite
       ruby-lsp
       python3

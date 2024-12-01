@@ -32,11 +32,11 @@
     zig
 
     # desktop
-    (cinnamon.nemo-with-extensions.override {extensions = [cinnamon.nemo-fileroller];})
-    cinnamon.pix
-    gnome.gnome-calculator
-    gnome.gnome-calendar
-    gnome.file-roller
+    (nemo-with-extensions.override {extensions = [nemo-fileroller];})
+    pix
+    gnome-calculator
+    gnome-calendar
+    file-roller
     arandr
     brave
     librewolf

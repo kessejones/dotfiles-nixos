@@ -33,7 +33,7 @@
     end)
 
     config.term = "wezterm"
-    config.front_end = "OpenGL"
+    config.front_end = "WebGpu"
     config.check_for_updates = false
     config.color_scheme = "Catppuccin Mocha"
     config.colors = {
