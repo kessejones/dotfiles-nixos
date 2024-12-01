@@ -3,12 +3,13 @@
   lib,
   ...
 }: {
-  home.activation.installAwesome = let
+  home.activation.install-awesomewm = let
+    repo = "https://github.com/kessejones/awesome-config.git.git";
     path = "$HOME/.config/awesome";
   in
-    lib.hm.dag.entryAfter ["writeBoundary"] ''
+    lib.mkAfter ''
       if [ ! -d "${path}" ]; then
-        ${pkgs.git}/bin/git clone https://github.com/kessejones/awesome-config.git ${path}
+        ${pkgs.git}/bin/git clone ${repo} ${path}
       fi
     '';
 }

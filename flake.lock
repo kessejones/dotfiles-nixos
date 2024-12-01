@@ -30,6 +30,24 @@
         "type": "github"
       }
     },
+    "dotfiles": {
+      "locked": {
+        "dir": ".config/nixpkgs",
+        "lastModified": 1732383844,
+        "narHash": "sha256-3yEKsUEUDMVFnn2O8ZaP66HpF7CLcOg6IeufhYIjj1E=",
+        "owner": "kessejones",
+        "repo": "dotfiles",
+        "rev": "2b7812167d964d27153ec006ff5b6088fd1ecee9",
+        "type": "github"
+      },
+      "original": {
+        "dir": ".config/nixpkgs",
+        "owner": "kessejones",
+        "ref": "feat/nixpkgs",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -119,6 +137,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur",

@@ -1,4 +1,10 @@
-final: prev: {
+{
+  inputs,
+  unstable-pkgs,
+}: final: prev: {
+  kitty = unstable-pkgs.kitty;
+  zjstatus = inputs.zjstatus.packages.${prev.system}.default;
+
   nordvpn = final.callPackage ./nordvpn {};
 
   nodeCustomPackages = {

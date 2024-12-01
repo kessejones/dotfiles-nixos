@@ -11,15 +11,17 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dotfiles.url = "github:kessejones/dotfiles/feat/nixpkgs?dir=.config/nixpkgs";
   };
 
   outputs = inputs @ {
     nixpkgs,
     nur,
     home-manager,
-    zjstatus,
     unstable-nixpkgs,
     catppuccin,
+    dotfiles,
     ...
   }: {
     nixosConfigurations = let
@@ -38,11 +40,9 @@
       common-modules = [
         {
           nixpkgs.overlays = [
-            (import ./pkgs)
+            (import ./pkgs {inherit inputs unstable-pkgs;})
             nur.overlay
-            (final: prev: {
-              zjstatus = zjstatus.packages.${prev.system}.default;
-            })
+            dotfiles.overlays.default
           ];
         }
         home-manager.nixosModules.home-manager
@@ -51,7 +51,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ./home-manager;
           home-manager.extraSpecialArgs = {
-            inherit username unstable-pkgs catppuccin;
+            inherit username unstable-pkgs catppuccin dotfiles;
           };
         }
 

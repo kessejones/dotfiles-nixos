@@ -17,6 +17,7 @@
     kaf
     k9s
     nvtopPackages.nvidia
+    lazygit
 
     # dev
     php
@@ -42,7 +43,8 @@
     gimp
 
     # torrents
-    qbittorrent
+    # qbittorrent
+    deluge-gtk
 
     # system manager
     pulseaudio
@@ -55,6 +57,6 @@
     discord
     sidequest
 
-    ngrok
+    atuin
   ];
 }

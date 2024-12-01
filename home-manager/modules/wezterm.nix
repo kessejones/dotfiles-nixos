@@ -40,7 +40,7 @@
         background = "#1E1E2F",
         cursor_fg = "#1e1e2e",
     }
-    force_reverse_video_cursor = true
+    config.force_reverse_video_cursor = true
 
     config.font_size = 10
     config.font = wezterm.font_with_fallback({
@@ -64,7 +64,6 @@
     config.use_fancy_tab_bar = false
     config.default_cursor_style = "SteadyBlock"
     config.cursor_blink_rate = 400
-    config.animation_fps = 1
     config.enable_scroll_bar = false
     config.window_decorations = "RESIZE"
 

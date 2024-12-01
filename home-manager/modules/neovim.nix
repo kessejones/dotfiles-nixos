@@ -33,17 +33,20 @@
       elixir
       mysql
       sqlite
+      ruby-lsp
+      python3
 
       nodeCustomPackages.prettierd
     ];
   };
 
-  home.activation.installKVim = let
+  home.activation.install-kvim = let
+    kvim-repo = "https://github.com/kessejones/kvim.git";
     path = "$HOME/.config/nvim";
   in
-    lib.hm.dag.entryAfter ["writeBoundary"] ''
+    lib.mkAfter ''
       if [ ! -d "${path}" ]; then
-        ${pkgs.git}/bin/git clone https://github.com/kessejones/kvim.git ${path}
+        ${pkgs.git}/bin/git clone ${kvim-repo} ${path}
       fi
     '';
 }

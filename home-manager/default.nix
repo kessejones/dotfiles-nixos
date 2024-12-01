@@ -1,11 +1,13 @@
 {
   username,
   catppuccin,
+  dotfiles,
   ...
 }: {
   imports = [
     ./modules
     catppuccin.homeManagerModules.catppuccin
+    dotfiles.homeManagerModules.dotfiles
   ];
 
   home = {
