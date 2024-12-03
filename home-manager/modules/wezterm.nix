@@ -66,6 +66,7 @@
     config.cursor_blink_rate = 400
     config.enable_scroll_bar = false
     config.window_decorations = "RESIZE"
+    config.enable_kitty_keyboard = true
 
     config = require("keys")(config)
 
