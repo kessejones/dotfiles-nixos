@@ -12,6 +12,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixcord = {
+      url = "github:KaylorBen/nixcord";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     dotfiles.url = "github:kessejones/dotfiles/feat/nixpkgs?dir=.config/nixpkgs";
   };
 
@@ -22,6 +29,7 @@
     unstable-nixpkgs,
     catppuccin,
     dotfiles,
+    nixcord,
     ...
   }: {
     nixosConfigurations = let
@@ -50,6 +58,9 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ./home-manager;
+          home-manager.sharedModules = [
+            nixcord.homeManagerModules.nixcord
+          ];
           home-manager.extraSpecialArgs = {
             inherit username unstable-pkgs catppuccin dotfiles;
           };

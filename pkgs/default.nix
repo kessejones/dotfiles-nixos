@@ -11,7 +11,6 @@
     prettierd = final.callPackage ./prettierd {};
   };
 
-  discord = prev.discord.override {withOpenASAR = true;};
   awesome-git =
     (prev.awesome.override
       {
