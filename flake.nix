@@ -19,6 +19,10 @@
       };
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
     dotfiles.url = "github:kessejones/dotfiles/feat/nixpkgs?dir=.config/nixpkgs";
   };
 
@@ -49,8 +53,11 @@
         {
           nixpkgs.overlays = [
             (import ./pkgs {inherit inputs unstable-pkgs;})
-            nur.overlay
+            nur.overlays.default
             dotfiles.overlays.default
+            (final: prev: {
+              ghostty = inputs.ghostty.packages.${system}.default;
+            })
           ];
         }
         home-manager.nixosModules.home-manager
@@ -66,7 +73,7 @@
           };
         }
 
-        nur.nixosModules.nur
+        nur.modules.nixos.default
         nur-modules.repos.LuisChDev.modules.nordvpn
         catppuccin.nixosModules.catppuccin
       ];

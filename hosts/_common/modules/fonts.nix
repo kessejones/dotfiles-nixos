@@ -7,6 +7,7 @@
     packages = with pkgs; [
       material-icons
       meslo-lg
+      cascadia-code
 
       (nerdfonts.override {
         fonts = [

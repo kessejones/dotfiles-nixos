@@ -9,7 +9,8 @@
       home = "/home/${username}";
       initialPassword = "essek";
       isNormalUser = true;
-      shell = unstable-pkgs.nushell;
+      shell = unstable-pkgs.fish;
+      ignoreShellProgramCheck = true;
       extraGroups = [
         "audio"
         "docker"
