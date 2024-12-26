@@ -42,7 +42,7 @@
     }
     config.force_reverse_video_cursor = true
 
-    config.font_size = 10
+    config.font_size = 9.4
     config.font = wezterm.font_with_fallback({
       { family = "JetBrainsMono Nerd Font", weight = "Medium" },
       { family = "Meslo LG S", scale = 1.3 },

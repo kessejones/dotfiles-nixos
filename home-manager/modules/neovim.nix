@@ -10,18 +10,14 @@
 
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
-      # nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
-      nodePackages.prettier
       ocamlPackages.ocaml-lsp
       ocamlPackages.ocamlformat
 
       php.packages.php-codesniffer
       php.packages.php-cs-fixer
 
-      haskell-language-server
       lua-language-server
-      java-language-server
       tree-sitter
       clang-tools
       alejandra

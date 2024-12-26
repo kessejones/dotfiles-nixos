@@ -2,6 +2,7 @@
   username,
   catppuccin,
   dotfiles,
+  pkgs,
   ...
 }: {
   imports = [

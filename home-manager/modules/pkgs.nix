@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # command utils
-    fzf
-    eza
+    # CLI tools
+    # fzf
+    # eza
     ripgrep
     gum
     glow
@@ -12,50 +12,50 @@
     unrar
     xclip
     lazydocker
-    hurl
     jq
-    kaf
     k9s
     nvtopPackages.nvidia
     lazygit
+    carapace
+    warpd
+    atuin
 
     # dev
     php
-    php.packages.composer
+    # php.packages.composer
     gcc
     gnumake
     nodejs
     yarn
     rustup
-    maven
-    gradle
     zig
 
-    # desktop
+    # Desktop apps
     (nemo-with-extensions.override {extensions = [nemo-fileroller];})
     pix
     gnome-calculator
     gnome-calendar
     file-roller
     arandr
-    brave
-    librewolf
     gimp
 
-    # torrents
-    # qbittorrent
+    # Browsers
+    librewolf
+    floorp
+    brave
+
+    # Torrents clients
     deluge-gtk
 
-    # system manager
+    # System manager/configuration
     pulseaudio
     pavucontrol
     mpc_cli
 
-    # games
+    # Games
     (prismlauncher.override {jdks = [zulu8 zulu17 zulu21];})
+    lutris
 
     sidequest
-
-    atuin
   ];
 }

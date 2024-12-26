@@ -8,6 +8,15 @@
           preset = "geometry-change";
           duration = 0.2;
         });
+      },
+      {
+        match = "!fullscreen";
+        shadow = true;
+        shadow-offset-x = -15;
+        shadow-offset-y = -15;
+        shadow-offset-z = -15;
+        shadow-opacity = 0.5;
+        shadow-radius = 15;
       }
     );
   '';

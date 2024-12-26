@@ -5,13 +5,7 @@
     ../_common
   ];
 
-  environment.sessionVariables = rec {
-    NIX_PROFILE_LIB = "$HOME/.nix-profile/lib";
-    USER_LIB = "$HOME/.local/lib";
-    LD_LIBRARY_PATH = [
-      NIX_PROFILE_LIB
-      USER_LIB
-    ];
+  environment.sessionVariables = {
     WEBKIT_DISABLE_COMPOSITING_MODE = 1;
   };
 

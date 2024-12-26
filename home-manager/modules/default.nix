@@ -25,5 +25,6 @@
     ./wezterm.nix
     ./scripts.nix
     ./yazi.nix
+    ./ghostty.nix
   ];
 }
