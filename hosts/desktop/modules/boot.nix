@@ -12,7 +12,7 @@
       efiSupport = true;
       efiInstallAsRemovable = true;
       gfxmodeEfi = "1920x1080";
-      catppuccin.enable = true;
     };
   };
+  catppuccin.grub.enable = true;
 }

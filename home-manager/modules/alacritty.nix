@@ -1,7 +1,7 @@
 {...}: {
+  catppuccin.enable = true;
   programs.alacritty = {
     enable = true;
-    catppuccin.enable = true;
 
     settings = let
       family = "JetBrainsMono Nerd Font";

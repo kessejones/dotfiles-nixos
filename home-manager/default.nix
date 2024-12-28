@@ -8,7 +8,7 @@
   imports = [
     ./modules
     catppuccin.homeManagerModules.catppuccin
-    dotfiles.homeManagerModules.dotfiles
+    # dotfiles.homeManagerModules.dotfiles
   ];
 
   home = {

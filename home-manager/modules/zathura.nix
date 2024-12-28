@@ -1,7 +1,7 @@
 {...}: {
+  catppuccin.zathura.enable = true;
   programs.zathura = {
     enable = true;
-    catppuccin.enable = true;
     options = {
       selection-clipboard = "clipboard";
     };
