@@ -2,105 +2,56 @@
   description = "Dotfiles NIXOS";
 
   inputs = {
+    # NIXOS repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     unstable-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # NUR repository
     nur.url = "github:nix-community/NUR";
+
+    # Zellij statusbar
     zjstatus.url = "github:dj95/zjstatus";
+
+    # Catppuccin theme
     catppuccin.url = "github:catppuccin/nix";
+
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Discord Client
     nixcord = {
       url = "github:KaylorBen/nixcord";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
+    # Ghostty Terminal
+    ghostty.url = "github:ghostty-org/ghostty";
 
+    # Shared dotfiles (testing)
     dotfiles.url = "github:kessejones/dotfiles/feat/nixpkgs?dir=.config/nixpkgs";
   };
 
-  outputs = inputs @ {
+  outputs = {
+    self,
     nixpkgs,
-    nur,
-    home-manager,
-    unstable-nixpkgs,
-    catppuccin,
-    dotfiles,
-    nixcord,
     ...
-  }: {
-    nixosConfigurations = let
-      username = "kesse";
+  } @ inputs: let
+    username = "kesse";
+    mkSystem = import ./lib/mksystem.nix {
+      inherit nixpkgs inputs;
+    };
+  in {
+    nixosConfigurations.desktop = mkSystem "desktop" {
+      inherit username;
       system = "x86_64-linux";
+    };
 
-      nur-modules = import nur {
-        nurpkgs = nixpkgs.legacyPackages.${system};
-        pkgs = nixpkgs.legacyPackages.${system};
-      };
-
-      unstable-pkgs = import unstable-nixpkgs {
-        inherit system;
-      };
-
-      common-modules = [
-        {
-          nixpkgs.overlays = [
-            (import ./pkgs {inherit inputs unstable-pkgs;})
-            nur.overlays.default
-            dotfiles.overlays.default
-            (final: prev: {
-              ghostty = inputs.ghostty.packages.${system}.default;
-            })
-          ];
-        }
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./home-manager;
-          home-manager.sharedModules = [
-            nixcord.homeManagerModules.nixcord
-          ];
-          home-manager.extraSpecialArgs = {
-            inherit username unstable-pkgs catppuccin dotfiles;
-          };
-        }
-
-        nur.modules.nixos.default
-        nur-modules.repos.LuisChDev.modules.nordvpn
-        catppuccin.nixosModules.catppuccin
-      ];
-    in {
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit username unstable-pkgs;};
-
-        modules =
-          common-modules
-          ++ [
-            ./hosts/laptop
-          ];
-
-        inherit system;
-      };
-
-      desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit username unstable-pkgs;};
-
-        modules =
-          common-modules
-          ++ [
-            ./hosts/desktop
-          ];
-
-        inherit system;
-      };
+    nixosConfigurations.laptop = mkSystem "laptop" {
+      inherit username;
+      system = "x86_64-linux";
     };
   };
 }

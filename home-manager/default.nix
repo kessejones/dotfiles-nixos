@@ -1,15 +1,5 @@
-{
-  username,
-  catppuccin,
-  dotfiles,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./modules
-    catppuccin.homeManagerModules.catppuccin
-    # dotfiles.homeManagerModules.dotfiles
-  ];
+{username, ...}: {
+  imports = [./modules];
 
   home = {
     inherit username;
