@@ -8,6 +8,7 @@
       material-icons
       meslo-lg
       cascadia-code
+      monaspace
 
       (nerdfonts.override {
         fonts = [
@@ -16,6 +17,8 @@
           "JetBrainsMono"
           "Ubuntu"
           "FiraCode"
+          "CascadiaCode"
+          "Monaspace"
         ];
       })
     ];
