@@ -26,5 +26,6 @@
     ./scripts.nix
     ./yazi.nix
     ./ghostty.nix
+    ./services.nix
   ];
 }

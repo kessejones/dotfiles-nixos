@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  programs.home-manager.enable = true;
+  programs.zoxide.enable = true;
+  programs.direnv.enable = true;
+
   home.packages = with pkgs; [
     # CLI tools
     # fzf
