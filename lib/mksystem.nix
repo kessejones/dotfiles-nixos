@@ -23,10 +23,6 @@
     (import ../pkgs {inherit inputs unstable-pkgs;})
     inputs.nur.overlays.default
     inputs.dotfiles.overlays.default
-
-    (final: prev: {
-      ghostty = inputs.ghostty.packages.${system}.default;
-    })
   ];
 in
   nixpkgs.lib.nixosSystem {

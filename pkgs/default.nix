@@ -3,7 +3,9 @@
   unstable-pkgs,
 }: final: prev: {
   kitty = unstable-pkgs.kitty;
+
   zjstatus = inputs.zjstatus.packages.${prev.system}.default;
+  ghostty = inputs.ghostty.packages.${prev.system}.default;
 
   nordvpn = final.callPackage ./nordvpn {};
 
