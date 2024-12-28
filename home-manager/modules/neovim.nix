@@ -3,38 +3,35 @@
   lib,
   unstable-pkgs,
   ...
-}: {
-  programs.neovim = {
-    enable = true;
-    package = unstable-pkgs.neovim-unwrapped;
+}: let
+  extra-packages = with pkgs; [
+    nodePackages.typescript-language-server
+    nodePackages.yaml-language-server
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.ocamlformat
 
-    extraPackages = with pkgs; [
-      nodePackages.typescript-language-server
-      nodePackages.yaml-language-server
-      ocamlPackages.ocaml-lsp
-      ocamlPackages.ocamlformat
+    php.packages.php-codesniffer
+    php.packages.php-cs-fixer
 
-      php.packages.php-codesniffer
-      php.packages.php-cs-fixer
+    lua-language-server
+    tree-sitter
+    clang-tools
+    alejandra
+    gopls
+    nil
+    nixd
+    stylua
+    elixir_ls
+    elixir
+    mariadb-client
+    sqlite
+    ruby-lsp
+    python3
 
-      lua-language-server
-      tree-sitter
-      clang-tools
-      alejandra
-      gopls
-      nil
-      nixd
-      stylua
-      elixir_ls
-      elixir
-      mariadb-client
-      sqlite
-      ruby-lsp
-      python3
-
-      nodeCustomPackages.prettierd
-    ];
-  };
+    nodeCustomPackages.prettierd
+  ];
+in {
+  home.packages = [unstable-pkgs.neovim-unwrapped] ++ extra-packages;
 
   home.activation.install-kvim = let
     kvim-repo = "https://github.com/kessejones/kvim.git";
