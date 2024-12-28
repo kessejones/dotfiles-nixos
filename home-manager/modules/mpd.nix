@@ -1,6 +1,6 @@
 {...}: {
   services.mpd = {
-    enable = false;
+    enable = true;
 
     network = {
       startWhenNeeded = true;
@@ -8,7 +8,7 @@
       port = 6600;
     };
 
-    musicDirectory = "~/Music/";
+    musicDirectory = "/media/Data/Music/";
 
     extraConfig = ''
       audio_output {
