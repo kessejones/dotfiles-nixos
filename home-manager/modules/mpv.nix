@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   catppuccin.mpv.enable = true;
   programs.mpv = {
     enable = true;
@@ -16,4 +16,8 @@
       "Ctrl+WHEEL_DOWN" = "add video-zoom -0.1";
     };
   };
+
+  home.packages = [
+    pkgs.open-in-mpv
+  ];
 }
