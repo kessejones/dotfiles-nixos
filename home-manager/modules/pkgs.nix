@@ -85,6 +85,8 @@
     file-roller
     arandr
     gimp
+    freetube
+    television
 
     # Browsers
     librewolf
