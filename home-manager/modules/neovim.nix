@@ -4,6 +4,9 @@
   unstable-pkgs,
   ...
 }: {
+
+  xdg.configFile."nvim/init.lua".enable = false;
+
   programs.neovim = {
     enable = true;
     package = unstable-pkgs.neovim-unwrapped;
