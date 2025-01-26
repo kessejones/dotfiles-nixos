@@ -1,6 +1,11 @@
 {pkgs, ...}: {
-  home.packages = [
-    pkgs.gum
-    pkgs.zoxide
-  ];
+  dotfiles.fish = {
+    enable = true;
+    extra-packages = [
+      pkgs.gum
+      pkgs.television
+      pkgs.zoxide
+      pkgs.eza
+    ];
+  };
 }
