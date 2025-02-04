@@ -86,7 +86,6 @@
     arandr
     gimp
     freetube
-    television
 
     # Browsers
     librewolf

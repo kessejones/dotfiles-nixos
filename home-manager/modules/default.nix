@@ -27,5 +27,6 @@
     ./yazi.nix
     ./ghostty.nix
     ./services.nix
+    ./television.nix
   ];
 }
