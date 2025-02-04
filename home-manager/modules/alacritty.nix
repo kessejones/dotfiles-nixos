@@ -47,15 +47,9 @@
         multiplier = 10;
       };
 
-      draw_bold_text_with_bright_colors = true;
+      general.live_config_reload = true;
 
-      selection = {
-        semantic_escape_chars = '',│`|:"\'\' ()[]{}<>'';
-        save_to_clipboard = true;
-      };
-
-      live_config_release = true;
-      key_bindings = [
+      keyboard.bindings = [
         {
           key = "N";
           mods = "Control|Shift";
