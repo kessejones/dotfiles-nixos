@@ -66,6 +66,7 @@
     carapace
     warpd
     atuin
+    scrot
 
     # dev
     php
