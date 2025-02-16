@@ -31,7 +31,7 @@
     ghostty.url = "github:ghostty-org/ghostty";
 
     # Shared dotfiles (testing)
-    dotfiles.url = "github:kessejones/dotfiles/feat/nixpkgs?dir=.config/nixpkgs";
+    dotfiles.url = "github:kessejones/dotfiles?dir=.config/nixpkgs";
   };
 
   outputs = {

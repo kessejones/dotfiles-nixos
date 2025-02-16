@@ -28,5 +28,6 @@
     ./ghostty.nix
     ./services.nix
     ./television.nix
+    ./fd.nix
   ];
 }

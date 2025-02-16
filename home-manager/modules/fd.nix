@@ -1,0 +1,3 @@
+{...}: {
+  dotfiles.fd.enable = true;
+}
