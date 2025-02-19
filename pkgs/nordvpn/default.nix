@@ -14,11 +14,13 @@
   cacert,
   libxml2,
   libidn2,
+  libnl,
+  libcap_ng,
   zlib,
   wireguard-tools,
 }: let
   pname = "nordvpn";
-  version = "3.18.3";
+  version = "3.20.0";
   maintainer = {
     name = "Kesse Jones";
     github = "kessejones";
@@ -33,10 +35,10 @@
 
     src = fetchurl {
       url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version}_amd64.deb";
-      hash = "sha256-pCveN8cEwEXdvWj2FAatzg89fTLV9eYehEZfKq5JdaY=";
+      hash = "sha256-3/HSCTPt/1CprrpVD60Ga02Nz+vBwNBE1LEl+7z7ADs=";
     };
 
-    buildInputs = [libxml2 libidn2];
+    buildInputs = [libxml2 libidn2 libnl libcap_ng];
     nativeBuildInputs = [dpkg autoPatchelfHook stdenv.cc.cc.lib];
 
     dontConfigure = true;
@@ -73,6 +75,8 @@
         cacert
         libxml2
         libidn2
+        libnl
+        libcap_ng
         zlib
         wireguard-tools
       ];
