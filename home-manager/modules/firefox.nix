@@ -44,6 +44,8 @@
         "geo.wifi.logging.enable" = false;
         "geo.wifi.uri" = "";
         "dom.battery.enabled" = false;
+        "dom.push.connection.enabled" = false;
+        "dom.push.enabled" = false;
         "network.IDN_show_punycode" = true;
         "plugins.enumerable_names" = "";
         "beacon.enabled" = false;
@@ -102,8 +104,8 @@
       };
     };
 
-    package = pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
-      # nativeMessagingHosts = with pkgs.nur.repos.wolfangaukang; [vdhcoapp];
-    };
+    package =
+      pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
+      };
   };
 }
