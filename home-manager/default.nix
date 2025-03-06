@@ -10,7 +10,4 @@
   };
 
   catppuccin.flavor = "mocha";
-
-  xdg.enable = true;
-  xdg.userDirs.enable = true;
 }

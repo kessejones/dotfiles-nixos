@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     # CLI tools
     ripgrep
-    gum
     glow
     fd
     zip

@@ -30,5 +30,6 @@
     ./television.nix
     ./fd.nix
     ./librewolf.nix
+    ./xdg.nix
   ];
 }

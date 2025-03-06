@@ -28,6 +28,10 @@
       "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckduckgo";
 
       # privacy
+      "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = false;
+      "privacy.clearOnShutdown_v2.cache" = false;
+      "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+      "browser.contentblocking.category" = "strict";
       "privacy.donottrackheader.enabled" = true;
       "privacy.donottrackheader.value" = 1;
       "privacy.firstparty.isolate" = true;
@@ -62,6 +66,9 @@
       # search engine
       "browser.urlbar.placeholderName" = "DuckDuckGo";
       "browser.search.defaultEngine" = "DuckDuckGo";
+
+      "privacy.clearOnShutdown.downloads" = false;
+      "privacy.clearOnShutdown.history" = false;
 
       # homepage
       "browser.selfsupport.url" = "";
