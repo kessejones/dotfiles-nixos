@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.firefox = {
-    enable = true;
+    enable = false;
     profiles.default = {
       isDefault = true;
       settings = {
@@ -104,8 +104,6 @@
       };
     };
 
-    package =
-      pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
-      };
+    package = pkgs.firefox-esr;
   };
 }

@@ -29,5 +29,6 @@
     ./services.nix
     ./television.nix
     ./fd.nix
+    ./librewolf.nix
   ];
 }

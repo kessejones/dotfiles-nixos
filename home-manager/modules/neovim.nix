@@ -4,7 +4,6 @@
   unstable-pkgs,
   ...
 }: {
-
   xdg.configFile."nvim/init.lua".enable = false;
 
   programs.neovim = {
@@ -34,6 +33,7 @@
       sqlite
       ruby-lsp
       python3
+      superhtml
 
       nodeCustomPackages.prettierd
     ];
