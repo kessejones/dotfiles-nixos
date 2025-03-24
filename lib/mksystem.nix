@@ -9,19 +9,12 @@
   home-manager-config = ../home-manager;
   home-manager-nixos = inputs.home-manager.nixosModules;
 
-  # Remove this later
-  nur-modules = import inputs.nur {
-    nurpkgs = nixpkgs.legacyPackages.${system};
-    pkgs = nixpkgs.legacyPackages.${system};
-  };
-
   unstable-pkgs = import inputs.unstable-nixpkgs {
     inherit system;
   };
 
   overlays = [
     (import ../pkgs {inherit inputs unstable-pkgs;})
-    inputs.nur.overlays.default
     inputs.dotfiles.overlays.default
   ];
 in
@@ -55,10 +48,7 @@ in
         };
       }
 
-      # Remove this later
-      inputs.nur.modules.nixos.default
-      nur-modules.repos.LuisChDev.modules.nordvpn
-
+      inputs.dotfiles.modules.dotfiles
       inputs.catppuccin.nixosModules.catppuccin
     ];
   }

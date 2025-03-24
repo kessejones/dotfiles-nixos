@@ -7,8 +7,6 @@
   zjstatus = inputs.zjstatus.packages.${prev.system}.default;
   ghostty = inputs.ghostty.packages.${prev.system}.default;
 
-  nordvpn = final.callPackage ./nordvpn {};
-
   nodeCustomPackages = {
     prettierd = final.callPackage ./prettierd {};
   };

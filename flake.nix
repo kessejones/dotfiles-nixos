@@ -6,9 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     unstable-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # NUR repository
-    nur.url = "github:nix-community/NUR";
-
     # Zellij statusbar
     zjstatus.url = "github:dj95/zjstatus";
 
