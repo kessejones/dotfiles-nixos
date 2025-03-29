@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{unstable-pkgs, ...}: {
   dotfiles.git.enable = true;
   catppuccin.delta.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = with unstable-pkgs; [
     delta
   ];
 }

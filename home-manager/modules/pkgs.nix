@@ -2,6 +2,7 @@
   programs.home-manager.enable = true;
   programs.zoxide.enable = true;
   programs.direnv.enable = true;
+  programs.freetube.enable = true;
 
   home.packages = with pkgs; [
     # CLI tools
@@ -56,8 +57,7 @@
 
     # Games
     (prismlauncher.override {jdks = [zulu8 zulu17 zulu21];})
-    lutris
 
-    sidequest
+    anki
   ];
 }

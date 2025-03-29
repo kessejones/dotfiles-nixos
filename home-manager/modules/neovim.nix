@@ -5,7 +5,6 @@
   ...
 }: {
   xdg.configFile."nvim/init.lua".enable = false;
-
   programs.neovim = {
     enable = true;
     package = unstable-pkgs.neovim-unwrapped;
@@ -13,10 +12,8 @@
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
       nodePackages.yaml-language-server
-      ocamlPackages.ocaml-lsp
-      ocamlPackages.ocamlformat
 
-      php.packages.php-codesniffer
+      # php.packages.php-codesniffer
       php.packages.php-cs-fixer
 
       lua-language-server
@@ -31,7 +28,6 @@
       elixir
       mariadb-client
       sqlite
-      ruby-lsp
       python3
       superhtml
 
