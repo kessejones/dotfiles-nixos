@@ -38,9 +38,10 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.${username} = home-manager-config;
+        home-manager.backupFileExtension = "hm-backup";
         home-manager.sharedModules = [
           inputs.nixcord.homeManagerModules.nixcord
-          inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.catppuccin.homeModules.catppuccin
           inputs.dotfiles.homeManagerModules.dotfiles
         ];
         home-manager.extraSpecialArgs = {
