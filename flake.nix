@@ -21,7 +21,6 @@
     # Discord Client
     nixcord = {
       url = "github:KaylorBen/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Ghostty Terminal
