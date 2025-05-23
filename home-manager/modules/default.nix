@@ -31,5 +31,6 @@
     ./fd.nix
     ./librewolf.nix
     ./xdg.nix
+    ./programs.nix
   ];
 }

@@ -9,5 +9,6 @@
     sessionPath = ["$HOME/.local/bin"];
   };
 
+  programs.home-manager.enable = true;
   catppuccin.flavor = "mocha";
 }

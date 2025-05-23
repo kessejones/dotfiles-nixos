@@ -1,10 +1,9 @@
-{pkgs, ...}: {
-  programs.home-manager.enable = true;
-  programs.zoxide.enable = true;
-  programs.direnv.enable = true;
-  programs.freetube.enable = true;
-
-  home.packages = with pkgs; [
+{
+  pkgs,
+  unstable-pkgs,
+  ...
+}: let
+  stable = with pkgs; [
     # CLI tools
     ripgrep
     glow
@@ -13,11 +12,9 @@
     unzip
     unrar
     xclip
-    lazydocker
     jq
     k9s
     nvtopPackages.nvidia
-    lazygit
     carapace
     warpd
     atuin
@@ -31,7 +28,6 @@
     nodejs
     yarn
     rustup
-    zig
 
     # Desktop apps
     (nemo-with-extensions.override {extensions = [nemo-fileroller];})
@@ -41,7 +37,6 @@
     file-roller
     arandr
     gimp
-    freetube
 
     # Browsers
     floorp
@@ -60,4 +55,12 @@
 
     anki
   ];
+  unstable = with unstable-pkgs; [
+    zig
+    lazygit
+    lazydocker
+    wofi
+  ];
+in {
+  home.packages = stable ++ unstable;
 }

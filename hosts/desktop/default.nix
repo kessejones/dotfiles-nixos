@@ -9,6 +9,10 @@
     WEBKIT_DISABLE_COMPOSITING_MODE = 1;
   };
 
+  environment.extraInit = ''
+    xset s off -dpms
+  '';
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_CTYPE = "pt_BR.UTF-8";

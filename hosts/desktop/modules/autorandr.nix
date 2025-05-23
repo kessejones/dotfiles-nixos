@@ -18,12 +18,20 @@ in {
             position = "0x0";
             mode = "1920x1080";
             rate = "165.0";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
           };
           "HDMI-0" = {
             enable = true;
             primary = true;
             position = "1920x0";
             mode = "1920x1080";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
           };
         };
       };
@@ -37,6 +45,10 @@ in {
             primary = true;
             position = "0x0";
             mode = "1920x1080";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
           };
         };
       };
@@ -51,6 +63,10 @@ in {
             position = "0x0";
             mode = "1920x1080";
             rate = "165.0";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
           };
         };
       };

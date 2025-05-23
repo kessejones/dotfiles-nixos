@@ -5,5 +5,6 @@
     ./networking.nix
     ./external-display.nix
     ./wireguard.nix
+    ./services.nix
   ];
 }
