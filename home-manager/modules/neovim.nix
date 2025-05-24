@@ -14,7 +14,7 @@
       nodePackages.yaml-language-server
 
       # php.packages.php-codesniffer
-      php.packages.php-cs-fixer
+      # php.packages.php-cs-fixer
 
       lua-language-server
       tree-sitter
