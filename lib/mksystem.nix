@@ -40,7 +40,6 @@ in
         home-manager.users.${username} = home-manager-config;
         home-manager.backupFileExtension = "hm-backup";
         home-manager.sharedModules = [
-          inputs.nixcord.homeManagerModules.nixcord
           inputs.catppuccin.homeModules.catppuccin
           inputs.dotfiles.homeManagerModules.dotfiles
         ];

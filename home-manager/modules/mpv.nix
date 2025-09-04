@@ -1,6 +1,5 @@
 {
   pkgs,
-  unstable-pkgs,
   lib,
   ...
 }: let
@@ -76,7 +75,6 @@ in {
   catppuccin.mpv.enable = true;
   programs.mpv = {
     enable = true;
-    package = unstable-pkgs.mpv;
     bindings = {
       WHEEL_UP = "seek 5";
       WHEEL_DOWN = "seek -5";

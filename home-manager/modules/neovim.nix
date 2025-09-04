@@ -32,7 +32,7 @@
       superhtml
 
       nodeCustomPackages.prettierd
-    ];
+    ] ++ [unstable-pkgs.zls];
   };
 
   home.activation.install-kvim = let
