@@ -7,6 +7,7 @@
 
   environment.sessionVariables = {
     WEBKIT_DISABLE_COMPOSITING_MODE = 1;
+    XCURSOR_SIZE = "20";
   };
 
   environment.extraInit = ''
