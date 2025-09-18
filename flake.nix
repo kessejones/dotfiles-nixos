@@ -10,7 +10,7 @@
     zjstatus.url = "github:dj95/zjstatus";
 
     # Catppuccin theme
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/v25.05";
 
     # Home Manager
     home-manager = {
