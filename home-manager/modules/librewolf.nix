@@ -77,6 +77,18 @@
       "browser.homepage_welcome_url" = "";
       "browser.homepage_welcome_url.additional" = "";
       "browser.homepage_override_url" = "";
+      "browser.tabs.groups.smart.enabled" = false;
+      "browser.tabs.groups.smart.userEnabled" = false;
+      "browser.onboarding.enabled" = false;
+
+      # disable AI shit
+      "browser.ml.enable" = false;
+      "browser.ml.chat.enabled" = false;
+      "browser.ml.chat.shortcuts" = false;
+      "browser.ml.chat.shortcuts.custom" = false;
+      "browser.ml.chat.sidebar" = false;
+      "browser.ml.linkPreview.enabled" = false;
+      "extensions.ml.enabled" = false;
 
       "browser.newtabpage.pinned" = builtins.toJSON [
         {
@@ -102,10 +114,6 @@
         {
           label = "Github";
           url = "https://github.com";
-        }
-        {
-          label = "Sourcegraph";
-          url = "https://sourcegraph.com";
         }
       ];
     };

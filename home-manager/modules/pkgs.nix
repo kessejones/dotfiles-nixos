@@ -54,6 +54,7 @@
     (prismlauncher.override {jdks = [zulu8 zulu17 zulu21];})
 
     anki
+    sidequest
   ];
   unstable = with unstable-pkgs; [
     zig
