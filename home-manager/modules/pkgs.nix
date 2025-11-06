@@ -61,6 +61,7 @@
     lazygit
     lazydocker
     wofi
+    opencode
   ];
 in {
   home.packages = stable ++ unstable;

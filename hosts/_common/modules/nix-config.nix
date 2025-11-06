@@ -2,7 +2,6 @@
   system.stateVersion = "24.04";
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.pulseaudio = true;
 
   nix = {
     extraOptions = ''

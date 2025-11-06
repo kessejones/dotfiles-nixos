@@ -87,6 +87,9 @@
       "browser.ml.chat.shortcuts" = false;
       "browser.ml.chat.shortcuts.custom" = false;
       "browser.ml.chat.sidebar" = false;
+      "browser.ml.chat.menu" = false;
+      "browser.ml.chat.page" = false;
+      "browser.ml.chat.menuBadge" = false;
       "browser.ml.linkPreview.enabled" = false;
       "extensions.ml.enabled" = false;
 
