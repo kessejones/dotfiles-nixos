@@ -28,6 +28,7 @@
 
     # Shared dotfiles (testing)
     dotfiles.url = "github:kessejones/dotfiles?dir=.config/nixpkgs";
+    dotfiles.inputs.nixpkgs.follows = "unstable-nixpkgs";
   };
 
   outputs = {
