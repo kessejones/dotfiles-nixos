@@ -10,7 +10,7 @@
 
   config = {
     alang = lib.strings.concatStringsSep "," ["jpn" "eng" "por"];
-    slang = lib.strings.concatStringsSep "," ["por" "jpn" "eng"];
+    slang = lib.strings.concatStringsSep "," ["eng" "por" "jpn"];
     osd-on-seek = "no";
 
     sub-auto = "fuzzy";
