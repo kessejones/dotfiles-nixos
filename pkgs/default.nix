@@ -11,6 +11,16 @@
     prettierd = final.callPackage ./prettierd {};
   };
 
+  floorp-bin-unwrapped = let
+    version = "12.7.0";
+  in
+    prev.floorp-bin-unwrapped.overrideAttrs (old: {
+      src = prev.fetchurl {
+        url = "https://github.com/Floorp-Projects/Floorp/releases/download/v${version}/floorp-linux-x86_64.tar.xz";
+        hash = "sha256-feIRCZuyB8xwUoI1FMWJQ6yupgC2aAavADQ9mrk0zMM=";
+      };
+    });
+
   awesome-git = (prev.awesome.override
     {
       lua = prev.luajit;
@@ -19,13 +29,13 @@
     .overrideAttrs (old: {
     patches = [];
     cmakeFlags = old.cmakeFlags ++ ["-DGENERATE_MANPAGES=OFF"];
-    version = "8b1f8958b46b3e75618bc822d512bb4d449a89aa";
+    version = "41473c05ed9e85de66ffb805d872f2737c0458b6";
     src = final.fetchFromGitHub {
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "8b1f8958b46b3e75618bc822d512bb4d449a89aa";
+      rev = "41473c05ed9e85de66ffb805d872f2737c0458b6";
       fetchSubmodules = false;
-      sha256 = "sha256-ZGZ53IWfQfNU8q/hKexFpb/2mJyqtK5M9t9HrXoEJCg=";
+      sha256 = "sha256-dGceJ5cAxDSUPCqXYAZgzEeC9hd7GQMYPex7nCZ8SEg=";
     };
 
     postPatch = ''

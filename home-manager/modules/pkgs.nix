@@ -39,7 +39,7 @@
     gimp
 
     # Browsers
-    floorp
+    floorp-bin-unwrapped
     brave
 
     # Torrents clients
@@ -48,7 +48,7 @@
     # System manager/configuration
     pulseaudio
     pavucontrol
-    mpc_cli
+    mpc
 
     # Games
     (prismlauncher.override {jdks = [zulu8 zulu17 zulu21];})
@@ -56,6 +56,7 @@
     anki
     sidequest
   ];
+
   unstable = with unstable-pkgs; [
     zig
     lazygit
@@ -65,4 +66,9 @@
   ];
 in {
   home.packages = stable ++ unstable;
+
+  # programs.floorp = {
+  #   enable = true;
+  #   # package = pkgs.floorp-bin-unwrapped;
+  # };
 }

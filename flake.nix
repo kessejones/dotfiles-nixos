@@ -3,18 +3,18 @@
 
   inputs = {
     # NIXOS repositories
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     unstable-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Zellij statusbar
     zjstatus.url = "github:dj95/zjstatus";
 
     # Catppuccin theme
-    catppuccin.url = "github:catppuccin/nix/v25.05";
+    catppuccin.url = "github:catppuccin/nix";
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

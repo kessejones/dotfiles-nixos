@@ -20,36 +20,37 @@
       i3.enable = true;
     };
 
-    displayManager = {
-      startx.enable = true;
-      gdm.enable = false;
-
-      lightdm = {
+    displayManager.lightdm = {
+      greeters.gtk = {
         enable = true;
-        greeters.gtk = {
-          enable = true;
 
-          theme = {
-            name = "catppuccin-mocha-blue-standard";
-            package = pkgs.catppuccin-gtk.override {
-              variant = "mocha";
-              accents = ["blue"];
-              size = "standard";
-            };
-          };
-          iconTheme = {
-            name = "Papirus";
-            package = pkgs.papirus-icon-theme;
+        theme = {
+          name = "catppuccin-mocha-blue-standard";
+          package = pkgs.catppuccin-gtk.override {
+            variant = "mocha";
+            accents = ["blue"];
+            size = "standard";
           };
         };
-        background = "#181825";
-
-        extraSeatDefaults = ''
-          display-setup-script=${pkgs.writeShellScript "lightdm-setup-autorandr" ''
-            ${pkgs.autorandr}/bin/autorandr -c
-          ''}
-        '';
+        iconTheme = {
+          name = "Papirus";
+          package = pkgs.papirus-icon-theme;
+        };
       };
+      background = "#181825";
+
+      extraSeatDefaults = ''
+        display-setup-script=${pkgs.writeShellScript "lightdm-setup-autorandr" ''
+          ${pkgs.autorandr}/bin/autorandr -c
+        ''}
+      '';
     };
   };
+
+  # services.displayManager = {
+  #   enable = true;
+  #
+  #   startx.enable = true;
+  #   gdm.enable = false;
+  # };
 }
