@@ -4,6 +4,9 @@
 }: final: prev: {
   kitty = unstable-pkgs.kitty;
 
+  glide-browser-bin = final.callPackage ./glide-browser {};
+  glide-browser = final.callPackage ./glide-browser/desktop-item.nix {};
+
   zjstatus = inputs.zjstatus.packages.${prev.system}.default;
   ghostty = inputs.ghostty.packages.${prev.system}.default;
 
@@ -21,28 +24,28 @@
       };
     });
 
-  awesome-git = (prev.awesome.override
-    {
+  awesome-git =
+    (prev.awesome.override {
       lua = prev.luajit;
       gtk3Support = true;
-    })
-    .overrideAttrs (old: {
-    patches = [];
-    cmakeFlags = old.cmakeFlags ++ ["-DGENERATE_MANPAGES=OFF"];
-    version = "41473c05ed9e85de66ffb805d872f2737c0458b6";
-    src = final.fetchFromGitHub {
-      owner = "awesomeWM";
-      repo = "awesome";
-      rev = "41473c05ed9e85de66ffb805d872f2737c0458b6";
-      fetchSubmodules = false;
-      sha256 = "sha256-dGceJ5cAxDSUPCqXYAZgzEeC9hd7GQMYPex7nCZ8SEg=";
-    };
+    }).overrideAttrs
+    (old: {
+      patches = [];
+      cmakeFlags = old.cmakeFlags ++ ["-DGENERATE_MANPAGES=OFF"];
+      version = "41473c05ed9e85de66ffb805d872f2737c0458b6";
+      src = final.fetchFromGitHub {
+        owner = "awesomeWM";
+        repo = "awesome";
+        rev = "41473c05ed9e85de66ffb805d872f2737c0458b6";
+        fetchSubmodules = false;
+        sha256 = "sha256-dGceJ5cAxDSUPCqXYAZgzEeC9hd7GQMYPex7nCZ8SEg=";
+      };
 
-    postPatch = ''
-      patchShebangs tests/examples/_postprocess.lua
-      patchShebangs tests/examples/_postprocess_cleanup.lua
-    '';
-  });
+      postPatch = ''
+        patchShebangs tests/examples/_postprocess.lua
+        patchShebangs tests/examples/_postprocess_cleanup.lua
+      '';
+    });
 
   picom-git = let
     removeFromList = toRemove: list: final.lib.foldl (l: e: final.lib.remove e l) list toRemove;

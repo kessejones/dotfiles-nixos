@@ -39,7 +39,7 @@
     gimp
 
     # Browsers
-    floorp-bin-unwrapped
+    glide-browser
     brave
 
     # Torrents clients
@@ -51,7 +51,13 @@
     mpc
 
     # Games
-    (prismlauncher.override {jdks = [zulu8 zulu17 zulu21];})
+    (prismlauncher.override {
+      jdks = [
+        zulu8
+        zulu17
+        zulu21
+      ];
+    })
 
     anki
     sidequest
@@ -67,8 +73,7 @@
 in {
   home.packages = stable ++ unstable;
 
-  # programs.floorp = {
-  #   enable = true;
-  #   # package = pkgs.floorp-bin-unwrapped;
-  # };
+  programs.floorp = {
+    enable = true;
+  };
 }
