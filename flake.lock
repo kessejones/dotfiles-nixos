@@ -58,11 +58,11 @@
       },
       "locked": {
         "dir": ".config/nixpkgs",
-        "lastModified": 1763662826,
-        "narHash": "sha256-OuWhGQP9vJWN1kO/iUGsW6xEqz/cVPftRxIgQVY0sRQ=",
+        "lastModified": 1765591121,
+        "narHash": "sha256-y7UXyGDO2YzCUNLDz5GwDsFq2tQouhID64PcagyArOI=",
         "owner": "kessejones",
         "repo": "dotfiles",
-        "rev": "b55eab53480fcb69cc369d753c32245fc834a612",
+        "rev": "5f64e61a4327bf03038965e8f412a7f4ca1f92da",
         "type": "github"
       },
       "original": {
