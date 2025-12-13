@@ -3,9 +3,28 @@
   config,
   ...
 }: {
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-  boot.kernelModules = ["kvm-intel" "iwlwifi"];
-  boot.supportedFilesystems = lib.mkForce ["btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "ext4"];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "nvme"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "iwlwifi"
+  ];
+  boot.supportedFilesystems = lib.mkForce [
+    "btrfs"
+    "reiserfs"
+    "vfat"
+    "f2fs"
+    "xfs"
+    "ntfs"
+    "cifs"
+    "ext4"
+  ];
   boot.blacklistedKernelModules = [];
 
   hardware = {
@@ -23,6 +42,8 @@
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
+
+    alsa.enablePersistence = true;
   };
 
   fileSystems."/boot" = {
@@ -38,7 +59,10 @@
   fileSystems."/media/Data" = {
     device = "/dev/disk/by-label/Data";
     fsType = "ntfs";
-    options = ["rw" "uid=1000"];
+    options = [
+      "rw"
+      "uid=1000"
+    ];
   };
 
   swapDevices = [];
