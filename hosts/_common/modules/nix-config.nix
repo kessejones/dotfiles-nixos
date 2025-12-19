@@ -12,6 +12,7 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 7d";
+      dates = "weekly";
     };
 
     package = pkgs.nixVersions.latest;
