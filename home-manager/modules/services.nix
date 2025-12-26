@@ -1,6 +1,6 @@
 {...}: {
   services.udiskie.enable = true;
-  services.easyeffects.enable = true;
+  # services.easyeffects.enable = true;
 
   systemd.user.targets.tray = {
     Unit = {

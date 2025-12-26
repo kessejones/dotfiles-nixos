@@ -1,6 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services.openssh.enable = true;
   services.dbus.enable = true;
+
+  services.speechd.enable = lib.mkForce false;
 
   services.pipewire = {
     enable = true;
