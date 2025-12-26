@@ -5,15 +5,14 @@
   undmg,
   steam-run,
   bash,
-  makeDesktopItem,
 }:
 stdenv.mkDerivation rec {
   pname = "glide-browser";
-  version = "0.1.51a";
+  version = "0.1.56a";
 
   src = fetchurl {
     url = "https://github.com/glide-browser/glide/releases/download/${version}/glide.linux-x86_64.tar.xz";
-    sha256 = "1r8rnbgwhdqm639m5xixpw7b6v55rgjawjia5xp57g0pgyv243vr";
+    sha256 = "sha256-9v49DCPRgaJeyuTkIh3hoedkbOhKRnAj/sd/7qQKQyw=";
   };
 
   nativeBuildInputs = lib.optionals stdenv.isDarwin [undmg];
