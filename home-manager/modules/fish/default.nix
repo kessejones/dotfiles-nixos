@@ -5,6 +5,7 @@
     extra-packages = [
       unstable-pkgs.gum
       unstable-pkgs.eza
+      unstable-pkgs.skim
     ];
   };
 }
