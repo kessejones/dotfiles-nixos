@@ -51,6 +51,8 @@
     mpc
 
     # Games
+    lutris
+    pcsx2
     (prismlauncher.override {
       jdks = [
         zulu8
