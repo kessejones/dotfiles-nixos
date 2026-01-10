@@ -69,6 +69,8 @@
     lazydocker
     wofi
     opencode
+    jujutsu
+    jjui
   ];
 in {
   home.packages = stable ++ unstable;
