@@ -6,6 +6,13 @@
   services.openssh.enable = true;
   services.dbus.enable = true;
 
+  services.udev = {
+    enable = true;
+    extraRules = ''
+      SUBSYSTEMS=="usb*", ATTRS{idVendor}=="36bc", MODE="0666"
+    '';
+  };
+
   services.speechd.enable = lib.mkForce false;
 
   services.pipewire = {
