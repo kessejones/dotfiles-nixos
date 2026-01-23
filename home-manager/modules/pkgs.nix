@@ -36,7 +36,9 @@
     gnome-calendar
     file-roller
     arandr
+
     gimp
+    aseprite
 
     # Browsers
     glide-browser

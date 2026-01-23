@@ -1,10 +1,20 @@
 {...}: {
   networking = {
     hostName = "ainz-ooal-gown";
-    nameservers = ["103.86.96.100" "103.86.99.100"];
+    nameservers = [
+      "103.86.96.100"
+      "103.86.99.100"
+    ];
+
+    networking.hosts = {
+      "192.168.0.100" = ["pi.local"];
+    };
 
     firewall = let
-      tcpPorts = [22 25565];
+      tcpPorts = [
+        22
+        25565
+      ];
       wifiInterface = "wlp2s0";
       etherInterface = "enp3s0f1";
       networks = [
@@ -23,10 +33,7 @@
           iptables -A nixos-vpn-killswitch -d ${network} -j ACCEPT
         '';
 
-        localRules = builtins.concatStringsSep "\n" (builtins.map (
-            n: (mkLocalRule n)
-          )
-          networks);
+        localRules = builtins.concatStringsSep "\n" (builtins.map (n: (mkLocalRule n)) networks);
 
         killSwitchRule = ''
           # Flush old firewall rules
