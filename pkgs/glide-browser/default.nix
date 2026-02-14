@@ -8,11 +8,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "glide-browser";
-  version = "0.1.56a";
+  version = "0.1.58a";
 
   src = fetchurl {
     url = "https://github.com/glide-browser/glide/releases/download/${version}/glide.linux-x86_64.tar.xz";
-    sha256 = "sha256-9v49DCPRgaJeyuTkIh3hoedkbOhKRnAj/sd/7qQKQyw=";
+    sha256 = "sha256-yut/yXT+BJCFackLSRG7tLBD6m008k0lC62Qwt7aRX8=";
   };
 
   nativeBuildInputs = lib.optionals stdenv.isDarwin [undmg];
