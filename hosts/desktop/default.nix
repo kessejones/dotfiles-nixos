@@ -8,6 +8,8 @@
   environment.sessionVariables = {
     WEBKIT_DISABLE_COMPOSITING_MODE = 1;
     XCURSOR_SIZE = "20";
+    HYPRCURSOR_SIZE = "20";
+    GDK_SCALE = 1;
   };
 
   environment.extraInit = ''
