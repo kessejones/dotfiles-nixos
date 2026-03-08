@@ -38,6 +38,47 @@ in {
           };
         };
       };
+      "desktop-setup-2" = {
+        fingerprint = {
+          "DP-0" = dp_id_1;
+          "DP-2" = dp_id_2;
+          "HDMI-0" = hdmi_id;
+        };
+        config = {
+          "DP-0" = {
+            enable = true;
+            position = "0x0";
+            mode = "1920x1080";
+            rate = "165.0";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
+          };
+          "DP-2" = {
+            enable = true;
+            primary = true;
+            position = "1920x0";
+            mode = "1920x1080";
+            rate = "240.0";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
+          };
+          "HDMI-0" = {
+            enable = true;
+            primary = true;
+            position = "3840x0";
+            mode = "1920x1080";
+            rate = "75.0";
+            scale = {
+              x = 1.0;
+              y = 1.0;
+            };
+          };
+        };
+      };
       "desktop-setup-3" = {
         fingerprint = {
           "DP-0" = dp_id_1;
@@ -84,6 +125,7 @@ in {
             primary = true;
             position = "0x0";
             mode = "1920x1080";
+            rate = "75.0";
             scale = {
               x = 1.0;
               y = 1.0;
