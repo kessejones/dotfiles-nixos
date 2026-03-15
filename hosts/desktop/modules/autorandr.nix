@@ -68,7 +68,6 @@ in {
           };
           "HDMI-0" = {
             enable = true;
-            primary = true;
             position = "3840x0";
             mode = "1920x1080";
             rate = "75.0";

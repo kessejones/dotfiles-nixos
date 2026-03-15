@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   services.libinput.enable = true;
 
+  #services.displayManager.gdm.enable = true;
+
   services.xserver = {
     enable = true;
     xkb.layout = "br";
@@ -21,6 +23,7 @@
     };
 
     displayManager.lightdm = {
+      enable = true;
       greeters.gtk = {
         enable = true;
 
@@ -46,11 +49,4 @@
       '';
     };
   };
-
-  # services.displayManager = {
-  #   enable = true;
-  #
-  #   startx.enable = true;
-  #   gdm.enable = false;
-  # };
 }
