@@ -65,6 +65,11 @@
     ];
   };
 
+  fileSystems."/media/Data2" = {
+    device = "/dev/disk/by-uuid/9ad26d4f-ef1f-43fd-aced-defec182f13f";
+    fsType = "xfs";
+  };
+
   swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;
