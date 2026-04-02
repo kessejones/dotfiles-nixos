@@ -18,7 +18,6 @@
         # php.packages.php-cs-fixer
 
         lua-language-server
-        tree-sitter
         clang-tools
         alejandra
         gopls
@@ -34,7 +33,10 @@
 
         nodeCustomPackages.prettierd
       ]
-      ++ [unstable-pkgs.zls];
+      ++ [
+        unstable-pkgs.zls
+        unstable-pkgs.tree-sitter
+      ];
   };
 
   home.activation.install-kvim = let
