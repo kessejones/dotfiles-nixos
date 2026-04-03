@@ -9,11 +9,12 @@
   };
 
   xdg.configFile."picom/picom.conf".text = lib.mkForce ''
-    backend = "glx";
+    backend = "xrender";
     fading = false;
     shadow = false;
     vsync = false;
-    transparent-clipping = true;
+    unredir-if-possible = true;
+    xrender-sync-fence = true;
 
     rules = (
       {
@@ -32,10 +33,6 @@
         shadow-offset-z = -15;
         shadow-opacity = 0.5;
         shadow-radius = 15;
-      },
-      {
-        match = "_NET_WM_STATE@[*] = '_NET_WM_STATE_HIDDEN'";
-        opacity = 0;
       }
     );
   '';
