@@ -15,12 +15,12 @@
   };
 
   floorp-bin-unwrapped = let
-    version = "12.7.0";
+    version = "12.14.0";
   in
     prev.floorp-bin-unwrapped.overrideAttrs (old: {
       src = prev.fetchurl {
         url = "https://github.com/Floorp-Projects/Floorp/releases/download/v${version}/floorp-linux-x86_64.tar.xz";
-        hash = "sha256-feIRCZuyB8xwUoI1FMWJQ6yupgC2aAavADQ9mrk0zMM=";
+        hash = "sha256-D8O38ZLJrh3vOhYMaKLe5CyKAnfBtI3u3gvR8txp4xc=";
       };
     });
 
