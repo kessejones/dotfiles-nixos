@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   gtk = {
     enable = true;
 
@@ -15,6 +19,8 @@
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
     };
+
+    gtk4.theme = config.gtk.theme;
   };
 
   home.pointerCursor = {

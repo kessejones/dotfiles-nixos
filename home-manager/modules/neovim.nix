@@ -4,15 +4,19 @@
   unstable-pkgs,
   ...
 }: {
-  xdg.configFile."nvim/init.lua".enable = false;
+  xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
   programs.neovim = {
     enable = true;
     package = unstable-pkgs.neovim-unwrapped;
 
+    withNodeJs = false;
+    withPython3 = false;
+    withRuby = false;
+
     extraPackages = with pkgs;
       [
-        nodePackages.typescript-language-server
-        nodePackages.yaml-language-server
+        typescript-language-server
+        yaml-language-server
 
         # php.packages.php-codesniffer
         # php.packages.php-cs-fixer
@@ -30,8 +34,8 @@
         sqlite
         python3
         superhtml
-
-        nodeCustomPackages.prettierd
+        #
+        # nodeCustomPackages.prettierd
       ]
       ++ [
         unstable-pkgs.zls
