@@ -1,5 +1,5 @@
 {
-  unstable-pkgs,
+  pkgs,
   username,
   ...
 }: {
@@ -9,7 +9,7 @@
       home = "/home/${username}";
       initialPassword = "essek";
       isNormalUser = true;
-      shell = unstable-pkgs.fish;
+      shell = pkgs.unstable.fish;
       ignoreShellProgramCheck = true;
       extraGroups = [
         "audio"

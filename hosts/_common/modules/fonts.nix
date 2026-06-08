@@ -1,10 +1,10 @@
-{unstable-pkgs, ...}: {
+{pkgs, ...}: {
   fonts = {
     fontconfig = {
       enable = true;
     };
 
-    packages = with unstable-pkgs; [
+    packages = with pkgs.unstable; [
       material-icons
       meslo-lg
 

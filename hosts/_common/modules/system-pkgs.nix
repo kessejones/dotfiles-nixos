@@ -1,25 +1,18 @@
-{
-  pkgs,
-  unstable-pkgs,
-  ...
-}: {
-  environment.systemPackages = with pkgs;
-    [
-      vim
-      wget
-      git
-      curl
-      cryptsetup
-      alsa-utils
-      gparted
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+    curl
+    cryptsetup
+    alsa-utils
+    gparted
 
-      sshfs
+    sshfs
 
-      wally-cli
+    wally-cli
 
-      fish
-    ]
-    ++ [
-      unstable-pkgs.nushell
-    ];
+    fish
+    unstable.nushell
+  ];
 }

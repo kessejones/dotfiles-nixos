@@ -1,13 +1,12 @@
 {
   pkgs,
   lib,
-  unstable-pkgs,
   ...
 }: {
   xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
   programs.neovim = {
     enable = true;
-    package = unstable-pkgs.neovim-unwrapped;
+    package = pkgs.unstable.neovim-unwrapped;
 
     withNodeJs = false;
     withPython3 = false;
@@ -38,8 +37,8 @@
         # nodeCustomPackages.prettierd
       ]
       ++ [
-        unstable-pkgs.zls
-        unstable-pkgs.tree-sitter
+        pkgs.unstable.zls
+        pkgs.unstable.tree-sitter
       ];
   };
 

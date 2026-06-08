@@ -1,8 +1,4 @@
-{
-  pkgs,
-  unstable-pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   stable = with pkgs; [
     # CLI tools
     ripgrep
@@ -28,6 +24,7 @@
     nodejs
     yarn
     rustup
+    lua5_1
 
     # Desktop apps
     (nemo-with-extensions.override {extensions = [nemo-fileroller];})
@@ -67,7 +64,7 @@
     sidequest
   ];
 
-  unstable = with unstable-pkgs; [
+  unstable = with pkgs.unstable; [
     zig
     lazygit
     lazydocker
@@ -75,6 +72,7 @@
     opencode
     jujutsu
     jjui
+    quickshell
   ];
 in {
   home.packages = stable ++ unstable;

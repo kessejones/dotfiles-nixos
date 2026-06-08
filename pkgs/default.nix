@@ -1,8 +1,10 @@
-{
-  inputs,
-  unstable-pkgs,
-}: final: prev: {
-  kitty = unstable-pkgs.kitty;
+{inputs}: final: prev: rec {
+  unstable = import inputs.unstable-nixpkgs {
+    inherit (final) config;
+    inherit (final.stdenv.hostPlatform) system;
+  };
+
+  kitty = unstable.kitty;
 
   glide-browser-bin = final.callPackage ./glide-browser {};
   glide-browser = final.callPackage ./glide-browser/desktop-item.nix {};

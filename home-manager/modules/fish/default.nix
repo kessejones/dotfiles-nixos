@@ -1,11 +1,11 @@
-{unstable-pkgs, ...}: {
+{pkgs, ...}: {
   dotfiles.fish = {
     enable = true;
-    package = unstable-pkgs.fish;
-    extra-packages = [
-      unstable-pkgs.gum
-      unstable-pkgs.eza
-      unstable-pkgs.skim
+    package = pkgs.unstable.fish;
+    extra-packages = with pkgs.unstable; [
+      gum
+      eza
+      skim
     ];
   };
 }

@@ -1,7 +1,7 @@
-{unstable-pkgs, ...}: {
+{pkgs, ...}: {
   programs.wezterm = {
     enable = true;
-    package = unstable-pkgs.wezterm;
+    package = pkgs.unstable.wezterm;
     extraConfig = '''';
   };
 

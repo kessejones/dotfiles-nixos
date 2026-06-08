@@ -38,12 +38,10 @@
   in {
     nixosConfigurations.desktop = mkSystem "desktop" {
       inherit username;
-      system = "x86_64-linux";
     };
 
     nixosConfigurations.laptop = mkSystem "laptop" {
       inherit username;
-      system = "x86_64-linux";
     };
   };
 }

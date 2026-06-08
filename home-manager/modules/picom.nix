@@ -1,11 +1,11 @@
 {
+  pkgs,
   lib,
-  unstable-pkgs,
   ...
 }: {
   services.picom = {
     enable = true;
-    package = unstable-pkgs.picom;
+    package = pkgs.unstable.picom;
   };
 
   xdg.configFile."picom/picom.conf".text = lib.mkForce ''

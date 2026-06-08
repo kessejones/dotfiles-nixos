@@ -1,28 +1,19 @@
 {
   nixpkgs,
   inputs,
-}: name: {
-  username,
-  system,
-}: let
+}: name: {username}: let
   host-config = ../hosts/${name};
   home-manager-config = ../home-manager;
   home-manager-nixos = inputs.home-manager.nixosModules;
 
-  unstable-pkgs = import inputs.unstable-nixpkgs {
-    inherit system;
-  };
-
   overlays = [
-    (import ../pkgs {inherit inputs unstable-pkgs;})
+    (import ../pkgs {inherit inputs;})
     inputs.dotfiles.overlays.default
   ];
 in
   nixpkgs.lib.nixosSystem {
-    inherit system;
-
     specialArgs = {
-      inherit system username unstable-pkgs;
+      inherit username;
     };
 
     modules = [
@@ -44,7 +35,7 @@ in
           inputs.dotfiles.homeManagerModules.dotfiles
         ];
         home-manager.extraSpecialArgs = {
-          inherit username unstable-pkgs;
+          inherit username;
         };
       }
 
