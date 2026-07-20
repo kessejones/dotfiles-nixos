@@ -6,9 +6,6 @@
 
   kitty = unstable.kitty;
 
-  glide-browser-bin = final.callPackage ./glide-browser {};
-  glide-browser = final.callPackage ./glide-browser/desktop-item.nix {};
-
   zjstatus = inputs.zjstatus.packages.${prev.system}.default;
   ghostty = inputs.ghostty.packages.${prev.system}.default;
 
@@ -31,16 +28,16 @@
       lua = prev.luajit;
       gtk3Support = true;
     }).overrideAttrs
-    (old: {
+    (old: rec {
       patches = [];
       cmakeFlags = old.cmakeFlags ++ ["-DGENERATE_MANPAGES=OFF"];
-      version = "41473c05ed9e85de66ffb805d872f2737c0458b6";
+      version = "c104846a2cc954ce97077146e5964667c81c2165";
       src = final.fetchFromGitHub {
         owner = "awesomeWM";
         repo = "awesome";
-        rev = "41473c05ed9e85de66ffb805d872f2737c0458b6";
+        rev = version;
         fetchSubmodules = false;
-        sha256 = "sha256-dGceJ5cAxDSUPCqXYAZgzEeC9hd7GQMYPex7nCZ8SEg=";
+        sha256 = "sha256-l3fGfMEy2i4sNOvsxYFB5gsgswJPRLHk35cxQNB1tR0=";
       };
 
       postPatch = ''
@@ -48,4 +45,16 @@
         patchShebangs tests/examples/_postprocess_cleanup.lua
       '';
     });
+
+  tmux-git = final.tmux.overrideAttrs (old: {
+    version = "3.7-rc";
+    src = final.fetchFromGitHub {
+      owner = "tmux";
+      repo = "tmux";
+      rev = "bbd4768bb62354796bbb5fb7ab978c436f808559";
+      sha256 = "sha256-yMi7WwoW2rfis/nsVRIz9ew45CLS8hKfQTUIVbZgTF8=";
+    };
+
+    patches = [];
+  });
 }

@@ -4,7 +4,7 @@
   inputs = {
     # NIXOS repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    unstable-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable-nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Zellij statusbar
     zjstatus.url = "github:dj95/zjstatus";
