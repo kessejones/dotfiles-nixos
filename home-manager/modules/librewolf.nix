@@ -93,6 +93,10 @@
       "browser.ml.linkPreview.enabled" = false;
       "extensions.ml.enabled" = false;
 
+      "widget.windows.window_occlusion_tracking.enabled" = false;
+      "widget.windows.window_occlusion_tracking_display_state.enabled" = false;
+      "widget.windows.window_occlusion_tracking_session_lock.enabled" = false;
+
       "browser.newtabpage.pinned" = builtins.toJSON [
         {
           label = "Youtube";

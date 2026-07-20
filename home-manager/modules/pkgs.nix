@@ -16,20 +16,13 @@
     atuin
     scrot
 
-    # dev
-    php
-    # php.packages.composer
     gcc
     gnumake
-    nodejs
-    yarn
-    rustup
-    lua5_1
 
     # Desktop apps
-    (nemo-with-extensions.override {extensions = [nemo-fileroller];})
+    (nemo-with-extensions.override {extensions = [nemo-preview];})
     pix
-    gnome-calculator
+    qalculate-gtk
     gnome-calendar
     file-roller
     arandr
@@ -38,7 +31,7 @@
     aseprite
 
     # Browsers
-    glide-browser
+    helium-browser
     brave
 
     # Torrents clients
@@ -57,10 +50,10 @@
         zulu8
         zulu17
         zulu21
+        zulu25
       ];
     })
 
-    anki
     sidequest
   ];
 
@@ -68,11 +61,8 @@
     zig
     lazygit
     lazydocker
-    wofi
-    opencode
     jujutsu
     jjui
-    quickshell
   ];
 in {
   home.packages = stable ++ unstable;

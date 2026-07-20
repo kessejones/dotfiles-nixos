@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   services.libinput.enable = true;
 
-  #services.displayManager.gdm.enable = true;
-
   services.xserver = {
     enable = true;
     xkb.layout = "br";

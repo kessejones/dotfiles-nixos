@@ -1,17 +1,17 @@
-{unstable-pkgs, ...}: {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    package = unstable-pkgs.hyprland;
-  };
+{pkgs, ...}: {
+  # services.displayManager.gdm.enable = true;
 
-  programs.waybar = {
-    enable = true;
-    package = unstable-pkgs.waybar;
-  };
+  #programs.hyprland = {
+  #  enable = true;
+  #  xwayland.enable = true;
+  #};
 
-  environment.systemPackages = with unstable-pkgs; [
-    copyq
-    wl-clipboard
-  ];
+  #programs.waybar = {
+  #  enable = true;
+  #};
+
+  #environment.systemPackages = with pkgs.unstable; [
+  #  copyq
+  #  wl-clipboard
+  #];
 }

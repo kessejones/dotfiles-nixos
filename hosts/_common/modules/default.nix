@@ -9,6 +9,5 @@
     ./virtualisation.nix
     ./vpn-scripts.nix
     ./openvpn.nix
-    ./nordvpn.nix
   ];
 }

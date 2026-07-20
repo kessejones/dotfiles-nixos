@@ -1,6 +1,8 @@
 {...}: {
   networking = {
     networkmanager.enable = true;
+    networkmanager.wifi.powersave = false;
+
     hostName = "momon-san";
     # nameservers = ["103.86.96.100" "103.86.99.100"];
 

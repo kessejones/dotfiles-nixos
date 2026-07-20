@@ -35,7 +35,7 @@
     width: 600px;
     font: "JetBrainsMono Nerd Font 12";
 
-    border-radius: 4px;
+    // border-radius: 4px;
     border-xd: 3px;
     border-sm: 1px;
 }
@@ -50,7 +50,7 @@ window {
     border: @border-xd;
     border-color: @border-col;
     background-color: @bg-col;
-    border-radius: 12px;
+    //border-radius: 12px;
 }
 
 mainbox {
@@ -60,7 +60,7 @@ mainbox {
 inputbar {
     children: [entry];
     background-color: @bg-col;
-    border-radius: @border-radius;
+    border-radius: 4px;
     padding: 2px;
 }
 
@@ -69,7 +69,7 @@ entry {
     margin: 20px 20px 0px 20px;
     text-color: @fg-col;
     background-color: @color-mantle;
-    border-radius: @border-radius;
+    border-radius: 4px;
     border-color: @color-surface0;
     border: @border-sm;
 }
@@ -96,7 +96,7 @@ element-icon {
 element selected {
     background-color: @color-mantle;
     text-color: @fg-col2;
-    border-radius: @border-radius;
+    border-radius: 4px;
     border: @border-sm;
     border-color: @color-blue;
 }

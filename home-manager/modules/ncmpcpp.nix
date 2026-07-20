@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.ncmpcpp = {
-    enable = false;
-    package = pkgs.ncmpcpp.override {visualizerSupport = true;};
+    enable = true;
+    package = pkgs.unstable.ncmpcpp.override {visualizerSupport = true;};
 
     settings = {
       mpd_host = "127.0.0.1";
