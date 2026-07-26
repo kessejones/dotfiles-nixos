@@ -8,6 +8,5 @@
     ./polkit.nix
     ./virtualisation.nix
     ./vpn-scripts.nix
-    ./openvpn.nix
   ];
 }

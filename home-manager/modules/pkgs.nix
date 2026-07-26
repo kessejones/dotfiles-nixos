@@ -31,7 +31,6 @@
     aseprite
 
     # Browsers
-    helium-browser
     brave
 
     # Torrents clients
