@@ -62,6 +62,7 @@
     lazydocker
     jujutsu
     jjui
+    krita
   ];
 in {
   home.packages = stable ++ unstable;
