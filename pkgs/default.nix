@@ -47,12 +47,12 @@
     });
 
   tmux-git = final.tmux.overrideAttrs (old: {
-    version = "3.7-rc";
+    version = "next-3.9";
     src = final.fetchFromGitHub {
       owner = "tmux";
       repo = "tmux";
-      rev = "bbd4768bb62354796bbb5fb7ab978c436f808559";
-      sha256 = "sha256-yMi7WwoW2rfis/nsVRIz9ew45CLS8hKfQTUIVbZgTF8=";
+      rev = "483912351048bf60937bb8df950bcea12606a3a2";
+      sha256 = "sha256-gxRBXxDoXY1xlqiLxYweR0eAJH0zdZ29IvJ477pOlVk=";
     };
 
     patches = [];

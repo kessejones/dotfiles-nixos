@@ -11,7 +11,6 @@
     jq
     k9s
     nvtopPackages.nvidia
-    carapace
     warpd
     atuin
     scrot

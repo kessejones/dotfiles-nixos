@@ -16,6 +16,7 @@
   services.speechd.enable = lib.mkForce false;
 
   services.mullvad-vpn.enable = true;
+  services.nordvpn.enable = true;
 
   services.pipewire = {
     enable = true;

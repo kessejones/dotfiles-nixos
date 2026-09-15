@@ -4,6 +4,8 @@
   ...
 }: {
   users = {
+    groups.${username} = {};
+
     users.${username} = {
       uid = 1000;
       home = "/home/${username}";
@@ -12,6 +14,7 @@
       shell = pkgs.unstable.fish;
       ignoreShellProgramCheck = true;
       extraGroups = [
+        username
         "audio"
         "docker"
         "wheel"
