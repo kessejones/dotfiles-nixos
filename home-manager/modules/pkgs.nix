@@ -36,7 +36,8 @@
     deluge-gtk
 
     # System manager/configuration
-    pulseaudio
+    # pulseaudio
+    pwvucontrol
     pavucontrol
     mpc
 

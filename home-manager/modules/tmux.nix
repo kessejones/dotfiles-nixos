@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   dotfiles.tmux = {
     enable = true;
-    package = pkgs.tmux-git;
+    package = pkgs.unstable.tmux;
   };
 }
