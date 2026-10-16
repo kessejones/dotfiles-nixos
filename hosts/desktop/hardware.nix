@@ -11,10 +11,13 @@
     "usb_storage"
     "sd_mod"
   ];
+
   boot.kernelModules = [
     "kvm-intel"
     "iwlwifi"
+    "nvidia_drm"
   ];
+
   boot.supportedFilesystems = lib.mkForce [
     "btrfs"
     "reiserfs"
@@ -25,7 +28,13 @@
     "cifs"
     "ext4"
   ];
+
   boot.blacklistedKernelModules = [];
+
+  boot.kernelParams = lib.mkAfter [
+    "nvidia-drm.fbdev=0"
+    "nvidia-drm.modeset=1"
+  ];
 
   hardware = {
     graphics.enable = true;
